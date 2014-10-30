@@ -27,8 +27,9 @@ myVertices[1].co
 
 from ctypes import *
 def ShowVertices(v):
-	return v
-CMPFUNC = CFUNCTYPE(c_float, c_float)
+ return v
+  
+CMPFUNC = CFUNCTYPE(c_float, c_float) #return value and argument
 cmp_func = CMPFUNC(ShowVertices)
 fusee = CDLL(MEIN_PFAD//"BoaDestructor.dll")
 import bpy #is this obsolete?
@@ -38,9 +39,10 @@ myMesh = myCube.to_mesh(context.scene, True, 'RENDER', calc_tessface = False)
 	
 #call c++ function with following arguments: the python function, the vertices array, number of vertices
 ######fusee.BlenderGetVertices(cmp_func, myMesh.vertices,8)
-#this gives as a data type error
+#this gives as a data type error - maybe a float problem?
 #next try
-fusee.BlenderGetVertices(cmp_func, myMesh.vertices,8)
+fusee.BlenderGetVertices(cmp_func, c_float(5.5),8)
+#all Python types except integers, strings, and unicode strings have to be wrapped in their corresponding ctypes type!!
 	
 	
 	
