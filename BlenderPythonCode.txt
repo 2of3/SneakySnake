@@ -1,46 +1,46 @@
-#In Blenders Python console:
+#--------------------------------------------------	
+#This goes into Blenders Python console:
 #check Mesh information
+#--------------------------------------------------	
+import bpy
+bpy.data.object[0] //this is the camera
+bpy.data.object[1] // e.g. a cube in the scene
+myCube = bpy.data.objects[1]
+from _bpy import types, probs, app, data, context
+	
+#form the cube into a mesh
+myMesh = myCube.to_mesh(context.scene, True, 'RENDER', calc_tessface = False)
+	
+#gets the vertices of this mesh
+myVertices = myMesh.vertices
+	
+#gets one point of the vertices
+aPoint = myMesh.vertices[5]
 
-	import bpy
-	bpy.data.object[0] //this is the camera
-	bpy.data.object[1] // e.g. a cube in the scene
-	myCube = bpy.data.objects[1]
-	from _bpy import types, probs, app, data, context
+#shows the coordinates of one of the vertices
+myVertices[1].co
+#maybe iterate through all vertice points
 	
-	#form the cube into a mesh
-	myMesh = myCube.to_mesh(context.scene, True, 'RENDER', calc_tessface = False)
-	
-	#gets the vertices of this mesh
-	myVertices = myMesh.vertices
-	
-	#gets one point of the vertices
-	aPoint = myMesh.vertices[5]
-
-	#shows the coordinates of one of the vertices
-	myVertices[1].co
-	#maybe iterate through all vertice points
-	
-#In Blenders Python console:
+#--------------------------------------------------	
 #Load vertice data into the c++ dll script
+#--------------------------------------------------
 
-	from ctypes import *
-	def ShowVertices(v):
-		return v
-		
-	CMPFUNC = CFUNCTYPE(c_float, c_float)
-	cmp_func = CMPFUNC(ShowVertices)
+from ctypes import *
+def ShowVertices(v):
+	return v
+CMPFUNC = CFUNCTYPE(c_float, c_float)
+cmp_func = CMPFUNC(ShowVertices)
+fusee = CDLL(MEIN_PFAD//"BoaDestructor.dll")
+import bpy #is this obsolete?
+from _bpy import context
+myCube = bpy.data.objects[1]
+myMesh = myCube.to_mesh(context.scene, True, 'RENDER', calc_tessface = False)
 	
-	fusee = CDLL(MEIN_PFAD//"BoaDestructor.dll")
-	
-	import bpy #is this obsolete?
-	from _bpy import context
-	
-	myCube = bpy.data.objects[1]
-	myMesh = myCube.to_mesh(context.scene, True, 'RENDER', calc_tessface = False)
-	
-	#call c++ function with following arguments: the python function, the vertices array, number of vertices
-	fusee.BlenderGetVertices(cmp_func, myMesh.vertices,8)
-	#this gives as a data type error
+#call c++ function with following arguments: the python function, the vertices array, number of vertices
+######fusee.BlenderGetVertices(cmp_func, myMesh.vertices,8)
+#this gives as a data type error
+#next try
+fusee.BlenderGetVertices(cmp_func, myMesh.vertices,8)
 	
 	
 	
