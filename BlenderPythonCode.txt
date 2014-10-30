@@ -1,0 +1,7 @@
+//In Blenders Python console:
+
+	import bpy
+	bpy.data.object[0] //this is the camera
+	bpy.data.object[1] // e.g. a cube in the scene
+	myCube = bpy.data.objects[1]
+	myMesh = myCube.to_mesh(context.scene, EXPORT_APPLY_MODIFIERS, 'PREVIEW', calc_tessface = false)
