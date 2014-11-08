@@ -9,14 +9,33 @@ static PyObject *uniplug_callback = NULL;
 static PyObject *
 uniplug_add(PyObject *self, PyObject *args)
 {
-	int valx;
-	int valy;
+	PyObject *valx;
+	PyObject *valy;
 
-	if (!PyArg_ParseTuple(args, "ii", &valx, &valy))
+	if (!PyArg_ParseTuple(args, "OO", &valx, &valy))
 		return NULL;
+	PyTypeObject * temp = valx->ob_type;
 
-	return PyLong_FromLong(valx + valy);
+	if (temp == &PyLong_Type)
+	{
+		return PyLong_FromLong(42);
+	}
+	else{
+		return PyLong_FromLong(55);
+	}
+	/*if (PyLong_Check(valx))
+	{
+		return PyLong_FromLong(42);
+	}
+	else{
+		return PyLong_FromLong(55);
+	}*/
+
+		//PyObject *temp2 = PyLongObject(42);
+	//return PyLong_FromLong(42);
+	
 }
+
 
 static PyObject *
 uniplug_basics(PyObject *self, PyObject *args)
