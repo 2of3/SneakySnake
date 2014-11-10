@@ -8,6 +8,15 @@
 
 using namespace std;
 
+struct fctparam
+{
+	string name;
+	string type;
+	string desc;
+	bool required;
+	string defval;
+};
+
 const string demofunc = "func = RNA_def_function(srna, \"to_mesh\", \"rna_Object_to_mesh\");\n"
 	"RNA_def_function_ui_description(func, \"Create a Mesh datablock with modifiers applied\");\n"
 	"RNA_def_function_flag(func, FUNC_USE_REPORTS);\n"
