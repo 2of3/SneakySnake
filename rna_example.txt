@@ -12,3 +12,14 @@ RNA_def_boolean(func, "calc_undeformed", false, "Calculate Undeformed", "Calcula
 parm = RNA_def_pointer(func, "mesh", "Mesh", "",
                        "Mesh created from object, remove it if it is only used for export");
 RNA_def_function_return(func, parm);
+
+ |
+ |
+ |
+\ /
+
+// Create a Mesh datablock with modifiers applied
+Mesh to_mesh(Scene scene, bool apply_modifiers, mesh_type_items settings, bool calc_tessface=True, bool calc_undeformed=False)
+{
+	return PyRun(..., );
+}
