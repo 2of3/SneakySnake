@@ -18,16 +18,45 @@ vector<string> split(const string &s, char delim) {
 	return elems;
 }
 
+vector<string> get_params(string str)
+{
+	size_t startval = str.find_first_of("(") + 1;
+	size_t endval = str.find(");") - startval;
+	string paramstr = str.substr(startval, endval);
+	return split(paramstr, ',');
+}
+
+string get_str_content(string str)
+{
+	size_t startval = str.find_first_of("\"") + 1;
+	size_t endval = str.find_last_of("\"") - startval;
+	return str.substr(startval, endval);
+}
+
 void parse_code(vector<string> strvec) {
 	string fctname;
+	string fctcomment;
 
 	for each (string str in strvec)
 	{
-		const char* cstr = str.c_str();
+		// function name
+		size_t isfunc = str.find("func = RNA_def_function");
 
-		const char *tmp = strstr(cstr, "func = RNA_def_function");
-		if (tmp != NULL)
-			cout << "Funktionsdefinition: " << tmp << endl;
+		if (isfunc != string::npos) {
+			string paramstr = get_params(str)[1];
+			fctname = get_str_content(paramstr);
+			cout << "Funktionsdefinition: " << fctname << endl;
+		}
+
+		// function comment
+		size_t iscomment = str.find("function_ui_description");
+
+		if (iscomment != string::npos)
+		{
+			string paramstr = get_params(str)[1];
+			fctcomment = get_str_content(paramstr);
+			cout << "Beschreibung: " << fctcomment << endl;
+		}
 	}
 }
 
