@@ -27,10 +27,21 @@ ConvertToStr(PyObject *obj)
 	return objStr;
 }
 
+static void
+FormatReader(const char *format)
+{
+	std::string formatStr(format);
+	formatStr = "print(\"" + formatStr + "\")";
+	PyRun_SimpleString(formatStr.c_str());
+}
+
 static PyObject *
 uniplug_test(PyObject *self, PyObject *args)
 {
-	PyObject *pName = Py_BuildValue("s", "bpy");
+	PyArg_SetUniplugCB(&FormatReader);
+	PyRun_SimpleString("print('Callback gesetzt.')");
+
+	/*PyObject *pName = Py_BuildValue("s", "bpy");
 	PyObject *pModule = PyImport_Import(pName);
 
 	PyObject *pDict = PyModule_GetDict(pModule);
