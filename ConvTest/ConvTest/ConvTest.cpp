@@ -2,60 +2,46 @@
 
 #include "ConvTest.h"
 
-vector<string> &split(const string &s, char delim, vector<string> &elems)
+vector<string> split(const string &s, const regex &r)
 {
-	stringstream ss(s);
-	string item;
-
-	while (getline(ss, item, delim))
-		elems.push_back(item);
-
-	return elems;
-}
-
-vector<string> split(const string &s, char delim)
-{
-	vector<string> elems;
-	split(s, delim, elems);
-	return elems;
+	return{
+		std::sregex_token_iterator(s.begin(), s.end(), r, -1),
+		std::sregex_token_iterator()
+	};
 }
 
 vector<string> get_params(string str)
 {
-	size_t startval = str.find_first_of("(") + 1;
-	size_t endval = str.find(");") - startval;
-	string paramstr = str.substr(startval, endval);
-
-	vector<string> strvec = split(paramstr, ',');
-	vector<string> newstrvec;
-
-	for (string astr : strvec)
-		newstrvec.push_back(astr.erase(0, 1));
-
-	return newstrvec;
+	regex reg(R"(^(.*?)\(|\);$)");
+	str = regex_replace(str, reg, "");
+	str = regex_replace(str, regex(",\\s+"), ",");
+	return split(str, regex(","));
 }
 
 string get_str_content(string str)
 {
-	return regex_replace(str, regex(R"(\s*\"(.*)\")"), "$1");
+	regex reg(R"(\s*\"(.*)\")");
+	return regex_replace(str, reg, "$1");
 }
 
 rna_def_type get_def_type(string str)
 {
-	if (!is_rna_type(str, "RNA_def_"))  return rna_none;
-	if ( is_rna_type(str, "function\\(")) return rna_function;
-	if ( is_rna_type(str, "USE_REPOR")) return rna_none;
-	if ( is_rna_type(str, "ui_desc"))   return rna_uidesc;
-	if ( is_rna_type(str, "pointer"))   return rna_pointer;
-	if ( is_rna_type(str, "boolean"))   return rna_boolean;
-	if ( is_rna_type(str, "enum"))      return rna_enum;
-	if ( is_rna_type(str, "REQUIRED"))  return rna_flag_req;
-	if ( is_rna_type(str, "return"))    return rna_return;
+	// function stuff (watch order)
+	if (is_rna_type(str, "USE_REPO")) return rna_none;
+	if (is_rna_type(str, "ui_desc"))  return rna_uidesc;
+	if (is_rna_type(str, "return"))   return rna_return;
+	if (is_rna_type(str, "function")) return rna_function;
 
+	// param stuff
+	if (is_rna_type(str, "pointer"))  return rna_pointer;
+	if (is_rna_type(str, "boolean"))  return rna_boolean;
+	if (is_rna_type(str, "enum"))     return rna_enum;
+	if (is_rna_type(str, "REQUIRED")) return rna_flag_req;
+	
 	return rna_unknown;
 }
 
-fctparam extract_param(string name, string type, string desc, string def="")
+fctparam extract_param(string name, string type, string desc, string def = "")
 {
 	fctparam tmpparam;
 	tmpparam.name = get_str_content(name);
@@ -74,11 +60,13 @@ void parse_code(vector<string> strvec)
 	{
 		rna_def_type def_type = get_def_type(str);
 
+	//	cout << str << endl;
+
 		switch (def_type)
 		{
 			case rna_none:
 				continue;
-
+				
 			case rna_unknown:
 				cout << "Unknown RNA def function: " << str << endl;
 				break;
@@ -191,47 +179,41 @@ void parse_code(vector<string> strvec)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	vector<string> file;
-	string line;
-	
-	ifstream infile("test.c", ios_base::in);
-	std::string str((std::istreambuf_iterator<char>(infile)),
+	std::ifstream infile("test.c", std::ios_base::in);
+	string str((std::istreambuf_iterator<char>(infile)),
 		std::istreambuf_iterator<char>());
 
 	/* test */
-	std::regex reg1(R"(/\*.*\*/)");
-	std::regex reg2(R"(^[\t ]+|[\t ]+$)");
-	std::regex reg3(R"(RNA_def_)");
-	regex reg4(R"(\);)");
+	regex reg1(R"(/\*.*\*/)");			// comments
+	regex reg2(R"(^[\t ]+|[\t ]+$)");	// whitespaces
+	regex reg3(R"(RNA_def_)");			// RNA_def_
+	regex reg4(R"(\);)");				// );
 
-	str = std::regex_replace(str, reg1, "");
-	str = std::regex_replace(str, reg2, "");
+	str = regex_replace(str, reg1, "");
+	str = regex_replace(str, reg2, "");
 	
-	vector<string> strline = split(str, '\n');
-	vector<string> filtered;
+	vector<string> strvec = split(str, regex("\n"));
+	vector<string> defstr;
 
 	string tmpline;
-
-	for (string line : strline)
+	for (string line : strvec)
 	{
-		tmpline = tmpline + line;
-
-		if (regex_search(tmpline, reg3))
+		if (regex_search(tmpline + line, reg3))
 		{
+			tmpline += line;
+
 			if (regex_search(tmpline, reg4))
 			{
-				filtered.push_back(tmpline);
-				tmpline = "";
+				defstr.push_back(tmpline);
+				tmpline.clear();
 			}
 		}
-		else
-			tmpline = "";
 	}
 
-	parse_code(filtered);
+	parse_code(defstr);
 
 	int tmp;
-	cin >> tmp;
+	std::cin >> tmp;
 
 	return 0;
 }
