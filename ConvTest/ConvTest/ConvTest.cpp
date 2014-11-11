@@ -69,11 +69,9 @@ fctparam extract_param(string name, string type, string desc, string def="")
 
 void parse_code(vector<string> strvec)
 {
-	string fctname;
-	string fctcomment;
-	fctparam fctreturn;
-	vector <fctparam> fctparams;
+	vector<bpyfunc> funcs;
 
+	// parse funcs
 	for (string str : strvec)
 	{
 		rna_def_type def_type = get_def_type(str);
@@ -90,85 +88,106 @@ void parse_code(vector<string> strvec)
 			case rna_function:
 			{
 				string namestr = get_params(str)[1];
-				fctname = get_str_content(namestr);
+			
+				bpyfunc newfunc;
+				newfunc.name = get_str_content(namestr);
+
+				fctparam voidparam;
+				voidparam.type = "void";
+				newfunc.rettype = voidparam;
+
+				funcs.push_back(newfunc);
+
 				break;
 			}
 
 			case rna_uidesc:
 			{
 				string descstr = get_params(str)[1];
-				fctcomment = get_str_content(descstr);
+				funcs.back().desc = get_str_content(descstr);
 				break;
 			}
 
 			case rna_pointer:
 			{
 				vector<string> pmstr = get_params(str);
-				fctparams.push_back(extract_param(pmstr[1], pmstr[2], pmstr[4]));
+				funcs.back().params.push_back(
+					extract_param(pmstr[1], pmstr[2], pmstr[4]));
+				funcs.back().params.back().required = false;
+
 				break;
 			}
 
 			case rna_boolean:
 			{
 				vector<string> pmstr = get_params(str);
-				fctparams.push_back(extract_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
+				funcs.back().params.push_back(
+					extract_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
+				funcs.back().params.back().required = false;
+
 				break;
 			}
 
 			case rna_enum:
 			{
 				vector<string> pmstr = get_params(str);
-				fctparams.push_back(extract_param(pmstr[1], pmstr[2], pmstr[5]));
+				funcs.back().params.push_back(
+					extract_param(pmstr[1], pmstr[2], pmstr[5]));
+				funcs.back().params.back().required = false;
+
 				break;
 			}
 
 			case rna_flag_req:
 			{
-				fctparams.back().required = true;
+				funcs.back().params.back().required = true;
 				break;
 			}
 
 			case rna_return:
 			{
-				fctreturn = fctparams.back();
-				fctparams.pop_back();
-
-				// print complete function
-				cout << "// " << fctcomment << endl;
-
-				for (fctparam param : fctparams)
-				{
-					cout << "//    " << param.name;
-					cout << ": " << param.desc;
-
-					if (!param.required)
-						cout << " (required)";
-
-					cout << endl;
-				}
-
-				cout << fctreturn.type << " ";
-				cout << fctname << "(";
-
-				for (fctparam param : fctparams)
-				{
-					cout << param.type << " " << param.name;
-
-					if (!param.required)
-						cout << "=" << param.defval;
-
-					if (param.name != fctparams.back().name)
-						cout << ", ";
-				}
-
-				cout << ")" << endl;
-				cout << "{" << endl;
-				cout << "    // dummy" << endl;
-				cout << "}" << endl;
+				funcs.back().rettype = funcs.back().params.back();
+				funcs.back().params.pop_back();
 
 				break;
 			}
 		}
+	}
+
+	// print funcs
+	for (bpyfunc func : funcs)
+	{
+		cout << "// " << func.desc << endl;
+
+		for (fctparam param : func.params)
+		{
+			cout << "//    " << param.name;
+			cout << ": " << param.desc;
+			
+			if (param.required)
+				cout << " (required)";
+
+			cout << endl;
+		}
+
+		cout << func.rettype.type << " ";
+		cout << func.name << "(";
+
+		for (fctparam param : func.params)
+		{
+			cout << param.type << " " << param.name;
+
+			if (!param.required)
+				cout << "=" << param.defval;
+
+			if (param.name != func.params.back().name)
+				cout << ", ";
+		}
+
+		cout << ")" << endl;
+		cout << "{" << endl;
+		cout << "    // dummy" << endl;
+		cout << "}" << endl;
 	}
 }
 
