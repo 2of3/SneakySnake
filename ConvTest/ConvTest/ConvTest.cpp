@@ -12,16 +12,26 @@ vector<string> split(const string &s, const regex &r)
 
 vector<string> get_params(string str)
 {
-	regex reg(R"(^(.*?)\(|\);$)");
-	str = regex_replace(str, reg, "");
-	str = regex_replace(str, regex(",\\s+"), ",");
-	return split(str, regex(","));
+	// get content of brackets
+	regex reg1(R"(^(.*?)\(|\);$)");
+	str = regex_replace(str, reg1, "");
+
+	// split at commas outside of quotes
+	regex reg2(R"(,(?=([^\"]*\"[^\"]*\")*[^\"]*$))");
+	return split(str, reg2);
 }
 
-string get_str_content(string str)
+string trim_param_str(string str)
 {
-	regex reg(R"(\s*\"(.*)\")");
-	return regex_replace(str, reg, "$1");
+	// remove unnecessary whitespace and quotes
+	str = regex_replace(str, regex("\""), "$1");
+	return regex_replace(str, regex("^\\s+|\\s+$"), "");
+}
+
+string get_def_func(string str)
+{
+	regex reg(R"(\((.*)$)");
+	return regex_replace(str, reg, "");
 }
 
 rna_def_type get_def_type(string str)
@@ -44,10 +54,10 @@ rna_def_type get_def_type(string str)
 fctparam extract_param(string name, string type, string desc, string def = "")
 {
 	fctparam tmpparam;
-	tmpparam.name = get_str_content(name);
-	tmpparam.type = get_str_content(type);
-	tmpparam.desc = get_str_content(desc);
-	tmpparam.defval = get_str_content(def);
+	tmpparam.name = trim_param_str(name);
+	tmpparam.type = trim_param_str(type);
+	tmpparam.desc = trim_param_str(desc);
+	tmpparam.defval = trim_param_str(def);
 	return tmpparam;
 }
 
@@ -60,15 +70,18 @@ void parse_code(vector<string> strvec)
 	{
 		rna_def_type def_type = get_def_type(str);
 
-	//	cout << str << endl;
-
 		switch (def_type)
 		{
 			case rna_none:
 				continue;
 				
 			case rna_unknown:
-				cout << "Unknown RNA def function: " << str << endl;
+				if (!funcs.back().error) cout << endl;
+				cout << funcs.back().name << ": Unknown RNA function (";
+				cout << get_def_func(str) << ")" << endl;
+
+				funcs.back().error = true;
+
 				break;
 
 			case rna_function:
@@ -76,7 +89,8 @@ void parse_code(vector<string> strvec)
 				string namestr = get_params(str)[1];
 			
 				bpyfunc newfunc;
-				newfunc.name = get_str_content(namestr);
+				newfunc.name = trim_param_str(namestr);
+				newfunc.error = false;
 
 				fctparam voidparam;
 				voidparam.type = "void";
@@ -90,7 +104,7 @@ void parse_code(vector<string> strvec)
 			case rna_uidesc:
 			{
 				string descstr = get_params(str)[1];
-				funcs.back().desc = get_str_content(descstr);
+				funcs.back().desc = trim_param_str(descstr);
 				break;
 			}
 
@@ -118,7 +132,7 @@ void parse_code(vector<string> strvec)
 			{
 				vector<string> pmstr = get_params(str);
 				funcs.back().params.push_back(
-					extract_param(pmstr[1], pmstr[2], pmstr[5]));
+					extract_param(pmstr[1], pmstr[2], pmstr[5], pmstr[3]));
 				funcs.back().params.back().required = false;
 
 				break;
@@ -141,21 +155,24 @@ void parse_code(vector<string> strvec)
 	}
 
 	// print funcs
+	cout << endl << endl;
+
 	for (bpyfunc func : funcs)
 	{
-		cout << "// " << func.desc << endl;
+		// documentation
+		cout << "/**" << endl << " * " << func.desc << endl;
 
-		for (fctparam param : func.params)
-		{
-			cout << "//    " << param.name;
-			cout << ": " << param.desc;
-			
-			if (param.required)
-				cout << " (required)";
-
-			cout << endl;
+		for (fctparam param : func.params) {
+			cout << " * @param " << param.name << " ";
+			cout << param.desc << endl;
 		}
 
+		if (func.rettype.type != "void")
+			cout << " * @return " << func.rettype.desc << endl;
+
+		cout << " */" << endl;
+
+		// header
 		cout << func.rettype.type << " ";
 		cout << func.name << "(";
 
@@ -171,9 +188,11 @@ void parse_code(vector<string> strvec)
 		}
 
 		cout << ")" << endl;
+
+		// body
 		cout << "{" << endl;
 		cout << "    // dummy" << endl;
-		cout << "}" << endl;
+		cout << "}" << endl << endl;
 	}
 }
 

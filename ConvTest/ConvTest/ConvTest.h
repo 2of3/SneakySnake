@@ -45,4 +45,5 @@ struct bpyfunc
 	string desc;
 	fctparam rettype;
 	vector <fctparam> params;
+	bool error;
 };
