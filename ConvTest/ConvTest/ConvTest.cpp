@@ -42,12 +42,29 @@ string get_str_content(string str)
 	return str.substr(startval, endval);
 }
 
-bool check_param_types(string str)
+rna_def_type get_def_type(string str)
 {
-	return
-		str.find("pointer") != string::npos ||
-		str.find("boolean") != string::npos ||
-		str.find("enum")    != string::npos;
+	if (!is_rna_type(str, "RNA_def"))   return rna_none;
+	if ( is_rna_type(str, "function(")) return rna_function;
+	if ( is_rna_type(str, "USE_REPOR")) return rna_none;
+	if ( is_rna_type(str, "ui_desc"))   return rna_uidesc;
+	if ( is_rna_type(str, "pointer"))   return rna_pointer;
+	if ( is_rna_type(str, "boolean"))   return rna_boolean;
+	if ( is_rna_type(str, "enum"))      return rna_enum;
+	if ( is_rna_type(str, "REQUIRED"))  return rna_flag_req;
+	if ( is_rna_type(str, "return"))    return rna_return;
+
+	return rna_unknown;
+}
+
+fctparam extract_param(string name, string type, string desc, string def="")
+{
+	fctparam tmpparam;
+	tmpparam.name = get_str_content(name);
+	tmpparam.type = get_str_content(type);
+	tmpparam.desc = get_str_content(desc);
+	tmpparam.defval = get_str_content(def);
+	return tmpparam;
 }
 
 void parse_code(vector<string> strvec)
@@ -59,97 +76,98 @@ void parse_code(vector<string> strvec)
 
 	for (string str : strvec)
 	{
-		// function name
-		if (str.find("RNA_def_function(") != string::npos)
-		{
-			string namestr = get_params(str)[1];
-			fctname = get_str_content(namestr);
-		}
+		rna_def_type def_type = get_def_type(str);
 
-		// function comment
-		if (str.find("function_ui_desc") != string::npos)
+		switch (def_type)
 		{
-			string descstr = get_params(str)[1];
-			fctcomment = get_str_content(descstr);
-		}
+			case rna_none:
+				continue;
 
-		// function params
-		if (check_param_types(str))
-		{
-			fctparam tmpparam;
-			vector<string> paramstr = get_params(str);
+			case rna_unknown:
+				cout << "Unknown RNA def function: " << str << endl;
+				break;
 
-			if (str.find("pointer") != string::npos)
+			case rna_function:
 			{
-				tmpparam.type = paramstr[2];
-				tmpparam.desc = paramstr[4];
+				string namestr = get_params(str)[1];
+				fctname = get_str_content(namestr);
+				break;
 			}
 
-			if (str.find("boolean") != string::npos)
+			case rna_uidesc:
 			{
-				tmpparam.type = "bool";
-				tmpparam.desc = paramstr[4];
-				tmpparam.defval = paramstr[2];
+				string descstr = get_params(str)[1];
+				fctcomment = get_str_content(descstr);
+				break;
 			}
 
-			if (str.find("enum") != string::npos)
+			case rna_pointer:
 			{
-				tmpparam.type = paramstr[2];
-				tmpparam.desc = paramstr[5];
+				vector<string> pmstr = get_params(str);
+				fctparams.push_back(extract_param(pmstr[1], pmstr[2], pmstr[4]));
+				break;
 			}
 
-			tmpparam.name = get_str_content(paramstr[1]);
-			tmpparam.type = get_str_content(tmpparam.type);
-			tmpparam.desc = get_str_content(tmpparam.desc);
+			case rna_boolean:
+			{
+				vector<string> pmstr = get_params(str);
+				fctparams.push_back(extract_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
+				break;
+			}
 
-			fctparams.push_back(tmpparam);
-		}
+			case rna_enum:
+			{
+				vector<string> pmstr = get_params(str);
+				fctparams.push_back(extract_param(pmstr[1], pmstr[2], pmstr[5]));
+				break;
+			}
 
-		// function param flag
-		if (str.find("RNA_def_property") != string::npos)
-		{
-			if (str.find("PROP_REQUIRED") != string::npos)
+			case rna_flag_req:
+			{
 				fctparams.back().required = true;
-		}
-
-		// return value
-		if (str.find("def_function_return") != string::npos)
-		{
-			fctreturn = fctparams.back();
-			fctparams.pop_back();
-
-			// print complete function
-			cout << "// " << fctcomment << endl;
-
-			for (fctparam param : fctparams)
-			{
-				cout << "//    " << param.name;
-				cout << ": " << param.desc;
-
-				if (!param.required)
-					cout << " (required)";
-
-				cout << endl;
+				break;
 			}
 
-			cout << fctreturn.type << " ";
-			cout << fctname << "(";
-
-			for (fctparam param : fctparams)
+			case rna_return:
 			{
-				cout << param.type << " " << param.name;
-				
-				if (!param.required)
-					cout << "=" << param.defval;
+				fctreturn = fctparams.back();
+				fctparams.pop_back();
 
-				if (param.name != fctparams.back().name)
-					cout << ", ";
+				// print complete function
+				cout << "// " << fctcomment << endl;
+
+				for (fctparam param : fctparams)
+				{
+					cout << "//    " << param.name;
+					cout << ": " << param.desc;
+
+					if (!param.required)
+						cout << " (required)";
+
+					cout << endl;
+				}
+
+				cout << fctreturn.type << " ";
+				cout << fctname << "(";
+
+				for (fctparam param : fctparams)
+				{
+					cout << param.type << " " << param.name;
+
+					if (!param.required)
+						cout << "=" << param.defval;
+
+					if (param.name != fctparams.back().name)
+						cout << ", ";
+				}
+
+				cout << ")" << endl;
+				cout << "{" << endl;
+				cout << "    // dummy" << endl;
+				cout << "}" << endl;
+
+				break;
 			}
-
-			cout << ")" << endl;
-			cout << "{" << endl;
-			cout << "    // dummy" << endl;
-			cout << "}" << endl;
 		}
 	}
 }

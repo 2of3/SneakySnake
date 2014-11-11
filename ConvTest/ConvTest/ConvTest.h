@@ -8,6 +8,21 @@
 
 using namespace std;
 
+#define is_rna_type(a, b)  (a.find(b) != string::npos) 
+
+enum rna_def_type
+{
+	rna_none,
+	rna_unknown,
+	rna_function,
+	rna_uidesc,
+	rna_pointer,
+	rna_boolean,
+	rna_enum,
+	rna_flag_req,
+	rna_return
+};
+
 struct fctparam
 {
 	string name;
