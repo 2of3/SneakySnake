@@ -37,15 +37,13 @@ vector<string> get_params(string str)
 
 string get_str_content(string str)
 {
-	size_t startval = str.find_first_of("\"") + 1;
-	size_t endval = str.find_last_of("\"") - startval;
-	return str.substr(startval, endval);
+	return regex_replace(str, regex(R"(\s*\"(.*)\")"), "$1");
 }
 
 rna_def_type get_def_type(string str)
 {
-	if (!is_rna_type(str, "RNA_def"))   return rna_none;
-	if ( is_rna_type(str, "function(")) return rna_function;
+	if (!is_rna_type(str, "RNA_def_"))  return rna_none;
+	if ( is_rna_type(str, "function\\(")) return rna_function;
 	if ( is_rna_type(str, "USE_REPOR")) return rna_none;
 	if ( is_rna_type(str, "ui_desc"))   return rna_uidesc;
 	if ( is_rna_type(str, "pointer"))   return rna_pointer;
@@ -193,10 +191,44 @@ void parse_code(vector<string> strvec)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	vector<string> splitted;
+	vector<string> file;
+	string line;
+	
+	ifstream infile("test.c", ios_base::in);
+	std::string str((std::istreambuf_iterator<char>(infile)),
+		std::istreambuf_iterator<char>());
 
-	splitted = split(demofunc, '\n');
-	parse_code(splitted);
+	/* test */
+	std::regex reg1(R"(/\*.*\*/)");
+	std::regex reg2(R"(^[\t ]+|[\t ]+$)");
+	std::regex reg3(R"(RNA_def_)");
+	regex reg4(R"(\);)");
+
+	str = std::regex_replace(str, reg1, "");
+	str = std::regex_replace(str, reg2, "");
+	
+	vector<string> strline = split(str, '\n');
+	vector<string> filtered;
+
+	string tmpline;
+
+	for (string line : strline)
+	{
+		tmpline = tmpline + line;
+
+		if (regex_search(tmpline, reg3))
+		{
+			if (regex_search(tmpline, reg4))
+			{
+				filtered.push_back(tmpline);
+				tmpline = "";
+			}
+		}
+		else
+			tmpline = "";
+	}
+
+	parse_code(filtered);
 
 	int tmp;
 	cin >> tmp;

@@ -3,12 +3,15 @@
 #include <tchar.h>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <regex>
 
 using namespace std;
 
-#define is_rna_type(a, b)  (a.find(b) != string::npos) 
+#define is_rna_type(a, b)  (regex_search(a, regex(b))) 
 
 enum rna_def_type
 {
