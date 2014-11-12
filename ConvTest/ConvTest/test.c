@@ -1,3 +1,25 @@
+	static EnumPropertyItem mesh_type_items[] = {
+		{eModifierMode_Realtime, "PREVIEW", 0, "Preview", "Apply modifier preview settings"},
+		{eModifierMode_Render, "RENDER", 0, "Render", "Apply modifier render settings"},
+		{0, NULL, 0, NULL, NULL}
+	};
+
+	static EnumPropertyItem dupli_eval_mode_items[] = {
+		{DAG_EVAL_VIEWPORT, "VIEWPORT", 0, "Viewport", "Generate duplis using viewport settings"},
+		{DAG_EVAL_PREVIEW, "PREVIEW", 0, "Preview", "Generate duplis using preview settings"},
+		{DAG_EVAL_RENDER, "RENDER", 0, "Render", "Generate duplis using render settings"},
+		{0, NULL, 0, NULL, NULL}
+	};
+
+#ifndef NDEBUG
+	static EnumPropertyItem mesh_dm_info_items[] = {
+		{0, "SOURCE", 0, "Source", "Source mesh"},
+		{1, "DEFORM", 0, "Deform", "Objects deform mesh"},
+		{2, "FINAL", 0, "Final", "Objects final mesh"},
+		{0, NULL, 0, NULL, NULL}
+	};
+#endif
+
 	/* mesh */
 	func = RNA_def_function(srna, "to_mesh", "rna_Object_to_mesh");
 	RNA_def_function_ui_description(func, "Create a Mesh datablock with modifiers applied");

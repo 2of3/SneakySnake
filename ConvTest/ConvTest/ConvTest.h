@@ -17,6 +17,19 @@ using std::regex;
 
 #define is_rna_type(a, b) (regex_search(a, regex(b))) 
 
+struct bpy_enum_param
+{
+	string name;
+	string desc;
+	int value;
+};
+
+struct bpy_enum
+{
+	string name;
+	vector<bpy_enum_param> params;
+};
+
 enum rna_def_type
 {
 	rna_none,
@@ -39,7 +52,7 @@ struct fctparam
 	string defval;
 };
 
-struct bpyfunc
+struct bpy_func
 {
 	string name;
 	string desc;

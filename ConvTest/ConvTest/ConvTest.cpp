@@ -61,9 +61,9 @@ fctparam extract_param(string name, string type, string desc, string def = "")
 	return tmpparam;
 }
 
-void parse_code(vector<string> strvec)
+void parse_function_code(vector<string> strvec)
 {
-	vector<bpyfunc> funcs;
+	vector<bpy_func> funcs;
 
 	// parse funcs
 	for (string str : strvec)
@@ -76,11 +76,19 @@ void parse_code(vector<string> strvec)
 				continue;
 				
 			case rna_unknown:
-				if (!funcs.back().error) cout << endl;
-				cout << funcs.back().name << ": Unknown RNA function (";
-				cout << get_def_func(str) << ")" << endl;
+				if (funcs.size() > 0)
+				{
+					if (!funcs.back().error) cout << endl;
+					cout << funcs.back().name << ": Unknown RNA function (";
+					cout << get_def_func(str) << ")" << endl;
 
-				funcs.back().error = true;
+					funcs.back().error = true;
+				}
+				else
+				{
+					cout << "Unknown RNA function (";
+					cout << get_def_func(str) << ")" << endl;
+				}
 
 				break;
 
@@ -88,7 +96,7 @@ void parse_code(vector<string> strvec)
 			{
 				string namestr = get_params(str)[1];
 			
-				bpyfunc newfunc;
+				bpy_func newfunc;
 				newfunc.name = trim_param_str(namestr);
 				newfunc.error = false;
 
@@ -157,7 +165,7 @@ void parse_code(vector<string> strvec)
 	// print funcs
 	cout << endl << endl;
 
-	for (bpyfunc func : funcs)
+	for (bpy_func func : funcs)
 	{
 		// documentation
 		cout << "/**" << endl << " * " << func.desc << endl;
@@ -196,41 +204,123 @@ void parse_code(vector<string> strvec)
 	}
 }
 
+string get_enum_name(string str)
+{
+	regex reg(R"(^.+?Item\s(.+?)\[\].+$)");
+	return regex_replace(str, reg, "$1");
+}
+
+vector<string> get_enum_items(string str)
+{
+	// get content of outer braces and split
+	regex reg1(R"(^.*?\{|\};)");
+	str = regex_replace(str, reg1, "");
+	return split(str, regex(",(?=\\{)"));
+}
+
+string trim_enum_param(string &str)
+{
+	regex reg("^\\{|\\}$");
+	return regex_replace(str, reg, "");
+}
+
+void parse_enum_code(vector<string> strvec)
+{
+	vector<bpy_enum> enums;
+
+	for (string str : strvec)
+	{
+		vector<string> strparams = get_enum_items(str);
+
+		bpy_enum new_enum;
+		new_enum.name = trim_param_str(get_enum_name(str));
+
+		for (string strparam : strparams)
+		{
+			strparam = trim_enum_param(strparam);
+			vector<string> subparams = get_params(strparam);
+
+			bpy_enum_param new_param;
+			new_param.name = trim_param_str(subparams[1]);
+			new_param.desc = trim_param_str(subparams[4]);
+			// value missing
+			new_enum.params.push_back(new_param);
+		}
+
+		new_enum.params.pop_back();
+		enums.push_back(new_enum);
+	}
+
+	// print enums
+	for (bpy_enum tmp_enum : enums)
+	{
+		cout << "enum " << tmp_enum.name << endl;
+		cout << "{" << endl;
+
+		string last_name = tmp_enum.params.back().name;
+		for (bpy_enum_param tmp_param : tmp_enum.params)
+		{
+			cout << "\t" << tmp_param.name;
+			if (tmp_param.name != last_name) cout << ",";
+			cout << " /**< " << tmp_param.desc << " */" << endl;
+		}
+
+		cout << "};" << endl << endl;
+	}
+
+	cout << endl;
+}
+
+vector<string> filter_commands(vector<string> strvec, regex filter)
+{
+	string tmpline;
+	vector<string> result;
+
+	regex reg_end(R"(\);|\};)");
+
+	for (string line : strvec)
+	{
+		if (regex_search(tmpline + line, filter))
+		{
+			tmpline += line;
+
+			if (regex_search(tmpline, reg_end))
+			{
+				result.push_back(tmpline);
+				tmpline.clear();
+			}
+		}
+	}
+
+	return result;
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	std::ifstream infile("test.c", std::ios_base::in);
 	string str((std::istreambuf_iterator<char>(infile)),
 		std::istreambuf_iterator<char>());
 
-	/* test */
+	/* filter file and split up */
 	regex reg1(R"(/\*.*\*/)");			// comments
 	regex reg2(R"(^[\t ]+|[\t ]+$)");	// whitespaces
-	regex reg3(R"(RNA_def_)");			// RNA_def_
-	regex reg4(R"(\);)");				// );
 
 	str = regex_replace(str, reg1, "");
 	str = regex_replace(str, reg2, "");
 	
 	vector<string> strvec = split(str, regex("\n"));
-	vector<string> defstr;
 
-	string tmpline;
-	for (string line : strvec)
-	{
-		if (regex_search(tmpline + line, reg3))
-		{
-			tmpline += line;
+	// parse enums
+	regex reg_enu(R"(EnumProperty)");
+	vector<string> enumdef = filter_commands(strvec, reg_enu);
+	parse_enum_code(enumdef);
 
-			if (regex_search(tmpline, reg4))
-			{
-				defstr.push_back(tmpline);
-				tmpline.clear();
-			}
-		}
-	}
+	// parse functions
+	regex reg_def(R"(RNA_def_)");
+	vector<string> fctdef = filter_commands(strvec, reg_def);
+	parse_function_code(fctdef);
 
-	parse_code(defstr);
-
+	// dummy input
 	int tmp;
 	std::cin >> tmp;
 
