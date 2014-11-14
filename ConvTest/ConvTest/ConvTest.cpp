@@ -1,5 +1,3 @@
-// ConvTest.cpp
-
 #include "ConvTest.h"
 
 vector<string> split(const string &s, const regex &r)
@@ -28,29 +26,6 @@ string trim_param_str(string str)
 	return regex_replace(str, regex("^\\s+|\\s+$"), "");
 }
 
-string get_def_func(string str)
-{
-	regex reg(R"(\((.*)$)");
-	return regex_replace(str, reg, "");
-}
-
-rna_def_type get_def_type(string str)
-{
-	// function stuff (watch order)
-	if (is_rna_type(str, "USE_REPO")) return rna_def_none;
-	if (is_rna_type(str, "ui_desc"))  return rna_def_function_ui_description;
-	if (is_rna_type(str, "return"))   return rna_def_function_return;
-	if (is_rna_type(str, "function")) return rna_def_function;
-
-	// param stuff
-	if (is_rna_type(str, "pointer"))  return rna_def_pointer;
-	if (is_rna_type(str, "boolean"))  return rna_def_boolean;
-	if (is_rna_type(str, "enum"))     return rna_def_enum;
-	if (is_rna_type(str, "REQUIRED")) return rna_def_enum_flag;
-	
-	return rna_def_unknown;
-}
-
 fctparam extract_param(string name, string type, string desc, string def = "")
 {
 	fctparam tmpparam;
@@ -68,7 +43,7 @@ void parse_function_code(vector<string> strvec)
 	// parse funcs
 	for (string str : strvec)
 	{
-		rna_def_type def_type = get_def_type(str);
+		rna_def_type def_type = get_rnadef_enum(str);
 
 		switch (def_type)
 		{
@@ -78,16 +53,17 @@ void parse_function_code(vector<string> strvec)
 			case rna_def_unknown:
 				if (funcs.size() > 0)
 				{
-					if (!funcs.back().error) cout << endl;
-					cout << funcs.back().name << ": Unknown RNA function (";
-					cout << get_def_func(str) << ")" << endl;
+					if (!funcs.back().error) 
+						cout << "// " << funcs.back().name << endl;
+					cout << "//\tUnknown RNA function (";
+					cout << extract_rnadef_type(str) << ")" << endl;
 
 					funcs.back().error = true;
 				}
 				else
 				{
-					cout << "Unknown RNA function (";
-					cout << get_def_func(str) << ")" << endl;
+					cout << "// Unknown RNA function (";
+					cout << extract_rnadef_type(str) << ")" << endl;
 				}
 
 				break;
@@ -146,9 +122,10 @@ void parse_function_code(vector<string> strvec)
 				break;
 			}
 
-			case rna_def_enum_flag:
+			case rna_def_property_flag:
 			{
-				funcs.back().params.back().required = true;
+				if (regex_search(str, regex("PROP_REQUIRED")))
+					funcs.back().params.back().required = true;
 				break;
 			}
 
@@ -302,6 +279,10 @@ vector<string> filter_commands(vector<string> strvec, regex filter)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// map enum
+	setup_enum_mapping();
+	
+	// load main file
 	std::ifstream infile("test.c", std::ios_base::in);
 	string str((std::istreambuf_iterator<char>(infile)),
 		std::istreambuf_iterator<char>());

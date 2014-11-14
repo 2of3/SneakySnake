@@ -77,9 +77,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConvTest.cpp" />
+    <ClCompile Include="rna_def_types.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvTest.h" />
+    <ClInclude Include="rna_def_types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

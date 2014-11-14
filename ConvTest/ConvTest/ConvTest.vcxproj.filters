@@ -18,9 +18,15 @@
     <ClCompile Include="ConvTest.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="rna_def_types.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvTest.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="rna_def_types.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
