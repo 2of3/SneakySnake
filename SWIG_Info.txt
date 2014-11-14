@@ -1,0 +1,74 @@
+Getting started with SWIG - C# and C++ Tutorial:
+http://www.technical-recipes.com/2013/getting-started-with-swig-interfacing-between-c-and-c-visual-studio-projects/
+
+-------------------
+C++ to C#
+-------------------
+
+Step-by-Step instructions to completely build in the VS2010 IDE:
+
+    1.Create a solution with two projects:
+        C# Console Application
+        C++ Win32 Console Application (Name=cpp, DLL, empty project). If you choose a different name, don't use the name of a class in your project and update the .i file %module name to match.
+    2.Create a folder in the C# project called Generated.
+    3.Add your .cpp, .h, and .i file to the DLL with the modifications below.
+        Note the whole class has to be exported. Replace <project> with the name of the project. There will be a preprocessor definition <project>_EXPORTS already defined for your DLL project (see Project, Properties, C++, Preprocessor).
+        The module name cannot match a class name in the module.
+        %include <windows.i> helps SWIG understand certain "Window-isms" like __declspec.
+		
+	
+----------------------
+cpp_file.h
+----------------------
+
+#pragma once
+
+#ifdef <project>_EXPORTS
+#define <project>_API __declspec(dllexport)
+#else
+#define <project>_API __declspec(dllimport)
+#endif
+
+class <project>_API cpp_file
+{
+public:
+    cpp_file(void);
+    ~cpp_file(void);
+
+    int times2(int arg);
+};
+
+----------------------
+cpp_file.i
+----------------------
+%module cpp
+
+%{
+#include "cpp_file.h"
+%}
+
+%include <windows.i>
+%include "cpp_file.h"
+---------------------
+
+    1.Select cpp_file.i, Properties, General, Item Type as Custom Build Tool.
+    2.Select Apply to create the Custom Build Tool property group.
+    3.In Custom Build Tool, General, Command Line enter:
+      swig -csharp -c++ -outdir GeneratedFolderPath cpp_file.i
+    4.In Outputs, enter cpp_file_wrap.cxx, and click OK to close the dialog.
+    5..Right-click cpp_file.i and Compile. This should create four files: three in the C# Generated folder and one in the C++ project.
+	6.Create a Generated Files filter in the C++ project and add cpp_file_wrap.cxx to it.
+    7.Add the three Generated files to the C# project's Generated folder.
+    8.Right-click the C# project and add the C++ project as a dependency.
+    9.In the C# project's Properties, Build tab, change the Output Path from bin\Debug to ..\Debug or whatever the relative path to the C++ Project output directory is. The .exe and .dll need to be in the same directory.
+    10.In the C# project's Main, add the lines:
+    var cpp = new cpp_file();
+    Console.WriteLine(cpp.times2(5));
+    11.Build the solution.
+	12.Run the C# project.
+
+	
+	It worked! Thank you Mark. I had a little trouble making sure my output directory was correct (step #9). I got an error saying that my DLL couldn't be loaded. When I fixed my output directory, it worked. Also, in the first step #3, in the third bullet point, I think you meant to type "%include <windows.i> helps SWIG". The cpp_file.i has <windows.i> so it's not really a problem. Thanks again.
+
+
+
