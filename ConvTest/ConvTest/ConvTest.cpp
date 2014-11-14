@@ -38,15 +38,15 @@ rna_def_type get_def_type(string str)
 {
 	// function stuff (watch order)
 	if (is_rna_type(str, "USE_REPO")) return rna_def_none;
-	if (is_rna_type(str, "ui_desc"))  return rna_uidesc;
-	if (is_rna_type(str, "return"))   return rna_return;
-	if (is_rna_type(str, "function")) return rna_function;
+	if (is_rna_type(str, "ui_desc"))  return rna_def_function_ui_description;
+	if (is_rna_type(str, "return"))   return rna_def_function_return;
+	if (is_rna_type(str, "function")) return rna_def_function;
 
 	// param stuff
-	if (is_rna_type(str, "pointer"))  return rna_pointer;
-	if (is_rna_type(str, "boolean"))  return rna_boolean;
-	if (is_rna_type(str, "enum"))     return rna_enum;
-	if (is_rna_type(str, "REQUIRED")) return rna_flag_req;
+	if (is_rna_type(str, "pointer"))  return rna_def_pointer;
+	if (is_rna_type(str, "boolean"))  return rna_def_boolean;
+	if (is_rna_type(str, "enum"))     return rna_def_enum;
+	if (is_rna_type(str, "REQUIRED")) return rna_def_enum_flag;
 	
 	return rna_def_unknown;
 }
@@ -92,7 +92,7 @@ void parse_function_code(vector<string> strvec)
 
 				break;
 
-			case rna_function:
+			case rna_def_function:
 			{
 				string namestr = get_params(str)[1];
 			
@@ -109,14 +109,14 @@ void parse_function_code(vector<string> strvec)
 				break;
 			}
 
-			case rna_uidesc:
+			case rna_def_function_ui_description:
 			{
 				string descstr = get_params(str)[1];
 				funcs.back().desc = trim_param_str(descstr);
 				break;
 			}
 
-			case rna_pointer:
+			case rna_def_pointer:
 			{
 				vector<string> pmstr = get_params(str);
 				funcs.back().params.push_back(
@@ -126,7 +126,7 @@ void parse_function_code(vector<string> strvec)
 				break;
 			}
 
-			case rna_boolean:
+			case rna_def_boolean:
 			{
 				vector<string> pmstr = get_params(str);
 				funcs.back().params.push_back(
@@ -136,7 +136,7 @@ void parse_function_code(vector<string> strvec)
 				break;
 			}
 
-			case rna_enum:
+			case rna_def_enum:
 			{
 				vector<string> pmstr = get_params(str);
 				funcs.back().params.push_back(
@@ -146,13 +146,13 @@ void parse_function_code(vector<string> strvec)
 				break;
 			}
 
-			case rna_flag_req:
+			case rna_def_enum_flag:
 			{
 				funcs.back().params.back().required = true;
 				break;
 			}
 
-			case rna_return:
+			case rna_def_function_return:
 			{
 				funcs.back().rettype = funcs.back().params.back();
 				funcs.back().params.pop_back();
@@ -243,8 +243,12 @@ void parse_enum_code(vector<string> strvec)
 			bpy_enum_param new_param;
 			new_param.name = trim_param_str(subparams[1]);
 			new_param.desc = trim_param_str(subparams[4]);
-			// value missing
+			new_param.value = trim_param_str(subparams[0]);
 			new_enum.params.push_back(new_param);
+
+			// in case of unsolved reference
+			if (!regex_search(new_param.value, regex("^[0-9.-<>\\s()]+$")))
+				unsolved_refs.push_back(new_param.value);
 		}
 
 		new_enum.params.pop_back();
@@ -261,6 +265,7 @@ void parse_enum_code(vector<string> strvec)
 		for (bpy_enum_param tmp_param : tmp_enum.params)
 		{
 			cout << "\t" << tmp_param.name;
+			cout << "=" << tmp_param.value;
 			if (tmp_param.name != last_name) cout << ",";
 			cout << " /**< " << tmp_param.desc << " */" << endl;
 		}
@@ -319,6 +324,44 @@ int _tmain(int argc, _TCHAR* argv[])
 	regex reg_def(R"(RNA_def_)");
 	vector<string> fctdef = filter_commands(strvec, reg_def);
 	parse_function_code(fctdef);
+
+	// resolve unsolved references
+	vector<string> ref_file_str;
+	ref_file_str.push_back("DNA_modifier_types.h");
+	ref_file_str.push_back("BKE_depsgraph.h");
+
+	for (string file_str : ref_file_str) {
+		std::ifstream ref_file(file_str, std::ios_base::in);
+		string ref_str((std::istreambuf_iterator<char>(ref_file)),
+			std::istreambuf_iterator<char>());
+
+		cout << endl << "// " << file_str << endl;
+
+		vector<string> copy_ref = vector<string>(unsolved_refs);
+		for (string ref : copy_ref) {
+			std::smatch reg_match;
+			regex reg(ref + R"([\s\t]+=(.*)\s*,)");
+
+			if (regex_search(ref_str, reg_match, reg)) {
+				string valmatch = regex_replace(reg_match.str(), reg, "$1");
+				valmatch = trim_param_str(valmatch);
+
+				std::cout << "#define " << ref << " " << valmatch << endl;
+
+				auto it = std::find(unsolved_refs.begin(), unsolved_refs.end(), ref);
+				if (it != unsolved_refs.end())
+					unsolved_refs.erase(it);
+			}
+		}
+	}
+
+	if (unsolved_refs.size() > 0)
+	{
+		cout << endl << "// UNSOLVED REFERENCES: " << endl;
+
+		for (string ref : unsolved_refs)
+			cout << "// \t" << ref << endl;
+	}
 
 	// dummy input
 	int tmp;

@@ -21,7 +21,7 @@ struct bpy_enum_param
 {
 	string name;
 	string desc;
-	int value;
+	string value;
 };
 
 struct bpy_enum
@@ -260,3 +260,5 @@ struct bpy_func
 	vector <fctparam> params;
 	bool error;
 };
+
+vector<string> unsolved_refs;
