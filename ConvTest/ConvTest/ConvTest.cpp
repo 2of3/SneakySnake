@@ -37,7 +37,7 @@ string get_def_func(string str)
 rna_def_type get_def_type(string str)
 {
 	// function stuff (watch order)
-	if (is_rna_type(str, "USE_REPO")) return rna_none;
+	if (is_rna_type(str, "USE_REPO")) return rna_def_none;
 	if (is_rna_type(str, "ui_desc"))  return rna_uidesc;
 	if (is_rna_type(str, "return"))   return rna_return;
 	if (is_rna_type(str, "function")) return rna_function;
@@ -48,7 +48,7 @@ rna_def_type get_def_type(string str)
 	if (is_rna_type(str, "enum"))     return rna_enum;
 	if (is_rna_type(str, "REQUIRED")) return rna_flag_req;
 	
-	return rna_unknown;
+	return rna_def_unknown;
 }
 
 fctparam extract_param(string name, string type, string desc, string def = "")
@@ -72,10 +72,10 @@ void parse_function_code(vector<string> strvec)
 
 		switch (def_type)
 		{
-			case rna_none:
+			case rna_def_none:
 				continue;
 				
-			case rna_unknown:
+			case rna_def_unknown:
 				if (funcs.size() > 0)
 				{
 					if (!funcs.back().error) cout << endl;
