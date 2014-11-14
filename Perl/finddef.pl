@@ -1,9 +1,12 @@
 #!perl -w
 
-$filepath = "C:/Users/ASPePeX/Downloads/blender-2.72b/blender-2.72b/source/blender/makesrna/intern";
+use strict;
+
+my $filepath = "C:/Users/ASPePeX/Downloads/blender-2.72b/blender-2.72b/source/blender/makesrna/intern";
+my @alltherna;
 
 opendir(IN, $filepath);
-@dir = readdir(IN);
+my @dir = readdir(IN);
 closedir(IN);
 
 foreach my $file (@dir)
@@ -24,13 +27,12 @@ foreach my $file (@dir)
 			}		
 		}
 	}
-@uniquerna = sort(uniq(@alltherna));
+my @uniquerna = sort(uniq(@alltherna));
 
 open(OUT, ">rnalist.txt");
 print OUT @uniquerna;
 close OUT;
 
-	
 sub uniq
 	{
 	my %seen;
