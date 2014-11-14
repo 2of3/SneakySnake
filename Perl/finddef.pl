@@ -22,7 +22,7 @@ foreach my $file (@dir)
 			{
 			if ($line =~ /(RNA_def_\w*)/g)
 				{
-				push(@alltherna, lc $1 . ",\n");
+				push(@alltherna, lc "\"" . $1 . "\",\n");
 				}
 			}		
 		}
