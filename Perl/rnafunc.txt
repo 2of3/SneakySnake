@@ -1,0 +1,1035 @@
+bool rna_def_action(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_actuator(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_animation(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_animviz(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_armature(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boid(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boolean(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boolean_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boolean_layer(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boolean_layer_member(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_boolean_vector(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_brush(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_camera(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_cloth(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_collection(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_collection_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_color(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_constraint(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_context(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_controller(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_curve(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_dynamic_paint(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_enum(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_enum_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_enum_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_fcurve(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_color(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_factor(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_matrix(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_percentage(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_rotation(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_vector(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_float_vector_xyz(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_fluidsim(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_func_duplicate_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_func_free_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function_output(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function_return(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_function_ui_description(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_gameproperty(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_gpencil(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_group(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_id(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_image(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_int(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_int_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_int_vector(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_key(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_lamp(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_lattice(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_linestyle(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_actions(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_armatures(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_brushes(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_cameras(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_curves(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_fonts(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_gpencil(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_groups(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_images(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_lamps(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_lattices(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_libraries(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_linestyles(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_masks(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_materials(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_meshes(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_metaballs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_movieclips(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_node_groups(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_objects(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_particles(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_scenes(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_screens(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_sounds(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_speakers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_texts(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_textures(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_window_managers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_main_worlds(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_mask(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_material(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_mesh(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_meta(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_modifier(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_movieclip(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_nla(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_nodetree(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_object(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_object_force(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_packedfile(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_particle(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_pointer(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_pointer_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_pose(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_array_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_array_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_negative_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_boolean_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_clear_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_collection_active(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_collection_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_collection_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_duplicate_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_dynamic_array_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_editable_array_func(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_editable_func(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_bitflag_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_items(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_py_data(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_enum_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_array_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_array_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_float_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_free_identifier(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_free_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_array_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_array_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_int_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_multi_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_multidimensional_array(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_pointer_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_pointer_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_range(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_srna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_store(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_string_default(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_string_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_string_funcs_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_string_maxlength(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_string_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_struct_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_struct_type(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_subtype(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_translation_context(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_ui_icon(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_ui_range(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_ui_text(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_update(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_property_update_runtime(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_py_data(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_render(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_rigidbody(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_rna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_scene(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_screen(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_sculpt_paint(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_sensor(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_sequencer(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_smoke(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_sound(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_space(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_speaker(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_string(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_string_dir_path(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_string_file_name(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_string_file_path(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_clear_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_duplicate_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_flag(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_free_pointers(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_identifier(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_idprops_func(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_name_property(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_nested(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_path_func(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_ptr(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_refine_func(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_register_funcs(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_sdna(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_sdna_from(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_translation_context(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_ui_icon(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_struct_ui_text(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_test(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_text(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_texture(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_timeline_marker(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_tracking(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_ui(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_userdef(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_vfont(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_wm(vector<string> &funcs, string str)
+{
+	return false;
+}
+
+bool rna_def_world(vector<string> &funcs, string str)
+{
+	return false;
+}
+

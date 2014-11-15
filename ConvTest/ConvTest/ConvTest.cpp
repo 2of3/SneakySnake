@@ -1,5 +1,7 @@
 #include "ConvTest.h"
 
+vector<string> unsolved_refs;
+
 vector<string> split(const string &s, const regex &r)
 {
 	return{
@@ -26,7 +28,7 @@ string trim_param_str(string str)
 	return regex_replace(str, regex("^\\s+|\\s+$"), "");
 }
 
-fctparam extract_param(string name, string type, string desc, string def = "")
+fctparam extract_param(string name, string type, string desc, string def)
 {
 	fctparam tmpparam;
 	tmpparam.name = trim_param_str(name);
@@ -43,98 +45,23 @@ void parse_function_code(vector<string> strvec)
 	// parse funcs
 	for (string str : strvec)
 	{
-		rna_def_type def_type = get_rnadef_enum(str);
-
-		switch (def_type)
-		{
-			case rna_def_none:
-				continue;
-				
-			case rna_def_unknown:
-				if (funcs.size() > 0)
-				{
-					if (!funcs.back().error) 
-						cout << "// " << funcs.back().name << endl;
-					cout << "//\tUnknown RNA function (";
-					cout << extract_rnadef_type(str) << ")" << endl;
-
-					funcs.back().error = true;
-				}
-				else
-				{
-					cout << "// Unknown RNA function (";
-					cout << extract_rnadef_type(str) << ")" << endl;
-				}
-
-				break;
-
-			case rna_def_function:
+		bool is_type_unknown = false;
+		rna_def_ptr def_ptr = get_rna_def_ptr(str);
+		
+		if (def_ptr == NULL || !def_ptr(funcs, str)) {
+			if (funcs.size() > 0)
 			{
-				string namestr = get_params(str)[1];
-			
-				bpy_func newfunc;
-				newfunc.name = trim_param_str(namestr);
-				newfunc.error = false;
+				if (!funcs.back().error)
+					cout << "// " << funcs.back().name << ": " << endl;
+				cout << "//\tUnknown RNA function ";
+				cout << get_rna_def_type(str) << endl;
 
-				fctparam voidparam;
-				voidparam.type = "void";
-				newfunc.rettype = voidparam;
-
-				funcs.push_back(newfunc);
-
-				break;
+				funcs.back().error = true;
 			}
-
-			case rna_def_function_ui_description:
+			else
 			{
-				string descstr = get_params(str)[1];
-				funcs.back().desc = trim_param_str(descstr);
-				break;
-			}
-
-			case rna_def_pointer:
-			{
-				vector<string> pmstr = get_params(str);
-				funcs.back().params.push_back(
-					extract_param(pmstr[1], pmstr[2], pmstr[4]));
-				funcs.back().params.back().required = false;
-
-				break;
-			}
-
-			case rna_def_boolean:
-			{
-				vector<string> pmstr = get_params(str);
-				funcs.back().params.push_back(
-					extract_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
-				funcs.back().params.back().required = false;
-
-				break;
-			}
-
-			case rna_def_enum:
-			{
-				vector<string> pmstr = get_params(str);
-				funcs.back().params.push_back(
-					extract_param(pmstr[1], pmstr[2], pmstr[5], pmstr[3]));
-				funcs.back().params.back().required = false;
-
-				break;
-			}
-
-			case rna_def_property_flag:
-			{
-				if (regex_search(str, regex("PROP_REQUIRED")))
-					funcs.back().params.back().required = true;
-				break;
-			}
-
-			case rna_def_function_return:
-			{
-				funcs.back().rettype = funcs.back().params.back();
-				funcs.back().params.pop_back();
-
-				break;
+				cout << "// Unknown RNA function ";
+				cout << get_rna_def_type(str) << endl;
 			}
 		}
 	}
@@ -144,6 +71,8 @@ void parse_function_code(vector<string> strvec)
 
 	for (bpy_func func : funcs)
 	{
+		if (func.error) continue;
+
 		// documentation
 		cout << "/**" << endl << " * " << func.desc << endl;
 
