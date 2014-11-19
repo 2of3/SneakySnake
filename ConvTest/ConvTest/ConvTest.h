@@ -55,4 +55,4 @@ extern vector<string> unsolved_refs;
 
 vector<string> get_params(string str);
 string trim_param_str(string str);
-fctparam extract_param(string name, string type, string desc, string def = "");
+fctparam make_param(string name, string type, string desc, string def = "");

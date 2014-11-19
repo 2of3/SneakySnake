@@ -61,7 +61,7 @@ bool rna_def_boolean(vector<bpy_func> &funcs, string str)
 {
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.push_back(
-		extract_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
+		make_param(pmstr[1], "bool", pmstr[4], pmstr[2]));
 
 	string defval = funcs.back().params.back().defval;
 	if (defval == "1") defval = "true";
@@ -152,7 +152,7 @@ bool rna_def_enum(vector<bpy_func> &funcs, string str)
 {
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.push_back(
-		extract_param(pmstr[1], pmstr[2], pmstr[5], pmstr[3]));
+		make_param(pmstr[1], pmstr[2], pmstr[5], pmstr[3]));
 	funcs.back().params.back().required = false;
 
 	return true;
@@ -175,7 +175,12 @@ bool rna_def_fcurve(vector<bpy_func> &funcs, string str)
 
 bool rna_def_float(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+	funcs.back().params.push_back(
+		make_param(pmstr[1], "float", pmstr[6], pmstr[2]));
+	funcs.back().params.back().required = false;
+
+	return true;
 }
 
 bool rna_def_float_array(vector<bpy_func> &funcs, string str)
@@ -210,7 +215,15 @@ bool rna_def_float_rotation(vector<bpy_func> &funcs, string str)
 
 bool rna_def_float_vector(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+	funcs.back().params.push_back(
+		make_param(pmstr[1], "float", pmstr[6]));
+
+	string name = funcs.back().params.back().name;
+	funcs.back().params.back().name = name + "[" + trim_param_str(pmstr[2]) + "]";
+	funcs.back().params.back().required = false;
+
+	return true;
 }
 
 bool rna_def_float_vector_xyz(vector<bpy_func> &funcs, string str)
@@ -257,13 +270,17 @@ bool rna_def_function_flag(vector<bpy_func> &funcs, string str)
 
 bool rna_def_function_output(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	if (funcs.back().error) return true;
+
+	funcs.back().rettype = funcs.back().params.back();
+	funcs.back().params.pop_back();
+
+	return true;
 }
 
 bool rna_def_function_return(vector<bpy_func> &funcs, string str)
 {
-	funcs.back().rettype = funcs.back().params.back();
-	funcs.back().params.pop_back();
+	rna_def_function_output(funcs, str);
 
 	return true;
 }
@@ -308,7 +325,12 @@ bool rna_def_image(vector<bpy_func> &funcs, string str)
 
 bool rna_def_int(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+	funcs.back().params.push_back(
+		make_param(pmstr[1], "int", pmstr[6], "\"" + pmstr[2] + "\""));
+	funcs.back().params.back().required = false;
+
+	return true;
 }
 
 bool rna_def_int_array(vector<bpy_func> &funcs, string str)
@@ -555,7 +577,7 @@ bool rna_def_pointer(vector<bpy_func> &funcs, string str)
 {
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.push_back(
-		extract_param(pmstr[1], pmstr[2], pmstr[4]));
+		make_param(pmstr[1], pmstr[2], pmstr[4]));
 	funcs.back().params.back().required = false;
 
 	return true;
@@ -573,7 +595,16 @@ bool rna_def_pose(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+	funcs.back().params.push_back(
+		make_param(pmstr[1], "", ""));
+
+	if (pmstr[2] == "PROP_FLOAT")
+		funcs.back().params.back().type = "float";
+
+	funcs.back().params.back().required = false;
+
+	return true;
 }
 
 bool rna_def_property_array(vector<bpy_func> &funcs, string str)
@@ -693,6 +724,8 @@ bool rna_def_property_enum_sdna(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property_flag(vector<bpy_func> &funcs, string str)
 {
+	if (funcs.back().error) return true;
+
 	if (regex_search(str, regex("PROP_REQUIRED")))
 		funcs.back().params.back().required = true;
 
@@ -776,7 +809,22 @@ bool rna_def_property_int_sdna(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property_multi_array(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+
+	/// TODO: check if 2dim
+	regex reg1(R"(^.*_(\d)x.*$)");
+	regex reg2(R"(^.*_\dx(\d)$)");
+
+	string len0 = std::regex_replace(pmstr[2], reg1, "$1");
+	string len1 = std::regex_replace(pmstr[2], reg2, "$1");
+
+	funcs.back().params.back().name += "[" + len0 + "][" + len1 + "]";
+
+	/*	int dim = std::stoi(pmstr[1]);
+	for (int x = 1; x < dim; x++)
+		funcs.back().params.back().name += "[]";*/
+
+	return true;
 }
 
 bool rna_def_property_multidimensional_array(vector<bpy_func> &funcs, string str)
@@ -866,7 +914,10 @@ bool rna_def_property_ui_range(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property_ui_text(vector<bpy_func> &funcs, string str)
 {
-	return false;
+	vector<string> pmstr = get_params(str);
+	funcs.back().params.back().desc = pmstr[2];
+
+	return true;
 }
 
 bool rna_def_property_update(vector<bpy_func> &funcs, string str)
@@ -948,10 +999,8 @@ bool rna_def_string(vector<bpy_func> &funcs, string str)
 {
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.push_back(
-		extract_param(pmstr[1], "string", pmstr[5], "\"" + pmstr[2] + "\""));
+		make_param(pmstr[1], "string", pmstr[5], "\"" + pmstr[2] + "\""));
 
-	string defval = funcs.back().params.back().defval;
-	funcs.back().params.back().defval = "\"" + defval + "\"";
 	funcs.back().params.back().required = false;
 
 	return true;

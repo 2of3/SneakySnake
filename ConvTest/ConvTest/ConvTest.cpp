@@ -12,13 +12,18 @@ vector<string> split(const string &s, const regex &r)
 
 vector<string> get_params(string str)
 {
-	// get content of brackets
-	regex reg1(R"(^(.*?)\(|\);$)");
-	str = regex_replace(str, reg1, "");
+	// get parentheses content
+	regex reg1(R"(^.*?\((.*)\);$)");
+	str = std::regex_replace(str, reg1, "$1");
 
 	// split at commas outside of quotes
 	regex reg2(R"(,(?=([^\"]*\"[^\"]*\")*[^\"]*$))");
-	return split(str, reg2);
+	vector<string> params = split(str, reg2);
+	
+	for (int x = 0; x < params.size(); x++)
+		params[x] = trim_param_str(params[x]);
+	
+	return params;
 }
 
 string trim_param_str(string str)
@@ -28,13 +33,13 @@ string trim_param_str(string str)
 	return regex_replace(str, regex("^\\s+|\\s+$"), "");
 }
 
-fctparam extract_param(string name, string type, string desc, string def)
+fctparam make_param(string name, string type, string desc, string def)
 {
 	fctparam tmpparam;
-	tmpparam.name = trim_param_str(name);
-	tmpparam.type = trim_param_str(type);
-	tmpparam.desc = trim_param_str(desc);
-	tmpparam.defval = trim_param_str(def);
+	tmpparam.name = name;
+	tmpparam.type = type;
+	tmpparam.desc = desc;
+	tmpparam.defval = def;
 	return tmpparam;
 }
 
@@ -95,7 +100,10 @@ void parse_function_code(vector<string> strvec)
 			cout << param.type << " " << param.name;
 
 			if (!param.required)
-				cout << "=" << param.defval;
+				if (param.defval != "")
+					cout << "=" << param.defval;
+				else
+					cout << "=NULL";
 
 			if (param.name != func.params.back().name)
 				cout << ", ";
@@ -212,7 +220,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	setup_enum_mapping();
 	
 	// load main file
-	std::ifstream infile("test.c", std::ios_base::in);
+	std::ifstream infile("rna_object_api.c", std::ios_base::in);
 	string str((std::istreambuf_iterator<char>(infile)),
 		std::istreambuf_iterator<char>());
 
@@ -279,4 +287,3 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return 0;
 }
-

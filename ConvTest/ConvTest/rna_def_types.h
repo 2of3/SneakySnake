@@ -6,7 +6,7 @@
 #include <map>
 #include <regex>
 
-extern struct bpy_func;
+struct bpy_func;
 
 typedef bool(*rna_def_ptr)(std::vector<bpy_func> &, std::string);
 
