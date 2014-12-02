@@ -193,4 +193,406 @@ class cppPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_cpp_file_times2")]
   public static extern int cpp_file_times2(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_BT_BULLET_VERSION_get")]
+  public static extern int BT_BULLET_VERSION_get();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btGetVersion")]
+  public static extern int btGetVersion();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_BT_LARGE_FLOAT_get")]
+  public static extern double BT_LARGE_FLOAT_get();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfMaskConverter_mask_set")]
+  public static extern void btInfMaskConverter_mask_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfMaskConverter_mask_get")]
+  public static extern float btInfMaskConverter_mask_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfMaskConverter_intmask_set")]
+  public static extern void btInfMaskConverter_intmask_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfMaskConverter_intmask_get")]
+  public static extern int btInfMaskConverter_intmask_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btInfMaskConverter__SWIG_0")]
+  public static extern global::System.IntPtr new_btInfMaskConverter__SWIG_0(int jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btInfMaskConverter__SWIG_1")]
+  public static extern global::System.IntPtr new_btInfMaskConverter__SWIG_1();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btInfMaskConverter")]
+  public static extern void delete_btInfMaskConverter(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfinityMask_set")]
+  public static extern void btInfinityMask_set(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btInfinityMask_get")]
+  public static extern global::System.IntPtr btInfinityMask_get();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btGetInfinityMask")]
+  public static extern int btGetInfinityMask();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSqrt")]
+  public static extern float btSqrt(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btFabs")]
+  public static extern float btFabs(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btCos")]
+  public static extern float btCos(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSin")]
+  public static extern float btSin(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btTan")]
+  public static extern float btTan(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAcos")]
+  public static extern float btAcos(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAsin")]
+  public static extern float btAsin(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAtan")]
+  public static extern float btAtan(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAtan2")]
+  public static extern float btAtan2(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btExp")]
+  public static extern float btExp(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btLog")]
+  public static extern float btLog(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btPow")]
+  public static extern float btPow(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btFmod")]
+  public static extern float btFmod(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAtan2Fast")]
+  public static extern float btAtan2Fast(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btFuzzyZero")]
+  public static extern bool btFuzzyZero(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btEqual")]
+  public static extern bool btEqual(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btGreaterEqual")]
+  public static extern bool btGreaterEqual(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btIsNegative")]
+  public static extern int btIsNegative(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btRadians")]
+  public static extern float btRadians(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btDegrees")]
+  public static extern float btDegrees(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btFsel")]
+  public static extern float btFsel(float jarg1, float jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btMachineIsLittleEndian")]
+  public static extern bool btMachineIsLittleEndian();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSelect__SWIG_0")]
+  public static extern uint btSelect__SWIG_0(uint jarg1, uint jarg2, uint jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSelect__SWIG_1")]
+  public static extern int btSelect__SWIG_1(uint jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSelect__SWIG_2")]
+  public static extern float btSelect__SWIG_2(uint jarg1, float jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndian__SWIG_0")]
+  public static extern uint btSwapEndian__SWIG_0(uint jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndian__SWIG_1")]
+  public static extern ushort btSwapEndian__SWIG_1(ushort jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndian__SWIG_2")]
+  public static extern uint btSwapEndian__SWIG_2(int jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndian__SWIG_3")]
+  public static extern ushort btSwapEndian__SWIG_3(short jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndianFloat")]
+  public static extern uint btSwapEndianFloat(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btUnswapEndianFloat")]
+  public static extern float btUnswapEndianFloat(uint jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapEndianDouble")]
+  public static extern void btSwapEndianDouble(double jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btUnswapEndianDouble")]
+  public static extern double btUnswapEndianDouble(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btLargeDot")]
+  public static extern float btLargeDot(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btNormalizeAngle")]
+  public static extern float btNormalizeAngle(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btTypedObject")]
+  public static extern global::System.IntPtr new_btTypedObject(int jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btTypedObject_m_objectType_set")]
+  public static extern void btTypedObject_m_objectType_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btTypedObject_m_objectType_get")]
+  public static extern int btTypedObject_m_objectType_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btTypedObject_getObjectType")]
+  public static extern int btTypedObject_getObjectType(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btTypedObject")]
+  public static extern void delete_btTypedObject(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3DataName_get")]
+  public static extern string btVector3DataName_get();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_m_floats_set")]
+  public static extern void btVector3_m_floats_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_m_floats_get")]
+  public static extern global::System.IntPtr btVector3_m_floats_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector3__SWIG_0")]
+  public static extern global::System.IntPtr new_btVector3__SWIG_0();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector3__SWIG_1")]
+  public static extern global::System.IntPtr new_btVector3__SWIG_1(float jarg1, float jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_dot")]
+  public static extern float btVector3_dot(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_length2")]
+  public static extern float btVector3_length2(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_length")]
+  public static extern float btVector3_length(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_norm")]
+  public static extern float btVector3_norm(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_distance2")]
+  public static extern float btVector3_distance2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_distance")]
+  public static extern float btVector3_distance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_safeNormalize")]
+  public static extern global::System.IntPtr btVector3_safeNormalize(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_normalize")]
+  public static extern global::System.IntPtr btVector3_normalize(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_normalized")]
+  public static extern global::System.IntPtr btVector3_normalized(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_rotate")]
+  public static extern global::System.IntPtr btVector3_rotate(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_angle")]
+  public static extern float btVector3_angle(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_absolute")]
+  public static extern global::System.IntPtr btVector3_absolute(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_cross")]
+  public static extern global::System.IntPtr btVector3_cross(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_triple")]
+  public static extern float btVector3_triple(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_minAxis")]
+  public static extern int btVector3_minAxis(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_maxAxis")]
+  public static extern int btVector3_maxAxis(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_furthestAxis")]
+  public static extern int btVector3_furthestAxis(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_closestAxis")]
+  public static extern int btVector3_closestAxis(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setInterpolate3")]
+  public static extern void btVector3_setInterpolate3(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_lerp")]
+  public static extern global::System.IntPtr btVector3_lerp(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_getX")]
+  public static extern float btVector3_getX(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_getY")]
+  public static extern float btVector3_getY(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_getZ")]
+  public static extern float btVector3_getZ(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setX")]
+  public static extern void btVector3_setX(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setY")]
+  public static extern void btVector3_setY(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setZ")]
+  public static extern void btVector3_setZ(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setW")]
+  public static extern void btVector3_setW(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_x")]
+  public static extern float btVector3_x(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_y")]
+  public static extern float btVector3_y(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_z")]
+  public static extern float btVector3_z(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_w")]
+  public static extern float btVector3_w(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setMax")]
+  public static extern void btVector3_setMax(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setMin")]
+  public static extern void btVector3_setMin(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setValue")]
+  public static extern void btVector3_setValue(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_getSkewSymmetricMatrix")]
+  public static extern void btVector3_getSkewSymmetricMatrix(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_setZero")]
+  public static extern void btVector3_setZero(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_isZero")]
+  public static extern bool btVector3_isZero(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_fuzzyZero")]
+  public static extern bool btVector3_fuzzyZero(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_serialize")]
+  public static extern void btVector3_serialize(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_deSerialize")]
+  public static extern void btVector3_deSerialize(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_serializeFloat")]
+  public static extern void btVector3_serializeFloat(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_deSerializeFloat")]
+  public static extern void btVector3_deSerializeFloat(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_serializeDouble")]
+  public static extern void btVector3_serializeDouble(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_deSerializeDouble")]
+  public static extern void btVector3_deSerializeDouble(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_maxDot")]
+  public static extern int btVector3_maxDot(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_minDot")]
+  public static extern int btVector3_minDot(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, int jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3_dot3")]
+  public static extern global::System.IntPtr btVector3_dot3(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btVector3")]
+  public static extern void delete_btVector3(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btDot")]
+  public static extern float btDot(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btDistance2")]
+  public static extern float btDistance2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btDistance")]
+  public static extern float btDistance(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btAngle")]
+  public static extern float btAngle(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btCross")]
+  public static extern global::System.IntPtr btCross(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btTriple")]
+  public static extern float btTriple(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_lerp")]
+  public static extern global::System.IntPtr lerp(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector4__SWIG_0")]
+  public static extern global::System.IntPtr new_btVector4__SWIG_0();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector4__SWIG_1")]
+  public static extern global::System.IntPtr new_btVector4__SWIG_1(float jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_absolute4")]
+  public static extern global::System.IntPtr btVector4_absolute4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_getW")]
+  public static extern float btVector4_getW(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_maxAxis4")]
+  public static extern int btVector4_maxAxis4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_minAxis4")]
+  public static extern int btVector4_minAxis4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_closestAxis4")]
+  public static extern int btVector4_closestAxis4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_setValue")]
+  public static extern void btVector4_setValue(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4, float jarg5);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btVector4")]
+  public static extern void delete_btVector4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapScalarEndian")]
+  public static extern void btSwapScalarEndian(float jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btSwapVector3Endian")]
+  public static extern void btSwapVector3Endian(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btUnSwapVector3Endian")]
+  public static extern void btUnSwapVector3Endian(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3FloatData_m_floats_set")]
+  public static extern void btVector3FloatData_m_floats_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3FloatData_m_floats_get")]
+  public static extern global::System.IntPtr btVector3FloatData_m_floats_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector3FloatData")]
+  public static extern global::System.IntPtr new_btVector3FloatData();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btVector3FloatData")]
+  public static extern void delete_btVector3FloatData(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3DoubleData_m_floats_set")]
+  public static extern void btVector3DoubleData_m_floats_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector3DoubleData_m_floats_get")]
+  public static extern global::System.IntPtr btVector3DoubleData_m_floats_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_new_btVector3DoubleData")]
+  public static extern global::System.IntPtr new_btVector3DoubleData();
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_delete_btVector3DoubleData")]
+  public static extern void delete_btVector3DoubleData(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_btVector4_SWIGUpcast")]
+  public static extern global::System.IntPtr btVector4_SWIGUpcast(global::System.IntPtr jarg1);
 }

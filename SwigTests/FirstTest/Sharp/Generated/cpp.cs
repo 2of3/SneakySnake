@@ -8,4 +8,259 @@
 
 
 public class cpp {
+  public static int btGetVersion() {
+    int ret = cppPINVOKE.btGetVersion();
+    return ret;
+  }
+
+  public static btInfMaskConverter btInfinityMask {
+    set {
+      cppPINVOKE.btInfinityMask_set(btInfMaskConverter.getCPtr(value));
+    } 
+    get {
+      global::System.IntPtr cPtr = cppPINVOKE.btInfinityMask_get();
+      btInfMaskConverter ret = (cPtr == global::System.IntPtr.Zero) ? null : new btInfMaskConverter(cPtr, false);
+      return ret;
+    } 
+  }
+
+  public static int btGetInfinityMask() {
+    int ret = cppPINVOKE.btGetInfinityMask();
+    return ret;
+  }
+
+  public static float btSqrt(float y) {
+    float ret = cppPINVOKE.btSqrt(y);
+    return ret;
+  }
+
+  public static float btFabs(float x) {
+    float ret = cppPINVOKE.btFabs(x);
+    return ret;
+  }
+
+  public static float btCos(float x) {
+    float ret = cppPINVOKE.btCos(x);
+    return ret;
+  }
+
+  public static float btSin(float x) {
+    float ret = cppPINVOKE.btSin(x);
+    return ret;
+  }
+
+  public static float btTan(float x) {
+    float ret = cppPINVOKE.btTan(x);
+    return ret;
+  }
+
+  public static float btAcos(float x) {
+    float ret = cppPINVOKE.btAcos(x);
+    return ret;
+  }
+
+  public static float btAsin(float x) {
+    float ret = cppPINVOKE.btAsin(x);
+    return ret;
+  }
+
+  public static float btAtan(float x) {
+    float ret = cppPINVOKE.btAtan(x);
+    return ret;
+  }
+
+  public static float btAtan2(float x, float y) {
+    float ret = cppPINVOKE.btAtan2(x, y);
+    return ret;
+  }
+
+  public static float btExp(float x) {
+    float ret = cppPINVOKE.btExp(x);
+    return ret;
+  }
+
+  public static float btLog(float x) {
+    float ret = cppPINVOKE.btLog(x);
+    return ret;
+  }
+
+  public static float btPow(float x, float y) {
+    float ret = cppPINVOKE.btPow(x, y);
+    return ret;
+  }
+
+  public static float btFmod(float x, float y) {
+    float ret = cppPINVOKE.btFmod(x, y);
+    return ret;
+  }
+
+  public static float btAtan2Fast(float y, float x) {
+    float ret = cppPINVOKE.btAtan2Fast(y, x);
+    return ret;
+  }
+
+  public static bool btFuzzyZero(float x) {
+    bool ret = cppPINVOKE.btFuzzyZero(x);
+    return ret;
+  }
+
+  public static bool btEqual(float a, float eps) {
+    bool ret = cppPINVOKE.btEqual(a, eps);
+    return ret;
+  }
+
+  public static bool btGreaterEqual(float a, float eps) {
+    bool ret = cppPINVOKE.btGreaterEqual(a, eps);
+    return ret;
+  }
+
+  public static int btIsNegative(float x) {
+    int ret = cppPINVOKE.btIsNegative(x);
+    return ret;
+  }
+
+  public static float btRadians(float x) {
+    float ret = cppPINVOKE.btRadians(x);
+    return ret;
+  }
+
+  public static float btDegrees(float x) {
+    float ret = cppPINVOKE.btDegrees(x);
+    return ret;
+  }
+
+  public static float btFsel(float a, float b, float c) {
+    float ret = cppPINVOKE.btFsel(a, b, c);
+    return ret;
+  }
+
+  public static bool btMachineIsLittleEndian() {
+    bool ret = cppPINVOKE.btMachineIsLittleEndian();
+    return ret;
+  }
+
+  public static uint btSelect(uint condition, uint valueIfConditionNonZero, uint valueIfConditionZero) {
+    uint ret = cppPINVOKE.btSelect__SWIG_0(condition, valueIfConditionNonZero, valueIfConditionZero);
+    return ret;
+  }
+
+  public static int btSelect(uint condition, int valueIfConditionNonZero, int valueIfConditionZero) {
+    int ret = cppPINVOKE.btSelect__SWIG_1(condition, valueIfConditionNonZero, valueIfConditionZero);
+    return ret;
+  }
+
+  public static float btSelect(uint condition, float valueIfConditionNonZero, float valueIfConditionZero) {
+    float ret = cppPINVOKE.btSelect__SWIG_2(condition, valueIfConditionNonZero, valueIfConditionZero);
+    return ret;
+  }
+
+  public static uint btSwapEndian(uint val) {
+    uint ret = cppPINVOKE.btSwapEndian__SWIG_0(val);
+    return ret;
+  }
+
+  public static ushort btSwapEndian(ushort val) {
+    ushort ret = cppPINVOKE.btSwapEndian__SWIG_1(val);
+    return ret;
+  }
+
+  public static uint btSwapEndian(int val) {
+    uint ret = cppPINVOKE.btSwapEndian__SWIG_2(val);
+    return ret;
+  }
+
+  public static ushort btSwapEndian(short val) {
+    ushort ret = cppPINVOKE.btSwapEndian__SWIG_3(val);
+    return ret;
+  }
+
+  public static uint btSwapEndianFloat(float d) {
+    uint ret = cppPINVOKE.btSwapEndianFloat(d);
+    return ret;
+  }
+
+  public static float btUnswapEndianFloat(uint a) {
+    float ret = cppPINVOKE.btUnswapEndianFloat(a);
+    return ret;
+  }
+
+  public static void btSwapEndianDouble(double d, SWIGTYPE_p_unsigned_char dst) {
+    cppPINVOKE.btSwapEndianDouble(d, SWIGTYPE_p_unsigned_char.getCPtr(dst));
+  }
+
+  public static double btUnswapEndianDouble(SWIGTYPE_p_unsigned_char src) {
+    double ret = cppPINVOKE.btUnswapEndianDouble(SWIGTYPE_p_unsigned_char.getCPtr(src));
+    return ret;
+  }
+
+  public static float btLargeDot(SWIGTYPE_p_float a, SWIGTYPE_p_float b, int n) {
+    float ret = cppPINVOKE.btLargeDot(SWIGTYPE_p_float.getCPtr(a), SWIGTYPE_p_float.getCPtr(b), n);
+    return ret;
+  }
+
+  public static float btNormalizeAngle(float angleInRadians) {
+    float ret = cppPINVOKE.btNormalizeAngle(angleInRadians);
+    return ret;
+  }
+
+  public static float btDot(btVector3 v1, btVector3 v2) {
+    float ret = cppPINVOKE.btDot(btVector3.getCPtr(v1), btVector3.getCPtr(v2));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static float btDistance2(btVector3 v1, btVector3 v2) {
+    float ret = cppPINVOKE.btDistance2(btVector3.getCPtr(v1), btVector3.getCPtr(v2));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static float btDistance(btVector3 v1, btVector3 v2) {
+    float ret = cppPINVOKE.btDistance(btVector3.getCPtr(v1), btVector3.getCPtr(v2));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static float btAngle(btVector3 v1, btVector3 v2) {
+    float ret = cppPINVOKE.btAngle(btVector3.getCPtr(v1), btVector3.getCPtr(v2));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static btVector3 btCross(btVector3 v1, btVector3 v2) {
+    btVector3 ret = new btVector3(cppPINVOKE.btCross(btVector3.getCPtr(v1), btVector3.getCPtr(v2)), true);
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static float btTriple(btVector3 v1, btVector3 v2, btVector3 v3) {
+    float ret = cppPINVOKE.btTriple(btVector3.getCPtr(v1), btVector3.getCPtr(v2), btVector3.getCPtr(v3));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static btVector3 lerp(btVector3 v1, btVector3 v2, float t) {
+    btVector3 ret = new btVector3(cppPINVOKE.lerp(btVector3.getCPtr(v1), btVector3.getCPtr(v2), t), true);
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public static void btSwapScalarEndian(float sourceVal, SWIGTYPE_p_float destVal) {
+    cppPINVOKE.btSwapScalarEndian(sourceVal, SWIGTYPE_p_float.getCPtr(destVal));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void btSwapVector3Endian(btVector3 sourceVec, btVector3 destVec) {
+    cppPINVOKE.btSwapVector3Endian(btVector3.getCPtr(sourceVec), btVector3.getCPtr(destVec));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static void btUnSwapVector3Endian(btVector3 vector) {
+    cppPINVOKE.btUnSwapVector3Endian(btVector3.getCPtr(vector));
+    if (cppPINVOKE.SWIGPendingException.Pending) throw cppPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public static readonly int BT_BULLET_VERSION = cppPINVOKE.BT_BULLET_VERSION_get();
+  public static readonly double BT_LARGE_FLOAT = cppPINVOKE.BT_LARGE_FLOAT_get();
+  public static readonly string btVector3DataName = cppPINVOKE.btVector3DataName_get();
 }

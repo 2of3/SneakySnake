@@ -280,7 +280,35 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_cpp(SWIG_CSharpStringHelp
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, msg, ""); return nullreturn; } else
 
   
-    #include "cpp_file.h"  
+    #include "cpp_file.h" 
+	#include "btScalar.h"/*
+	#include "btAabbUtil2.h"
+	#include "btAlignedObjectArray.h"
+	#include "btConvexHull.h"
+	#include "btConvexHullComputer.h"
+	#include "btCpuFeatureUtility.h"
+	#include "btDefaultMotionState.h"
+	#include "btGeometryUtil.h"
+	#include "btGrahamScan2dConvexHull.h"
+	#include "btHashMap.h"
+	#include "btIDebugDraw.h"
+	#include "btList.h"
+	#include "btMatrix3x3.h"
+	#include "btMatrixX.h"
+	#include "btMinMax.h"
+	#include "btMotionState.h"
+	#include "btPolarDecomposition.h"
+	#include "btPoolAllocator.h"
+	#include "btQuadWord.h"
+	#include "btQuaternion.h"
+	#include "btQuickprof.h"
+	#include "btRandom.h"
+	#include "btSerializer.h"
+	#include "btStackAlloc.h"
+	#include "btTransform.h"
+	#include "btTransformUtil.h"*/
+	#include "btVector3.h"
+	   
 
 
 #ifdef __cplusplus
@@ -318,6 +346,1832 @@ SWIGEXPORT int SWIGSTDCALL CSharp_cpp_file_times2(void * jarg1, int jarg2) {
   return jresult;
 }
 
+
+SWIGEXPORT int SWIGSTDCALL CSharp_BT_BULLET_VERSION_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)(283);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btGetVersion() {
+  int jresult ;
+  int result;
+  
+  result = (int)btGetVersion();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT double SWIGSTDCALL CSharp_BT_LARGE_FLOAT_get() {
+  double jresult ;
+  double result;
+  
+  result = (double)(1e18);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btInfMaskConverter_mask_set(void * jarg1, float jarg2) {
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  float arg2 ;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->mask = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btInfMaskConverter_mask_get(void * jarg1) {
+  float jresult ;
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  float result;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  result = (float) ((arg1)->mask);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btInfMaskConverter_intmask_set(void * jarg1, int jarg2) {
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  int arg2 ;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->intmask = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btInfMaskConverter_intmask_get(void * jarg1) {
+  int jresult ;
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  int result;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  result = (int) ((arg1)->intmask);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btInfMaskConverter__SWIG_0(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  btInfMaskConverter *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  result = (btInfMaskConverter *)new btInfMaskConverter(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btInfMaskConverter__SWIG_1() {
+  void * jresult ;
+  btInfMaskConverter *result = 0 ;
+  
+  result = (btInfMaskConverter *)new btInfMaskConverter();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btInfMaskConverter(void * jarg1) {
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btInfinityMask_set(void * jarg1) {
+  btInfMaskConverter *arg1 = (btInfMaskConverter *) 0 ;
+  
+  arg1 = (btInfMaskConverter *)jarg1; 
+  btInfinityMask = *arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btInfinityMask_get() {
+  void * jresult ;
+  btInfMaskConverter *result = 0 ;
+  
+  result = (btInfMaskConverter *)&btInfinityMask;
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btGetInfinityMask() {
+  int jresult ;
+  int result;
+  
+  result = (int)btGetInfinityMask();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btSqrt(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btSqrt(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btFabs(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btFabs(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btCos(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btCos(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btSin(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btSin(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btTan(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btTan(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAcos(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btAcos(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAsin(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btAsin(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAtan(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btAtan(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAtan2(float jarg1, float jarg2) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (btScalar)btAtan2(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btExp(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btExp(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btLog(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btLog(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btPow(float jarg1, float jarg2) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (btScalar)btPow(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btFmod(float jarg1, float jarg2) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (btScalar)btFmod(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAtan2Fast(float jarg1, float jarg2) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (btScalar)btAtan2Fast(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btFuzzyZero(float jarg1) {
+  unsigned int jresult ;
+  btScalar arg1 ;
+  bool result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (bool)btFuzzyZero(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btEqual(float jarg1, float jarg2) {
+  unsigned int jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  bool result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (bool)btEqual(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btGreaterEqual(float jarg1, float jarg2) {
+  unsigned int jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  bool result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  result = (bool)btGreaterEqual(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btIsNegative(float jarg1) {
+  int jresult ;
+  btScalar arg1 ;
+  int result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (int)btIsNegative(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btRadians(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btRadians(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btDegrees(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btDegrees(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btFsel(float jarg1, float jarg2, float jarg3) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar arg2 ;
+  btScalar arg3 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  arg3 = (btScalar)jarg3; 
+  result = (btScalar)btFsel(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btMachineIsLittleEndian() {
+  unsigned int jresult ;
+  bool result;
+  
+  result = (bool)btMachineIsLittleEndian();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btSelect__SWIG_0(unsigned int jarg1, unsigned int jarg2, unsigned int jarg3) {
+  unsigned int jresult ;
+  unsigned int arg1 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int result;
+  
+  arg1 = (unsigned int)jarg1; 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = (unsigned int)btSelect(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btSelect__SWIG_1(unsigned int jarg1, int jarg2, int jarg3) {
+  int jresult ;
+  unsigned int arg1 ;
+  int arg2 ;
+  int arg3 ;
+  int result;
+  
+  arg1 = (unsigned int)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  result = (int)btSelect(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btSelect__SWIG_2(unsigned int jarg1, float jarg2, float jarg3) {
+  float jresult ;
+  unsigned int arg1 ;
+  float arg2 ;
+  float arg3 ;
+  float result;
+  
+  arg1 = (unsigned int)jarg1; 
+  arg2 = (float)jarg2; 
+  arg3 = (float)jarg3; 
+  result = (float)btSelect(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btSwapEndian__SWIG_0(unsigned int jarg1) {
+  unsigned int jresult ;
+  unsigned int arg1 ;
+  unsigned int result;
+  
+  arg1 = (unsigned int)jarg1; 
+  result = (unsigned int)btSwapEndian(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned short SWIGSTDCALL CSharp_btSwapEndian__SWIG_1(unsigned short jarg1) {
+  unsigned short jresult ;
+  unsigned short arg1 ;
+  unsigned short result;
+  
+  arg1 = (unsigned short)jarg1; 
+  result = (unsigned short)btSwapEndian(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btSwapEndian__SWIG_2(int jarg1) {
+  unsigned int jresult ;
+  int arg1 ;
+  unsigned int result;
+  
+  arg1 = (int)jarg1; 
+  result = (unsigned int)btSwapEndian(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned short SWIGSTDCALL CSharp_btSwapEndian__SWIG_3(short jarg1) {
+  unsigned short jresult ;
+  short arg1 ;
+  unsigned short result;
+  
+  arg1 = (short)jarg1; 
+  result = (unsigned short)btSwapEndian(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btSwapEndianFloat(float jarg1) {
+  unsigned int jresult ;
+  float arg1 ;
+  unsigned int result;
+  
+  arg1 = (float)jarg1; 
+  result = (unsigned int)btSwapEndianFloat(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btUnswapEndianFloat(unsigned int jarg1) {
+  float jresult ;
+  unsigned int arg1 ;
+  float result;
+  
+  arg1 = (unsigned int)jarg1; 
+  result = (float)btUnswapEndianFloat(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSwapEndianDouble(double jarg1, void * jarg2) {
+  double arg1 ;
+  unsigned char *arg2 = (unsigned char *) 0 ;
+  
+  arg1 = (double)jarg1; 
+  arg2 = (unsigned char *)jarg2; 
+  btSwapEndianDouble(arg1,arg2);
+}
+
+
+SWIGEXPORT double SWIGSTDCALL CSharp_btUnswapEndianDouble(void * jarg1) {
+  double jresult ;
+  unsigned char *arg1 = (unsigned char *) 0 ;
+  double result;
+  
+  arg1 = (unsigned char *)jarg1; 
+  result = (double)btUnswapEndianDouble((unsigned char const *)arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btLargeDot(void * jarg1, void * jarg2, int jarg3) {
+  float jresult ;
+  btScalar *arg1 = (btScalar *) 0 ;
+  btScalar *arg2 = (btScalar *) 0 ;
+  int arg3 ;
+  btScalar result;
+  
+  arg1 = (btScalar *)jarg1; 
+  arg2 = (btScalar *)jarg2; 
+  arg3 = (int)jarg3; 
+  result = (btScalar)btLargeDot((float const *)arg1,(float const *)arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btNormalizeAngle(float jarg1) {
+  float jresult ;
+  btScalar arg1 ;
+  btScalar result;
+  
+  arg1 = (btScalar)jarg1; 
+  result = (btScalar)btNormalizeAngle(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btTypedObject(int jarg1) {
+  void * jresult ;
+  int arg1 ;
+  btTypedObject *result = 0 ;
+  
+  arg1 = (int)jarg1; 
+  result = (btTypedObject *)new btTypedObject(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btTypedObject_m_objectType_set(void * jarg1, int jarg2) {
+  btTypedObject *arg1 = (btTypedObject *) 0 ;
+  int arg2 ;
+  
+  arg1 = (btTypedObject *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->m_objectType = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btTypedObject_m_objectType_get(void * jarg1) {
+  int jresult ;
+  btTypedObject *arg1 = (btTypedObject *) 0 ;
+  int result;
+  
+  arg1 = (btTypedObject *)jarg1; 
+  result = (int) ((arg1)->m_objectType);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btTypedObject_getObjectType(void * jarg1) {
+  int jresult ;
+  btTypedObject *arg1 = (btTypedObject *) 0 ;
+  int result;
+  
+  arg1 = (btTypedObject *)jarg1; 
+  result = (int)((btTypedObject const *)arg1)->getObjectType();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btTypedObject(void * jarg1) {
+  btTypedObject *arg1 = (btTypedObject *) 0 ;
+  
+  arg1 = (btTypedObject *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_btVector3DataName_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)("btVector3FloatData");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_m_floats_set(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *arg2 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btScalar *)jarg2; 
+  {
+    size_t ii;
+    btScalar *b = (btScalar *) arg1->m_floats;
+    for (ii = 0; ii < (size_t)4; ii++) b[ii] = *((btScalar *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_m_floats_get(void * jarg1) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *)(btScalar *) ((arg1)->m_floats);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector3__SWIG_0() {
+  void * jresult ;
+  btVector3 *result = 0 ;
+  
+  result = (btVector3 *)new btVector3();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector3__SWIG_1(float jarg1, float jarg2, float jarg3) {
+  void * jresult ;
+  btScalar *arg1 = 0 ;
+  btScalar *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar temp1 ;
+  btScalar temp2 ;
+  btScalar temp3 ;
+  btVector3 *result = 0 ;
+  
+  temp1 = (btScalar)jarg1; 
+  arg1 = &temp1; 
+  temp2 = (btScalar)jarg2; 
+  arg2 = &temp2; 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  result = (btVector3 *)new btVector3((btScalar const &)*arg1,(btScalar const &)*arg2,(btScalar const &)*arg3);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_dot(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)((btVector3 const *)arg1)->dot((btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_length2(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar)((btVector3 const *)arg1)->length2();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_length(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar)((btVector3 const *)arg1)->length();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_norm(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar)((btVector3 const *)arg1)->norm();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_distance2(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)((btVector3 const *)arg1)->distance2((btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_distance(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)((btVector3 const *)arg1)->distance((btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_safeNormalize(void * jarg1) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btVector3 *) &(arg1)->safeNormalize();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_normalize(void * jarg1) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btVector3 *) &(arg1)->normalize();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_normalized(void * jarg1) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = ((btVector3 const *)arg1)->normalized();
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_rotate(void * jarg1, void * jarg2, float jarg3) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar arg3 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (btScalar)jarg3; 
+  result = ((btVector3 const *)arg1)->rotate((btVector3 const &)*arg2,arg3);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_angle(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)((btVector3 const *)arg1)->angle((btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_absolute(void * jarg1) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = ((btVector3 const *)arg1)->absolute();
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_cross(void * jarg1, void * jarg2) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = ((btVector3 const *)arg1)->cross((btVector3 const &)*arg2);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_triple(void * jarg1, void * jarg2, void * jarg3) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)((btVector3 const *)arg1)->triple((btVector3 const &)*arg2,(btVector3 const &)*arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector3_minAxis(void * jarg1) {
+  int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  int result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (int)((btVector3 const *)arg1)->minAxis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector3_maxAxis(void * jarg1) {
+  int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  int result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (int)((btVector3 const *)arg1)->maxAxis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector3_furthestAxis(void * jarg1) {
+  int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  int result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (int)((btVector3 const *)arg1)->furthestAxis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector3_closestAxis(void * jarg1) {
+  int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  int result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (int)((btVector3 const *)arg1)->closestAxis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setInterpolate3(void * jarg1, void * jarg2, void * jarg3, float jarg4) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  btScalar arg4 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg4 = (btScalar)jarg4; 
+  (arg1)->setInterpolate3((btVector3 const &)*arg2,(btVector3 const &)*arg3,arg4);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_lerp(void * jarg1, void * jarg2, float jarg3) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar temp3 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  result = ((btVector3 const *)arg1)->lerp((btVector3 const &)*arg2,(btScalar const &)*arg3);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_getX(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->getX();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_getY(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->getY();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_getZ(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->getZ();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setX(void * jarg1, float jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->setX(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setY(void * jarg1, float jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->setY(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setZ(void * jarg1, float jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->setZ(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setW(void * jarg1, float jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar arg2 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btScalar)jarg2; 
+  (arg1)->setW(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_x(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->x();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_y(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->y();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_z(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->z();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector3_w(void * jarg1) {
+  float jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *result = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (btScalar *) &((btVector3 const *)arg1)->w();
+  jresult = *result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setMax(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->setMax((btVector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setMin(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->setMin((btVector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setValue(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btScalar *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar *arg4 = 0 ;
+  btScalar temp2 ;
+  btScalar temp3 ;
+  btScalar temp4 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  temp2 = (btScalar)jarg2; 
+  arg2 = &temp2; 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  temp4 = (btScalar)jarg4; 
+  arg4 = &temp4; 
+  (arg1)->setValue((btScalar const &)*arg2,(btScalar const &)*arg3,(btScalar const &)*arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_getSkewSymmetricMatrix(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = (btVector3 *) 0 ;
+  btVector3 *arg3 = (btVector3 *) 0 ;
+  btVector3 *arg4 = (btVector3 *) 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  arg3 = (btVector3 *)jarg3; 
+  arg4 = (btVector3 *)jarg4; 
+  ((btVector3 const *)arg1)->getSkewSymmetricMatrix(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_setZero(void * jarg1) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  (arg1)->setZero();
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btVector3_isZero(void * jarg1) {
+  unsigned int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  bool result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (bool)((btVector3 const *)arg1)->isZero();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_btVector3_fuzzyZero(void * jarg1) {
+  unsigned int jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  bool result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  result = (bool)((btVector3 const *)arg1)->fuzzyZero();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_serialize(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3FloatData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3FloatData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3FloatData & type is null", 0);
+    return ;
+  } 
+  ((btVector3 const *)arg1)->serialize(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_deSerialize(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3FloatData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3FloatData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3FloatData const & type is null", 0);
+    return ;
+  } 
+  (arg1)->deSerialize((btVector3FloatData const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_serializeFloat(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3FloatData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3FloatData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3FloatData & type is null", 0);
+    return ;
+  } 
+  ((btVector3 const *)arg1)->serializeFloat(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_deSerializeFloat(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3FloatData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3FloatData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3FloatData const & type is null", 0);
+    return ;
+  } 
+  (arg1)->deSerializeFloat((btVector3FloatData const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_serializeDouble(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3DoubleData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3DoubleData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3DoubleData & type is null", 0);
+    return ;
+  } 
+  ((btVector3 const *)arg1)->serializeDouble(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3_deSerializeDouble(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3DoubleData *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3DoubleData *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3DoubleData const & type is null", 0);
+    return ;
+  } 
+  (arg1)->deSerializeDouble((btVector3DoubleData const &)*arg2);
+}
+
+
+SWIGEXPORT long SWIGSTDCALL CSharp_btVector3_maxDot(void * jarg1, void * jarg2, long jarg3, void * jarg4) {
+  long jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = (btVector3 *) 0 ;
+  long arg3 ;
+  btScalar *arg4 = 0 ;
+  long result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  arg3 = (long)jarg3; 
+  arg4 = (btScalar *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btScalar & type is null", 0);
+    return 0;
+  } 
+  result = (long)((btVector3 const *)arg1)->maxDot((btVector3 const *)arg2,arg3,*arg4);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT long SWIGSTDCALL CSharp_btVector3_minDot(void * jarg1, void * jarg2, long jarg3, void * jarg4) {
+  long jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = (btVector3 *) 0 ;
+  long arg3 ;
+  btScalar *arg4 = 0 ;
+  long result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2; 
+  arg3 = (long)jarg3; 
+  arg4 = (btScalar *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btScalar & type is null", 0);
+    return 0;
+  } 
+  result = (long)((btVector3 const *)arg1)->minDot((btVector3 const *)arg2,arg3,*arg4);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3_dot3(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+  void * jresult ;
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  btVector3 *arg4 = 0 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1; 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg4 = (btVector3 *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = ((btVector3 const *)arg1)->dot3((btVector3 const &)*arg2,(btVector3 const &)*arg3,(btVector3 const &)*arg4);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btVector3(void * jarg1) {
+  btVector3 *arg1 = (btVector3 *) 0 ;
+  
+  arg1 = (btVector3 *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btDot(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)btDot((btVector3 const &)*arg1,(btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btDistance2(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)btDistance2((btVector3 const &)*arg1,(btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btDistance(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)btDistance((btVector3 const &)*arg1,(btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btAngle(void * jarg1, void * jarg2) {
+  float jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)btAngle((btVector3 const &)*arg1,(btVector3 const &)*arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btCross(void * jarg1, void * jarg2) {
+  void * jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = btCross((btVector3 const &)*arg1,(btVector3 const &)*arg2);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btTriple(void * jarg1, void * jarg2, void * jarg3) {
+  float jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btVector3 *arg3 = 0 ;
+  btScalar result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (btVector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  result = (btScalar)btTriple((btVector3 const &)*arg1,(btVector3 const &)*arg2,(btVector3 const &)*arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_lerp(void * jarg1, void * jarg2, float jarg3) {
+  void * jresult ;
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar temp3 ;
+  btVector3 result;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return 0;
+  } 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  result = lerp((btVector3 const &)*arg1,(btVector3 const &)*arg2,(float const &)*arg3);
+  jresult = new btVector3((const btVector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector4__SWIG_0() {
+  void * jresult ;
+  btVector4 *result = 0 ;
+  
+  result = (btVector4 *)new btVector4();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector4__SWIG_1(float jarg1, float jarg2, float jarg3, float jarg4) {
+  void * jresult ;
+  btScalar *arg1 = 0 ;
+  btScalar *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar *arg4 = 0 ;
+  btScalar temp1 ;
+  btScalar temp2 ;
+  btScalar temp3 ;
+  btScalar temp4 ;
+  btVector4 *result = 0 ;
+  
+  temp1 = (btScalar)jarg1; 
+  arg1 = &temp1; 
+  temp2 = (btScalar)jarg2; 
+  arg2 = &temp2; 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  temp4 = (btScalar)jarg4; 
+  arg4 = &temp4; 
+  result = (btVector4 *)new btVector4((btScalar const &)*arg1,(btScalar const &)*arg2,(btScalar const &)*arg3,(btScalar const &)*arg4);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector4_absolute4(void * jarg1) {
+  void * jresult ;
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  btVector4 result;
+  
+  arg1 = (btVector4 *)jarg1; 
+  result = ((btVector4 const *)arg1)->absolute4();
+  jresult = new btVector4((const btVector4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_btVector4_getW(void * jarg1) {
+  float jresult ;
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  btScalar result;
+  
+  arg1 = (btVector4 *)jarg1; 
+  result = (btScalar)((btVector4 const *)arg1)->getW();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector4_maxAxis4(void * jarg1) {
+  int jresult ;
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  int result;
+  
+  arg1 = (btVector4 *)jarg1; 
+  result = (int)((btVector4 const *)arg1)->maxAxis4();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector4_minAxis4(void * jarg1) {
+  int jresult ;
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  int result;
+  
+  arg1 = (btVector4 *)jarg1; 
+  result = (int)((btVector4 const *)arg1)->minAxis4();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_btVector4_closestAxis4(void * jarg1) {
+  int jresult ;
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  int result;
+  
+  arg1 = (btVector4 *)jarg1; 
+  result = (int)((btVector4 const *)arg1)->closestAxis4();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector4_setValue(void * jarg1, float jarg2, float jarg3, float jarg4, float jarg5) {
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  btScalar *arg2 = 0 ;
+  btScalar *arg3 = 0 ;
+  btScalar *arg4 = 0 ;
+  btScalar *arg5 = 0 ;
+  btScalar temp2 ;
+  btScalar temp3 ;
+  btScalar temp4 ;
+  btScalar temp5 ;
+  
+  arg1 = (btVector4 *)jarg1; 
+  temp2 = (btScalar)jarg2; 
+  arg2 = &temp2; 
+  temp3 = (btScalar)jarg3; 
+  arg3 = &temp3; 
+  temp4 = (btScalar)jarg4; 
+  arg4 = &temp4; 
+  temp5 = (btScalar)jarg5; 
+  arg5 = &temp5; 
+  (arg1)->setValue((btScalar const &)*arg2,(btScalar const &)*arg3,(btScalar const &)*arg4,(btScalar const &)*arg5);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btVector4(void * jarg1) {
+  btVector4 *arg1 = (btVector4 *) 0 ;
+  
+  arg1 = (btVector4 *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSwapScalarEndian(float jarg1, void * jarg2) {
+  btScalar *arg1 = 0 ;
+  btScalar *arg2 = 0 ;
+  btScalar temp1 ;
+  
+  temp1 = (btScalar)jarg1; 
+  arg1 = &temp1; 
+  arg2 = (btScalar *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btScalar & type is null", 0);
+    return ;
+  } 
+  btSwapScalarEndian((float const &)*arg1,*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btSwapVector3Endian(void * jarg1, void * jarg2) {
+  btVector3 *arg1 = 0 ;
+  btVector3 *arg2 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 const & type is null", 0);
+    return ;
+  } 
+  arg2 = (btVector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 & type is null", 0);
+    return ;
+  } 
+  btSwapVector3Endian((btVector3 const &)*arg1,*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btUnSwapVector3Endian(void * jarg1) {
+  btVector3 *arg1 = 0 ;
+  
+  arg1 = (btVector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "btVector3 & type is null", 0);
+    return ;
+  } 
+  btUnSwapVector3Endian(*arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3FloatData_m_floats_set(void * jarg1, void * jarg2) {
+  btVector3FloatData *arg1 = (btVector3FloatData *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (btVector3FloatData *)jarg1; 
+  arg2 = (float *)jarg2; 
+  {
+    size_t ii;
+    float *b = (float *) arg1->m_floats;
+    for (ii = 0; ii < (size_t)4; ii++) b[ii] = *((float *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3FloatData_m_floats_get(void * jarg1) {
+  void * jresult ;
+  btVector3FloatData *arg1 = (btVector3FloatData *) 0 ;
+  float *result = 0 ;
+  
+  arg1 = (btVector3FloatData *)jarg1; 
+  result = (float *)(float *) ((arg1)->m_floats);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector3FloatData() {
+  void * jresult ;
+  btVector3FloatData *result = 0 ;
+  
+  result = (btVector3FloatData *)new btVector3FloatData();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btVector3FloatData(void * jarg1) {
+  btVector3FloatData *arg1 = (btVector3FloatData *) 0 ;
+  
+  arg1 = (btVector3FloatData *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_btVector3DoubleData_m_floats_set(void * jarg1, void * jarg2) {
+  btVector3DoubleData *arg1 = (btVector3DoubleData *) 0 ;
+  double *arg2 ;
+  
+  arg1 = (btVector3DoubleData *)jarg1; 
+  arg2 = (double *)jarg2; 
+  {
+    size_t ii;
+    double *b = (double *) arg1->m_floats;
+    for (ii = 0; ii < (size_t)4; ii++) b[ii] = *((double *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_btVector3DoubleData_m_floats_get(void * jarg1) {
+  void * jresult ;
+  btVector3DoubleData *arg1 = (btVector3DoubleData *) 0 ;
+  double *result = 0 ;
+  
+  arg1 = (btVector3DoubleData *)jarg1; 
+  result = (double *)(double *) ((arg1)->m_floats);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_btVector3DoubleData() {
+  void * jresult ;
+  btVector3DoubleData *result = 0 ;
+  
+  result = (btVector3DoubleData *)new btVector3DoubleData();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_btVector3DoubleData(void * jarg1) {
+  btVector3DoubleData *arg1 = (btVector3DoubleData *) 0 ;
+  
+  arg1 = (btVector3DoubleData *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT btVector3 * SWIGSTDCALL CSharp_btVector4_SWIGUpcast(btVector4 *jarg1) {
+    return (btVector3 *)jarg1;
+}
 
 #ifdef __cplusplus
 }
