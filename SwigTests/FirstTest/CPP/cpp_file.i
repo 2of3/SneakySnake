@@ -39,6 +39,30 @@
 
 %include "cpp_file.h"
 %include "btScalar.h" //include btScalar before the anything else, it defines datatypes
+
+
+// Map const btVector3 &  TO  Fusee.Math.float3
+%typemap(cstype, out="Fusee.Math.float3 /* constbtVector3&_cstype_out */") const btVector3 & "Fusee.Math.float3 /* constbtVector3&_cstype */"
+%typemap(csin) const btVector3 & "ref $csinput /* constbtVector3&_csin */"
+%typemap(imtype, out="global::System.IntPtr /* constbtVector3&_imtype_out */") const btVector3 & "ref Fusee.Math.float3 /* constbtVector3&_imtype */"
+%typemap(csout, excode=SWIGEXCODE) const btVector3 &
+%{ {  /* <constbtVector3&_csout> */
+      global::System.IntPtr p_ret = $imcall;$excode
+      Fusee.Math.float3 ret;
+      unsafe {ret = Fusee.Math.ArrayConvert.ArrayDoubleTofloat3((double *)p_ret);}
+      return ret;
+   } /* </constbtVector3&_csout> */ %}
+%typemap(csdirectorin, 
+   pre="    Fusee.Math.float3 vec_$iminput;\n"
+       "    unsafe {vec_$iminput = Fusee.Math.ArrayConvert.ArrayDoubleTofloat3((double *)$iminput);}\n"
+       "    /* constbtVector3&_csdirectorin_pre */", 
+   post="        /* no re-conversion because of const declaration */\n"
+        "        /* constbtVector3&_csdirectorin_post */"
+  ) const btVector3 &
+  "vec_$iminput /* btVector3*&_csdirectorin */"
+
+
+
 %include "btVector3.h"
 %include "btAabbUtil2.h"
 %include "btAlignedObjectArray.h"
