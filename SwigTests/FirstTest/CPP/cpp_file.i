@@ -47,10 +47,8 @@
 %include "btCpuFeatureUtility.h"
 %include "btDefaultMotionState.h"
 
-//Ignore function isInside, only functionhead exists and causes errors
 %ignore btGeometryUtil::isInside;  
 %include "btGeometryUtil.h"
-
 
 %include "btGrahamScan2dConvexHull.h"
 %include "btHashMap.h"
@@ -65,8 +63,7 @@
 %include "btQuadWord.h"
 %include "btQuaternion.h"
 
-//Ignore function Enter_Largest_Child, only functionhead exists and causes errors
-%ignore btQuickprof::Enter_Largest_Child
+%ignore CProfileIterator::Enter_Largest_Child;  
 %include "btQuickprof.h"
 
 %include "btRandom.h"
