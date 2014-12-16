@@ -12,3 +12,8 @@ int cpp_file::times2(int arg)
 {
 	return arg * 2;
 }
+
+int cpp_file::test(void)
+{
+	return 42;
+}

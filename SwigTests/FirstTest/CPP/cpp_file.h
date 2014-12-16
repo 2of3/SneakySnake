@@ -13,4 +13,5 @@ public:
 	~cpp_file(void);
 
 	int times2(int arg);
+	int test(void);
 };
