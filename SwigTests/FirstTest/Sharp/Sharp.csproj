@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fusee.Math.Conversion, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Fusee\Bin\Debug\Fusee.Math.Conversion.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusee.Math.Core, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Fusee\Bin\Debug\Fusee.Math.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,18 +50,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generated\btAngleCompareFunc.cs" />
+    <Compile Include="Generated\btBlock.cs" />
+    <Compile Include="Generated\btBulletSerializedArrays.cs" />
+    <Compile Include="Generated\btChunk.cs" />
+    <Compile Include="Generated\btClock.cs" />
+    <Compile Include="Generated\btConvexHullComputer.cs" />
+    <Compile Include="Generated\btConvexSeparatingDistanceUtil.cs" />
+    <Compile Include="Generated\btCpuFeatureUtility.cs" />
+    <Compile Include="Generated\btDefaultMotionState.cs" />
+    <Compile Include="Generated\btDefaultSerializer.cs" />
+    <Compile Include="Generated\btGEN_Link.cs" />
+    <Compile Include="Generated\btGEN_List.cs" />
+    <Compile Include="Generated\btGeometryUtil.cs" />
+    <Compile Include="Generated\btHashInt.cs" />
+    <Compile Include="Generated\btHashPtr.cs" />
+    <Compile Include="Generated\btHashString.cs" />
+    <Compile Include="Generated\btIDebugDraw.cs" />
     <Compile Include="Generated\btInfMaskConverter.cs" />
+    <Compile Include="Generated\btIntSortPredicate.cs" />
+    <Compile Include="Generated\btMatrix3x3.cs" />
+    <Compile Include="Generated\btMatrix3x3DoubleData.cs" />
+    <Compile Include="Generated\btMatrix3x3FloatData.cs" />
+    <Compile Include="Generated\btMotionState.cs" />
+    <Compile Include="Generated\btPlane.cs" />
+    <Compile Include="Generated\btPointerUid.cs" />
+    <Compile Include="Generated\btPolarDecomposition.cs" />
+    <Compile Include="Generated\btPoolAllocator.cs" />
+    <Compile Include="Generated\btQuadWord.cs" />
+    <Compile Include="Generated\btQuaternion.cs" />
+    <Compile Include="Generated\btSerializationFlags.cs" />
+    <Compile Include="Generated\btSerializer.cs" />
+    <Compile Include="Generated\btStackAlloc.cs" />
+    <Compile Include="Generated\btTransform.cs" />
+    <Compile Include="Generated\btTransformDoubleData.cs" />
+    <Compile Include="Generated\btTransformFloatData.cs" />
+    <Compile Include="Generated\btTransformUtil.cs" />
     <Compile Include="Generated\btTypedObject.cs" />
     <Compile Include="Generated\btVector3.cs" />
     <Compile Include="Generated\btVector3DoubleData.cs" />
     <Compile Include="Generated\btVector3FloatData.cs" />
     <Compile Include="Generated\btVector4.cs" />
+    <Compile Include="Generated\ConvexH.cs" />
     <Compile Include="Generated\cpp.cs" />
     <Compile Include="Generated\cppPINVOKE.cs" />
     <Compile Include="Generated\cpp_file.cs" />
+    <Compile Include="Generated\CProfileIterator.cs" />
+    <Compile Include="Generated\CProfileManager.cs" />
+    <Compile Include="Generated\CProfileNode.cs" />
+    <Compile Include="Generated\CProfileSample.cs" />
+    <Compile Include="Generated\GrahamVector3.cs" />
+    <Compile Include="Generated\HullDesc.cs" />
+    <Compile Include="Generated\HullError.cs" />
+    <Compile Include="Generated\HullFlag.cs" />
+    <Compile Include="Generated\HullLibrary.cs" />
+    <Compile Include="Generated\HullResult.cs" />
+    <Compile Include="Generated\int4.cs" />
+    <Compile Include="Generated\PHullResult.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btCollisionObjectDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btCollisionObjectFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btCollisionShapeData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btConvexHullComputer__Edge_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btDynamicsWorldDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btDynamicsWorldFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btPlane_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btQuantizedBvhDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btQuantizedBvhFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btRigidBodyDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btRigidBodyFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btSoftBodyDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btSoftBodyFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btTypedConstraintData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btTypedConstraintDoubleData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btTypedConstraintFloatData_p_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_btVector3_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_ConvexH__HalfEdge_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_GrahamVector3_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_int_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btAlignedObjectArrayT_unsigned_int_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btMatrixXT_double_t.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_btMatrixXT_float_t.cs" />
     <Compile Include="Generated\SWIGTYPE_p_double.cs" />
     <Compile Include="Generated\SWIGTYPE_p_float.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_int.cs" />
     <Compile Include="Generated\SWIGTYPE_p_unsigned_char.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_unsigned_int.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_unsigned_short.cs" />
+    <Compile Include="Generated\SWIGTYPE_p_void.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

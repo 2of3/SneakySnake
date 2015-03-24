@@ -56,7 +56,7 @@
   <ItemGroup>
     <CustomBuild Include="cpp_file.i">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\SWIG\swigwin-3.0.2\swig -csharp -c++ -outdir C:\Users\Linda\Documents\GitHub\SneakySnake\SwigTests\FirstTest\Sharp\Generated cpp_file.i</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\SWIG\swigwin-3.0.2\swig -csharp -c++ -outdir ..\Sharp\Generated cpp_file.i</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cpp_file_wrap.cxx</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkObjects>
       <TreatOutputAsContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatOutputAsContent>
