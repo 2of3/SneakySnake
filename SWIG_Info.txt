@@ -1,6 +1,32 @@
 Getting started with SWIG - C# and C++ Tutorial:
 http://www.technical-recipes.com/2013/getting-started-with-swig-interfacing-between-c-and-c-visual-studio-projects/
 
+Step-by-Step Guide Visual Studio
+	Folder "CPP"
+		--> Swig-Interface (z.b. Name cpp_file.i)
+			--> rechtsklick "properties"
+				--> "custom build tool"
+					--> "Command Line" --> SwigInstallationsPath  -csharp -c++ outdir Outputpath 
+					(z.B. C:\SWIG\swigwin-3.0.2\swig -csharp -c++ -outdir C:\Users\Sam\Documents\GitHub\SneakySnake\SwigTests\FirstTest\Sharp\Generated cpp_file.i)
+					
+					--> "Output" --> "cpp_file_wrap.cxx"
+		
+		CPP_file.i kompilieren
+		
+		--> suche "cpp_file_wrap.cxx" und ziehe es in den Folder "Cpp-->Generated Files"
+
+	CPP erstellen
+	
+	Folder "Sharp"
+		Generated --> Add existing--> Sharp-->Generated--> alle hinzufügen
+		
+		References --> add --> Fusee/bin/Debug/Fusee.Math.Core.dll und Fusee.Math.Conversion.dll
+		
+	Sharp --> Properties --> Build --> check Unsafe Code
+	
+	Sharp erstellen
+	
+
 -------------------
 C++ to C#
 -------------------
