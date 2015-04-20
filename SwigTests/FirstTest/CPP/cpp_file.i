@@ -21,15 +21,7 @@
 %typemap(csin) float[3] " ref $csinput /* float*&_csin */"
 %typemap(imtype, out="global::System.IntPtr") float[3] "ref Fusee.Math.float3 /* Vector*&_imtype */"
 %typemap(in) float[3] "$1 = ($1_ltype)$input; /* float[3]&_in */"
-%typemap(csdirectorin, 
-   pre="    Fusee.Math.float3 vec_$iminput;\n"
-       "    unsafe {/* unsafe blaa*/ vec_$iminput = Fusee.Math.ArrayConvert.ArrayDoubleTodouble3((double *)$iminput);}\n"
-       "    /* Vector*&_csdirectorin_pre */", 
-   post="        unsafe {Fusee.Math.ArrayConvert.double3ToArrayDouble(vec_$iminput, (double *)$iminput);}\n"
-        "        /* Vector*&_csdirectorin_post */"
-  ) float[3]
-  "ref vec_$iminput /* float[3]&_csdirectorin */"
-%typemap(csdirectorout) float[3] "$cscall /* Vector*&_csdirectorout */"
+//%typemap(csdirectorout) float[3] "$cscall /* float[3]&_csdirectorout */"
 
 
 %include "cpp_file.h"
