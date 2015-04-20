@@ -13,5 +13,6 @@ public:
 	~cpp_file(void);
 
 	int times2(int arg);
-	int test(void);
+	float test1(float vec3[3]);
+	float test2(float vec[]);
 };

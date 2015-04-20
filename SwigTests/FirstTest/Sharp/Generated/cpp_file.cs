@@ -45,4 +45,14 @@ public class cpp_file : global::System.IDisposable {
     return ret;
   }
 
+  public float test1(ref Fusee.Math.float3 /* Vector*&_cstype */ vec3) {
+    float ret = cppPINVOKE.cpp_file_test1(swigCPtr,  ref vec3 /* float*&_csin */);
+    return ret;
+  }
+
+  public float test2(SWIGTYPE_p_float vec) {
+    float ret = cppPINVOKE.cpp_file_test2(swigCPtr, SWIGTYPE_p_float.getCPtr(vec));
+    return ret;
+  }
+
 }

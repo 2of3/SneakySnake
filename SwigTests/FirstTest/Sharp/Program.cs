@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fusee.Math;
 
 namespace Sharp
 {
@@ -12,10 +13,9 @@ namespace Sharp
         {
 
             var cpp = new cpp_file();
-            Console.WriteLine(cpp.times2_neu(5));
-
-            var vec = new btVector3(1,2,3);
-            Console.WriteLine("btVector3: " + vec.getX()+","+vec.getY()+","+vec.getZ());
+            float3 vec = new float3(1,2,3);
+            Console.WriteLine(cpp.test1(ref vec));
+           
             Console.Write("Done. Press any key to continue.");
             Console.ReadKey();
         }

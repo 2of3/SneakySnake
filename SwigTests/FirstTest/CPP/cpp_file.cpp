@@ -13,7 +13,12 @@ int cpp_file::times2(int arg)
 	return arg * 2;
 }
 
-int cpp_file::test(void)
+float cpp_file::test1(float vec3[3])
 {
-	return 42;
+	return vec3[2];
+}
+
+float cpp_file::test2(float vec[])
+{
+	return vec[1];
 }

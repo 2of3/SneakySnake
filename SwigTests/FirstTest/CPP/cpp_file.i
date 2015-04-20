@@ -1,7 +1,7 @@
 %module cpp   
 %{  
 
-	#include "uniplug_blender_api.h"
+	#include "cpp_file.h"
 %} 
  
 %include <windows.i>
@@ -10,35 +10,28 @@
 //%apply float INPUT[]  { float* ANY }
 //%apply float OUTPUT[] { float* a2 }*/
 
-// Map float[3]   TO   Fusee.Math.float3
-%typemap(in) float[3] 
-%{ /* <Matrix_in> */ 
-   $1 = (float*) $input; 
-   /* </Matrix_in> */%}
-%typemap(out) float* 
-%{ /* <Matrix_out> */ 
-   $result = *((Matrix_POD *)(&$1)); 
-   /* </Matrix_out> */%}
-%typemap(cstype) float[3]   "Fusee.Math.float3 /* typemap(cstype) */"
-%typemap(csin, 
-   pre="    float[] adbl_$csinput;\n"
-       "    unsafe {adbl_$csinput = Fusee.Math.ArrayConvert.float3ToBlenderfloatArray($csinput); /*convert from float3 to float[3]*/"
-       "    fixed (float *pdbl_$csinput = adbl_$csinput) {\n"
-       "    /* Matrix_csin_pre */", 
-   terminator="} } /* Matrix_csin_terminator */"
+
+//%typemap(ctype) Fusee.Math.float3   "float $1[3] /* typemap(cstype) float3 %1[3] to float[3]*/"
+//%typemap(cstype) float[3]   "Fusee.Math.float3 /* typemap(cstype) float %1[3] to float3*/"
+
+
+
+// Map float[3] and &   TO   ref Fusee.Math.float3
+%typemap(cstype, out="$csclassname") float[3], float & "ref Fusee.Math.float3 /* Vector*&_cstype */"
+%typemap(csin) float[3] " ref $csinput /* float*&_csin */"
+%typemap(imtype, out="global::System.IntPtr") float[3] "ref Fusee.Math.float3 /* Vector*&_imtype */"
+%typemap(in) float[3] "$1 = ($1_ltype)$input; /* float[3]&_in */"
+%typemap(csdirectorin, 
+   pre="    Fusee.Math.float3 vec_$iminput;\n"
+       "    unsafe {/* unsafe blaa*/ vec_$iminput = Fusee.Math.ArrayConvert.ArrayDoubleTodouble3((double *)$iminput);}\n"
+       "    /* Vector*&_csdirectorin_pre */", 
+   post="        unsafe {Fusee.Math.ArrayConvert.double3ToArrayDouble(vec_$iminput, (double *)$iminput);}\n"
+        "        /* Vector*&_csdirectorin_post */"
   ) float[3]
-"(System.IntPtr) pdbl_$csinput /*  Matrix_csin */"
-%typemap(imtype, out="BVec3 /* float[3]_imtype_out see C34M (struct of 3 floats) */") float[3]  "System.IntPtr /* float[3] _imtype */"
-
-//%typemap(out) float[] 
+  "ref vec_$iminput /* float[3]&_csdirectorin */"
+%typemap(csdirectorout) float[3] "$cscall /* Vector*&_csdirectorout */"
 
 
-
-%include "uniplug_blender_api.h"
-
-
-
-
-
+%include "cpp_file.h"
 
 
