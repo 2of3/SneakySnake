@@ -327,7 +327,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_cpp_file_test1(void * jarg1, void * jarg2) {
   float result;
   
   arg1 = (cpp_file *)jarg1; 
-  arg2 = (float *)jarg2; /* float[3]&_in */
+  arg2 = (float *)jarg2; 
   result = (float)(arg1)->test1(arg2);
   jresult = result; 
   return jresult;

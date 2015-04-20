@@ -195,7 +195,7 @@ class cppPINVOKE {
   public static extern int cpp_file_times2(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_cpp_file_test1")]
-  public static extern float cpp_file_test1(global::System.Runtime.InteropServices.HandleRef jarg1, ref Fusee.Math.float3 /* Vector*&_imtype */ jarg2);
+  public static extern float cpp_file_test1(global::System.Runtime.InteropServices.HandleRef jarg1, ref Fusee.Math.float3 /* float[3]&_imtype */ jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("cpp", EntryPoint="CSharp_cpp_file_test2")]
   public static extern float cpp_file_test2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
