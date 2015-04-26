@@ -16,7 +16,7 @@
 
 // Map float[3] TO   ref Fusee.Math.float3
 %typemap(cstype, out="$csclassname") float[3] "ref Fusee.Math.float3 /* float[3]&_cstype */"
-%typemap(csin) float[3] " ref $csinput /* float*&_csin */"
+%typemap(csin) float[3] " ref $csinput /* float[3]&_csin */"
 %typemap(imtype, out="global::System.IntPtr") float[3] "ref Fusee.Math.float3 /* float[3]&_imtype */"
 
 
