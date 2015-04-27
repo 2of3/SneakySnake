@@ -5,7 +5,7 @@ Swig TODO
 --------------------
 TODO:
 --------------------
-
+void parent_bone(const std::string& value) { /* not implemented */ }
 
 --------------------
 Nice To Have:
