@@ -1,0 +1,13 @@
+--------------------
+Swig TODO
+--------------------
+
+--------------------
+TODO:
+--------------------
+
+
+--------------------
+Nice To Have:
+--------------------
+	schauen ob man "ref" für die übergabe von float3 übergabe Parameter wegbekommt
