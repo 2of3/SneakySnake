@@ -16,6 +16,8 @@
 
 //%typemap(ctype) Fusee.Math.float3   "float $1[3] /* typemap(cstype) float3 %1[3] to float[3]*/"
 
+
+//Map int* to int
 %typemap(ctype)  int * "int *"
 %typemap(imtype) int * "IntPtr"
 %typemap(cstype) int * "int"
