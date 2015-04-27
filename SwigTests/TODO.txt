@@ -6,6 +6,17 @@ Swig TODO
 TODO:
 --------------------
 void parent_bone(const std::string& value) { /* not implemented */ }
+	--> evtl kein std von Fabi aus, müsste aber auch so gehen
+Implementieren:
+	array von bools als Parameterübergabe
+		--> any
+	allgemeiner float array als Parameterübergabe 
+		Spezialfälle 
+			float[4] --> Quaternians und ein allgemeines!!
+			float[16] 
+			float[24]
+	Spezialfall int[3]
+	int pointer (*int) übergeben
 
 --------------------
 Nice To Have:
