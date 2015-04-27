@@ -8,8 +8,7 @@ TODO:
 Implementieren:
 	array von bools als Parameterübergabe
 		--> any
-Sarah: allgemeiner float array als Parameterübergabe 
-			Spezialfälle 
+	Spezialfälle float
 				float[4] --> Quaternions und ein allgemeines!!
 				float[16] 
 				float[24] --> Bounding Box --> evtl als 24er Array übermitteln
