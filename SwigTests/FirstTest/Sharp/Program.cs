@@ -12,9 +12,7 @@ namespace Sharp
         static void Main(string[] args)
         {
 
-            var cpp = new cpp_file();
-            float3 vec = new float3(1,2,3.3f);
-            Console.WriteLine(cpp.test1(ref vec));
+           //var myObject = new Object
            
             Console.Write("Done. Press any key to continue.");
             Console.ReadKey();
