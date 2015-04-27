@@ -12,8 +12,11 @@ namespace Sharp
         static void Main(string[] args)
         {
 
-           //var myObject = new Object
+            var myObject = new Object();
+
+            var vec3 = new float3(1.1f, 2.2f, 3.3f);
            
+            Console.Write(myObject.ray_cast(vec3, vec3, vec3, vec3, 2));
             Console.Write("Done. Press any key to continue.");
             Console.ReadKey();
         }
