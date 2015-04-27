@@ -47,9 +47,9 @@
 
 
 // Map int $1[3] TO  int[3]
-//%typemap(cstype, out="$csclassname") int[3] "int[3] /* int[3]_cstype */"
-//%typemap(csin) int[3] " $csinput /* int[3]_csin */"
-//%typemap(imtype, out="global::System.IntPtr") int[3] "int[3] /* int[3]_imtype */"
+%typemap(cstype, out="$csclassname") int $1[3] "int[3] /* int[3]_cstype */"
+%typemap(csin) int $1[3] " $csinput /* int[3]_csin */"
+%typemap(imtype, out="global::System.IntPtr") int $1[3] "int[3] /* int[3]_imtype */"
 
 //%include "cpp_file.h"
 %include "uniplug_blender_api.h"
