@@ -42,9 +42,7 @@ namespace Sharp
             }
             myObject.color(floatN);
 
-            myObject.mode(Object.mode_enum.mode_EDIT);
-            Console.WriteLine(myObject.layers());
-
+            myObject.parent_vertices(ints);
             string myString = "test";
             myObject.active_material_index(5);
             //Console.WriteLine(myObject.layers(bools));

@@ -54,9 +54,7 @@
     <Compile Include="Generated\cppPINVOKE.cs" />
     <Compile Include="Generated\Object.cs" />
     <Compile Include="Generated\SWIGTYPE_p_bool.cs" />
-    <Compile Include="Generated\SWIGTYPE_p_float.cs" />
     <Compile Include="Generated\SWIGTYPE_p_int.cs" />
-    <Compile Include="Generated\SWIGTYPE_p_std__string.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
