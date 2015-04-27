@@ -13,23 +13,15 @@ namespace UniplugBL {
 /**
  * Object datablock defining an object in a scene
  */
-class Object : public ID {
+class Object {
 public:
-	Object() :
-		ID(),
-		material_slots(),
-		modifiers(),
-		constraints(),
-		vertex_groups(),
-		particle_systems(),
-		dupli_list(),
-		lod_levels()
+	Object()
 	{
 		// not implemented
 	}
 
 	/* Getter: Object data */
-	ID data(void) { /* not implemented */ return NULL; }
+	//ID data(void) { /* not implemented */ return NULL; }
 
 	enum type_enum {
 		type_MESH = 1,
@@ -45,7 +37,7 @@ public:
 		type_SPEAKER = 12,
 	};
 	/* Setter/Getter: Type of Object */
-	type_enum type(void) { /* not implemented */ return NULL; }
+	//type_enum type(void) { /* not implemented */ return NULL; }
 	void type(type_enum value) { /* not implemented */ }
 
 	enum mode_enum {
@@ -59,7 +51,7 @@ public:
 		mode_PARTICLE_EDIT = 32,
 	};
 	/* Setter/Getter: Object interaction mode */
-	mode_enum mode(void) { /* not implemented */ return NULL; }
+	//mode_enum mode(void) { /* not implemented */ return NULL; }
 	void mode(mode_enum value) { /* not implemented */ }
 
 	/* Setter/Getter: Layers the object is on */
@@ -79,7 +71,7 @@ public:
 	void bound_box(float values[24]) { /* not implemented */ }
 
 	/* Getter: Parent Object */
-	Object parent(void) { /* not implemented */ return NULL; }
+	//Object parent(void) { /* not implemented */ return NULL; }
 
 	enum parent_type_enum {
 		parent_type_OBJECT = 0,
@@ -92,7 +84,7 @@ public:
 		parent_type_BONE = 7,
 	};
 	/* Setter/Getter: Type of parent relation */
-	parent_type_enum parent_type(void) { /* not implemented */ return NULL; }
+	//parent_type_enum parent_type(void) { /* not implemented */ return NULL; }
 	void parent_type(parent_type_enum value) { /* not implemented */ }
 
 	/* Setter/Getter: Indices of vertices in case of a vertex parenting relation */
@@ -112,7 +104,7 @@ public:
 		track_axis_NEG_Z = 5,
 	};
 	/* Setter/Getter: Axis that points in 'forward' direction (applies to DupliFrame when parent 'Follow' is enabled) */
-	track_axis_enum track_axis(void) { /* not implemented */ return NULL; }
+	//track_axis_enum track_axis(void) { /* not implemented */ return NULL; }
 	void track_axis(track_axis_enum value) { /* not implemented */ }
 
 	enum up_axis_enum {
@@ -121,7 +113,7 @@ public:
 		up_axis_Z = 2,
 	};
 	/* Setter/Getter: Axis that points in the upward direction (applies to DupliFrame when parent 'Follow' is enabled) */
-	up_axis_enum up_axis(void) { /* not implemented */ return NULL; }
+	//up_axis_enum up_axis(void) { /* not implemented */ return NULL; }
 	void up_axis(up_axis_enum value) { /* not implemented */ }
 
 	/* Getter: Library object this proxy object controls */
@@ -130,9 +122,9 @@ public:
 	/* Getter: Library group duplicator object this proxy object controls */
 	Object proxy_group(void) { /* not implemented */ return NULL; }
 
-	COLLECTION_PROPERTY(DefaultCollectionFunctions, MaterialSlot, Object, material_slots, false, false, false)
+	//COLLECTION_PROPERTY(DefaultCollectionFunctions, MaterialSlot, Object, material_slots, false, false, false)
 	/* Getter: Active material being displayed */
-	Material active_material(void) { /* not implemented */ return NULL; }
+	//Material active_material(void) { /* not implemented */ return NULL; }
 
 	/* Setter/Getter: Index of active material slot */
 	int active_material_index(void) { /* not implemented */ return NULL; }
@@ -228,12 +220,12 @@ public:
 	float matrix_parent_inverse(void) { /* not implemented */ return NULL; }
 	void matrix_parent_inverse(float values[16]) { /* not implemented */ }
 
-	COLLECTION_PROPERTY(ObjectModifiers, Modifier, Object, modifiers, false, false, false)
-	COLLECTION_PROPERTY(ObjectConstraints, Constraint, Object, constraints, false, false, false)
+	//COLLECTION_PROPERTY(ObjectModifiers, Modifier, Object, modifiers, false, false, false)
+	//COLLECTION_PROPERTY(ObjectConstraints, Constraint, Object, constraints, false, false, false)
 	/* Getter: Game engine related settings for the object */
-	GameObjectSettings game(void) { /* not implemented */ return NULL; }
+	//GameObjectSettings game(void) { /* not implemented */ return NULL; }
 
-	COLLECTION_PROPERTY(VertexGroups, VertexGroup, Object, vertex_groups, false, false, false)
+	//COLLECTION_PROPERTY(VertexGroups, VertexGroup, Object, vertex_groups, false, false, false)
 	enum empty_draw_type_enum {
 		empty_draw_type_PLAIN_AXES = 2,
 		empty_draw_type_ARROWS = 1,
@@ -245,7 +237,7 @@ public:
 		empty_draw_type_IMAGE = 8,
 	};
 	/* Setter/Getter: Viewport display style for empties */
-	empty_draw_type_enum empty_draw_type(void) { /* not implemented */ return NULL; }
+	//empty_draw_type_enum empty_draw_type(void) { /* not implemented */ return NULL; }
 	void empty_draw_type(empty_draw_type_enum value) { /* not implemented */ }
 
 	/* Setter/Getter: Size of display for empties in the viewport */
@@ -257,7 +249,7 @@ public:
 	void empty_image_offset(float values[2]) { /* not implemented */ }
 
 	/* Getter: Parameters defining which layer, pass and frame of the image is displayed */
-	ImageUser image_user(void) { /* not implemented */ return NULL; }
+	//ImageUser image_user(void) { /* not implemented */ return NULL; }
 
 	/* Setter/Getter: Index number for the IndexOB render pass */
 	int pass_index(void) { /* not implemented */ return NULL; }
@@ -268,20 +260,20 @@ public:
 	void color(float values[4]) { /* not implemented */ }
 
 	/* Getter: Settings for using the object as a field in physics simulation */
-	FieldSettings field(void) { /* not implemented */ return NULL; }
+	//FieldSettings field(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Settings for using the object as a collider in physics simulation */
-	CollisionSettings collision(void) { /* not implemented */ return NULL; }
+	//CollisionSettings collision(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Settings for soft body simulation */
-	SoftBodySettings soft_body(void) { /* not implemented */ return NULL; }
+	//SoftBodySettings soft_body(void) { /* not implemented */ return NULL; }
 
-	COLLECTION_PROPERTY(ParticleSystems, ParticleSystem, Object, particle_systems, false, false, false)
+	//COLLECTION_PROPERTY(ParticleSystems, ParticleSystem, Object, particle_systems, false, false, false)
 	/* Getter: Settings for rigid body simulation */
-	RigidBodyObject rigid_body(void) { /* not implemented */ return NULL; }
+	//RigidBodyObject rigid_body(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Constraint constraining rigid bodies */
-	RigidBodyConstraint rigid_body_constraint(void) { /* not implemented */ return NULL; }
+	//RigidBodyConstraint rigid_body_constraint(void) { /* not implemented */ return NULL; }
 
 	/* Restrict visibility in the viewport */
 	bool hide(void) { /* not implemented */ return NULL; }
@@ -296,13 +288,13 @@ public:
 	void hide_render(int value) { /* not implemented */ }
 
 	/* Getter: Animation data for this datablock */
-	AnimData animation_data(void) { /* not implemented */ return NULL; }
+	//AnimData animation_data(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Animation data for this datablock */
-	AnimViz animation_visualization(void) { /* not implemented */ return NULL; }
+	//AnimViz animation_visualization(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Motion Path for this element */
-	MotionPath motion_path(void) { /* not implemented */ return NULL; }
+	//MotionPath motion_path(void) { /* not implemented */ return NULL; }
 
 	/* Create a delay in the parent relationship (beware: this isn't renderfarm safe and may be invalid after jumping around the timeline) */
 	bool use_slow_parent(void) { /* not implemented */ return NULL; }
@@ -328,7 +320,7 @@ public:
 		dupli_type_GROUP = 256,
 	};
 	/* Setter/Getter: If not None, object duplication method to use */
-	dupli_type_enum dupli_type(void) { /* not implemented */ return NULL; }
+	//dupli_type_enum dupli_type(void) { /* not implemented */ return NULL; }
 	void dupli_type(dupli_type_enum value) { /* not implemented */ }
 
 	/* Set dupliframes to use the current frame instead of parent curve's evaluation time */
@@ -366,9 +358,9 @@ public:
 	int dupli_frames_off(void) { /* not implemented */ return NULL; }
 	void dupli_frames_off(int value) { /* not implemented */ }
 
-	COLLECTION_PROPERTY(DefaultCollectionFunctions, DupliObject, Object, dupli_list, false, false, false)
+	//COLLECTION_PROPERTY(DefaultCollectionFunctions, DupliObject, Object, dupli_list, false, false, false)
 	/*  */
-	bool is_duplicator(void) { /* not implemented */ return NULL; }
+	//bool is_duplicator(void) { /* not implemented */ return NULL; }
 	void is_duplicator(int value) { /* not implemented */ }
 
 	enum draw_type_enum {
@@ -378,7 +370,7 @@ public:
 		draw_type_TEXTURED = 5,
 	};
 	/* Setter/Getter: Maximum draw type to display object with in viewport */
-	draw_type_enum draw_type(void) { /* not implemented */ return NULL; }
+	//draw_type_enum draw_type(void) { /* not implemented */ return NULL; }
 	void draw_type(draw_type_enum value) { /* not implemented */ }
 
 	/* Display the object's bounds */
@@ -393,7 +385,7 @@ public:
 		draw_bounds_type_CAPSULE = 7,
 	};
 	/* Setter/Getter: Object boundary display type */
-	draw_bounds_type_enum draw_bounds_type(void) { /* not implemented */ return NULL; }
+	//draw_bounds_type_enum draw_bounds_type(void) { /* not implemented */ return NULL; }
 	void draw_bounds_type(draw_bounds_type_enum value) { /* not implemented */ }
 
 	/* Display the object's name */
@@ -425,13 +417,13 @@ public:
 	void show_x_ray(int value) { /* not implemented */ }
 
 	/* Getter: Grease Pencil datablock */
-	GreasePencil grease_pencil(void) { /* not implemented */ return NULL; }
+	//GreasePencil grease_pencil(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Action used as a pose library for armatures */
-	Action pose_library(void) { /* not implemented */ return NULL; }
+	//Action pose_library(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Current pose for armatures */
-	Pose pose(void) { /* not implemented */ return NULL; }
+	//Pose pose(void) { /* not implemented */ return NULL; }
 
 	/* Always show the current Shape for this Object */
 	bool show_only_shape_key(void) { /* not implemented */ return NULL; }
@@ -442,7 +434,7 @@ public:
 	void use_shape_key_edit_mode(int value) { /* not implemented */ }
 
 	/* Getter: Current shape key */
-	ShapeKey active_shape_key(void) { /* not implemented */ return NULL; }
+	//ShapeKey active_shape_key(void) { /* not implemented */ return NULL; }
 
 	/* Setter/Getter: Current shape key index */
 	int active_shape_key_index(void) { /* not implemented */ return NULL; }
@@ -452,7 +444,7 @@ public:
 	bool use_dynamic_topology_sculpting(void) { /* not implemented */ return NULL; }
 	void use_dynamic_topology_sculpting(int value) { /* not implemented */ }
 
-	COLLECTION_PROPERTY(DefaultCollectionFunctions, LodLevel, Object, lod_levels, false, false, false)
+	//COLLECTION_PROPERTY(DefaultCollectionFunctions, LodLevel, Object, lod_levels, false, false, false)
 
 	/**
 	 * Convert (transform) the given matrix from one space to another
@@ -462,10 +454,10 @@ public:
 	 * @param The space in which 'matrix' is currently
 	 * @param The space to which you want to transform 'matrix'
 	 */
-	inline void convert_space(PoseBone pose_bone, float matrix[16], float matrix_return[16], space_items from_space=WORLD, space_items to_space=WORLD)
+	/*inline void convert_space(PoseBone pose_bone, float matrix[16], float matrix_return[16], space_items from_space=WORLD, space_items to_space=WORLD)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Generate the camera projection matrix of this object (mostly useful for Camera and Lamp types)
@@ -487,10 +479,10 @@ public:
 	 * @param The location to aim to be able to see all given points
 	 * @param The ortho scale to aim to be able to see all given points (if relevant)
 	 */
-	inline void camera_fit_coords(Scene scene, int coordinates_len, float *coordinates, float co_return[3], float *scale_return)
+	/*inline void camera_fit_coords(Scene scene, int coordinates_len, float *coordinates, float co_return[3], float *scale_return)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Create a Mesh datablock with modifiers applied
@@ -501,20 +493,20 @@ public:
 	 * @param Calculate undeformed vertex coordinates
 	 * @return Mesh created from object, remove it if it is only used for export
 	 */
-	inline Mesh to_mesh(Scene scene, bool apply_modifiers, mesh_type_items settings, bool calc_tessface=true, bool calc_undeformed=false)
+	/*inline Mesh to_mesh(Scene scene, bool apply_modifiers, mesh_type_items settings, bool calc_tessface=true, bool calc_undeformed=false)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Create a list of dupli objects for this object, needs to be freed manually with free_dupli_list to restore the objects real matrix and layers
 	 * @param Scene within which to evaluate duplis
 	 * @param Generate texture coordinates for rendering
 	 */
-	inline void dupli_list_create(Scene scene, dupli_eval_mode_items settings=VIEWPORT)
+	/*inline void dupli_list_create(Scene scene, dupli_eval_mode_items settings=VIEWPORT)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Free the list of dupli objects
@@ -539,10 +531,10 @@ public:
 	 * @param Create new shape from existing mix of shapes
 	 * @return New shape keyblock
 	 */
-	inline ShapeKey shape_key_add(const string name, bool from_mix=true)
+	/*inline ShapeKey shape_key_add(const string name, bool from_mix=true)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Cast a ray onto in object space
@@ -575,10 +567,10 @@ public:
 	 * @param 
 	 * @return Object visibility
 	 */
-	inline bool is_visible(Scene scene)
+	/*inline bool is_visible(Scene scene)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Determine if this object is modified from the base mesh data
@@ -586,10 +578,10 @@ public:
 	 * @param Modifier settings to apply
 	 * @return Object visibility
 	 */
-	inline bool is_modified(Scene scene, mesh_type_items settings)
+	/*inline bool is_modified(Scene scene, mesh_type_items settings)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Determine if this object is modified by a deformation from the base mesh data
@@ -597,20 +589,20 @@ public:
 	 * @param Modifier settings to apply
 	 * @return Object visibility
 	 */
-	inline bool is_deform_modified(Scene scene, mesh_type_items settings)
+	/*inline bool is_deform_modified(Scene scene, mesh_type_items settings)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Returns a string for derived mesh data
 	 * @param Modifier settings to apply
 	 * @param 
 	 */
-	inline void dm_info(mesh_dm_info_items type, string result)
+	/*inline void dm_info(mesh_dm_info_items type, string result)
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Load the objects edit-mode data intp the object data
@@ -636,5 +628,5 @@ public:
 
 }
 
-#endif /* __RNA_BLENDER_CPP_H__ */
+//#endif /* __RNA_BLENDER_CPP_H__ */
 
