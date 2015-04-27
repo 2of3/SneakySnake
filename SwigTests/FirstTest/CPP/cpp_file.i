@@ -19,17 +19,21 @@
 
 
 //Map int* to int
-%typemap(ctype)  int * "int *"
-%typemap(imtype) int * "IntPtr"
-%typemap(cstype) int * "int"
-%typemap(csin)   int * "$csinput"
-%typemap(in)     int * %{ $1 = $input; %}
-%typemap(out)    int * %{ $result = $1; %}
-%typemap(csout)  int * { return $imcall; }
+//%typemap(ctype)  int * "int *"
+//%typemap(imtype) int * "IntPtr"
+//%typemap(cstype) int * "int"
+//%typemap(csin)   int * "$csinput"
+//%typemap(in)     int * %{ $1 = $input; %}
+//%typemap(out)    int * %{ $result = $1; %}
+//%typemap(csout)  int * { return $imcall; }
 
 
 
 
+// Map float $1[ANY] TO  float[]
+%typemap(cstype, out="$csclassname") float[ANY] "float[] /* float[]_cstype */"
+%typemap(csin) float[ANY] " $csinput /* float[]_csin */"
+%typemap(imtype, out="global::System.IntPtr") float[ANY] "float[] /* float[]_imtype */"
 
 // Map float[3] TO   Fusee.Math.float3
 %typemap(cstype, out="$csclassname") float[3] "Fusee.Math.float3 /* float[3]_cstype */"
@@ -42,21 +46,16 @@
 //%typemap(imtype, out="global::System.IntPtr") float[3] "ref Fusee.Math.float3 /* float[3]&_imtype */"
 
 
-// Map float $1[Any] TO  float[3]
-%typemap(cstype, out="$csclassname") float[] "float[] /* float[]_cstype */"
-%typemap(csin) float[Any] " $csinput /* float[]_csin */"
-%typemap(imtype, out="global::System.IntPtr") float[] "float[] /* float[]_imtype */"
-
 // Map int $1[Any] TO  int[]
-%typemap(cstype, out="$csclassname") int[] "int[] /* int[]_cstype */"
-%typemap(csin) int[Any] " $csinput /* int[]_csin */"
-%typemap(imtype, out="global::System.IntPtr") int[] "int[] /* int[]_imtype */"
+//%typemap(cstype, out="$csclassname") int[] "int[] /* int[]_cstype */"
+//%typemap(csin) int[Any] " $csinput /* int[]_csin */"
+//%typemap(imtype, out="global::System.IntPtr") int[] "int[] /* int[]_imtype */"
 
 
 // Map int $1[3] TO  int[3]
-%typemap(cstype, out="$csclassname") int[3] "int[3] /* int[3]_cstype */"
-%typemap(csin) int[Any] " $csinput /* int[3]_csin */"
-%typemap(imtype, out="global::System.IntPtr") int[3] "int[3] /* int[3]_imtype */"
+//%typemap(cstype, out="$csclassname") int[3] "int[3] /* int[3]_cstype */"
+//%typemap(csin) int[Any] " $csinput /* int[3]_csin */"
+//%typemap(imtype, out="global::System.IntPtr") int[3] "int[3] /* int[3]_imtype */"
 
 //%include "cpp_file.h"
 %include "uniplug_blender_api.h"

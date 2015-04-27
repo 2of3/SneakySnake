@@ -35,8 +35,12 @@ namespace Sharp
             }
 
             //testing general float[]
-            var floatN = new float[6];
-            Console.WriteLine("general float array: " + floatN);
+            var floatN = new float[4];
+            for (int i = 0; i < 4; i++)
+            {
+                floatN[i] = 1.1f;
+            }
+            myObject.color(floatN);
 
             myObject.mode(Object.mode_enum.mode_EDIT);
             Console.WriteLine(myObject.layers());
@@ -45,7 +49,7 @@ namespace Sharp
             myObject.active_material_index(5);
             //Console.WriteLine(myObject.layers(bools));
             int myInt = 5;
-            myObject.ray_cast(vec3, vec3, vec3, vec3, myInt);
+            //myObject.ray_cast(vec3, vec3, vec3, vec3, myInt);
             Console.Write("Done. Press any key to continue.");
             Console.ReadKey();
         }

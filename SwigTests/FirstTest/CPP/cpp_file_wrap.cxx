@@ -420,14 +420,14 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Object_parent_type(void * jarg1, int jarg2) {
 }
 
 
-SWIGEXPORT int * SWIGSTDCALL CSharp_Object_parent_vertices__SWIG_0(void * jarg1) {
-  int * jresult ;
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_parent_vertices__SWIG_0(void * jarg1) {
+  void * jresult ;
   UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   int *result = 0 ;
   
   arg1 = (UniplugBL::Object *)jarg1; 
   result = (int *)(arg1)->parent_vertices();
-  jresult = result; 
+  jresult = (void *)result; 
   return jresult;
 }
 
@@ -1697,7 +1697,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_list_clear(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Object_ray_cast(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, int * jarg6) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_ray_cast(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6) {
   UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float *arg2 ;
   float *arg3 ;
@@ -1710,12 +1710,12 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Object_ray_cast(void * jarg1, void * jarg2, v
   arg3 = (float *)jarg3; 
   arg4 = (float *)jarg4; 
   arg5 = (float *)jarg5; 
-  arg6 = jarg6; 
+  arg6 = (int *)jarg6; 
   (arg1)->ray_cast(arg2,arg3,arg4,arg5,arg6);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Object_closest_point_on_mesh(void * jarg1, void * jarg2, float jarg3, void * jarg4, void * jarg5, int * jarg6) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_closest_point_on_mesh(void * jarg1, void * jarg2, float jarg3, void * jarg4, void * jarg5, void * jarg6) {
   UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float *arg2 ;
   float arg3 ;
@@ -1728,7 +1728,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Object_closest_point_on_mesh(void * jarg1, vo
   arg3 = (float)jarg3; 
   arg4 = (float *)jarg4; 
   arg5 = (float *)jarg5; 
-  arg6 = jarg6; 
+  arg6 = (int *)jarg6; 
   (arg1)->closest_point_on_mesh(arg2,arg3,arg4,arg5,arg6);
 }
 
