@@ -16,7 +16,13 @@
 
 //%typemap(ctype) Fusee.Math.float3   "float $1[3] /* typemap(cstype) float3 %1[3] to float[3]*/"
 
-
+%typemap(ctype)  int * "int *"
+%typemap(imtype) int * "IntPtr"
+%typemap(cstype) int * "int"
+%typemap(csin)   int * "$csinput"
+%typemap(in)     int * %{ $1 = $input; %}
+%typemap(out)    int * %{ $result = $1; %}
+%typemap(csout)  int * { return $imcall; }
 
 
 // Map float[3] TO   Fusee.Math.float3

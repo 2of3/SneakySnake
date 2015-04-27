@@ -14,7 +14,6 @@ Sarah: allgemeiner float array als Parameterübergabe
 				float[16] 
 				float[24] --> Bounding Box --> evtl als 24er Array übermitteln
 Linda:	Spezialfall int[3]
-Linda:	int pointer (*int) übergeben
 
 --------------------
 Nice To Have:
