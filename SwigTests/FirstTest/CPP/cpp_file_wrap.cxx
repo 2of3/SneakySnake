@@ -281,70 +281,1483 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_cpp(SWIG_CSharpStringHelp
 
   
 
-	#include "cpp_file.h"
+	//#include "cpp_file.h"
+	#include "uniplug_blender_api.h"
+
+
+#include <string>
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_cpp_file() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Object() {
   void * jresult ;
-  cpp_file *result = 0 ;
+  UniplugBL::Object *result = 0 ;
   
-  result = (cpp_file *)new cpp_file();
+  result = (UniplugBL::Object *)new UniplugBL::Object();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_cpp_file(void * jarg1) {
-  cpp_file *arg1 = (cpp_file *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::type_enum arg2 ;
   
-  arg1 = (cpp_file *)jarg1; 
-  delete arg1;
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::type_enum)jarg2; 
+  (arg1)->type(arg2);
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_cpp_file_times2(void * jarg1, int jarg2) {
-  int jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_mode(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::mode_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::mode_enum)jarg2; 
+  (arg1)->mode(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_layers__SWIG_0(void * jarg1) {
+  void * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool *)(arg1)->layers();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_layers__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (bool *)jarg2; 
+  (arg1)->layers(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_layers_local_view__SWIG_0(void * jarg1) {
+  void * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool *)(arg1)->layers_local_view();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_layers_local_view__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (bool *)jarg2; 
+  (arg1)->layers_local_view(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_select__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->select();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_select__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->select(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_bound_box__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->bound_box();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_bound_box__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->bound_box(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_parent_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::parent_type_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::parent_type_enum)jarg2; 
+  (arg1)->parent_type(arg2);
+}
+
+
+SWIGEXPORT int * SWIGSTDCALL CSharp_Object_parent_vertices__SWIG_0(void * jarg1) {
+  int * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int *)(arg1)->parent_vertices();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_parent_vertices__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int *)jarg2; 
+  (arg1)->parent_vertices(arg2);
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_Object_parent_bone__SWIG_0(void * jarg1) {
+  char * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  std::string result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (arg1)->parent_bone();
+  jresult = SWIG_csharp_string_callback((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_parent_bone__SWIG_1(void * jarg1, char * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  std::string *arg2 = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  if (!jarg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
+    return ;
+  }
+  std::string arg2_str(jarg2);
+  arg2 = &arg2_str; 
+  (arg1)->parent_bone((std::string const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_track_axis(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::track_axis_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::track_axis_enum)jarg2; 
+  (arg1)->track_axis(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_up_axis(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::up_axis_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::up_axis_enum)jarg2; 
+  (arg1)->up_axis(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_active_material_index__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   int result;
   
-  arg1 = (cpp_file *)jarg1; 
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->active_material_index();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_active_material_index__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
   arg2 = (int)jarg2; 
-  result = (int)(arg1)->times2(arg2);
+  (arg1)->active_material_index(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_location__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->location();
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_cpp_file_test1(void * jarg1, void * jarg2) {
-  float jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_location__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->location(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_rotation_quaternion__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float result;
   
-  arg1 = (cpp_file *)jarg1; 
-  arg2 = (float *)jarg2; 
-  result = (float)(arg1)->test1(arg2);
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->rotation_quaternion();
   jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_cpp_file_test2(void * jarg1, void * jarg2) {
-  float jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_rotation_quaternion__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->rotation_quaternion(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_rotation_axis_angle__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
   float result;
   
-  arg1 = (cpp_file *)jarg1; 
-  arg2 = (float *)jarg2; 
-  result = (float)(arg1)->test2(arg2);
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->rotation_axis_angle();
   jresult = result; 
   return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_rotation_axis_angle__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->rotation_axis_angle(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_rotation_euler__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->rotation_euler();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_rotation_euler__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->rotation_euler(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_rotation_mode(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::rotation_mode_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::rotation_mode_enum)jarg2; 
+  (arg1)->rotation_mode(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_scale__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->scale();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_scale__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->scale(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_dimensions__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->dimensions();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dimensions__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->dimensions(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_delta_location__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->delta_location();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_delta_location__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->delta_location(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_delta_rotation_euler__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->delta_rotation_euler();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_delta_rotation_euler__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->delta_rotation_euler(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_delta_rotation_quaternion__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->delta_rotation_quaternion();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_delta_rotation_quaternion__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->delta_rotation_quaternion(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_delta_scale__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->delta_scale();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_delta_scale__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->delta_scale(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_lock_location__SWIG_0(void * jarg1) {
+  void * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool *)(arg1)->lock_location();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_lock_location__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (bool *)jarg2; 
+  (arg1)->lock_location(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_lock_rotation__SWIG_0(void * jarg1) {
+  void * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool *)(arg1)->lock_rotation();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_lock_rotation__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (bool *)jarg2; 
+  (arg1)->lock_rotation(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_lock_rotation_w__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->lock_rotation_w();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_lock_rotation_w__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->lock_rotation_w(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_lock_rotations_4d__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->lock_rotations_4d();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_lock_rotations_4d__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->lock_rotations_4d(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Object_lock_scale__SWIG_0(void * jarg1) {
+  void * jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *result = 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool *)(arg1)->lock_scale();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_lock_scale__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (bool *)jarg2; 
+  (arg1)->lock_scale(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_matrix_world__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->matrix_world();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_matrix_world__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->matrix_world(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_matrix_local__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->matrix_local();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_matrix_local__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->matrix_local(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_matrix_basis__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->matrix_basis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_matrix_basis__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->matrix_basis(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_matrix_parent_inverse__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->matrix_parent_inverse();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_matrix_parent_inverse__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->matrix_parent_inverse(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_empty_draw_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::empty_draw_type_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::empty_draw_type_enum)jarg2; 
+  (arg1)->empty_draw_type(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_empty_draw_size__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->empty_draw_size();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_empty_draw_size__SWIG_1(void * jarg1, float jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->empty_draw_size(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_empty_image_offset__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->empty_image_offset();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_empty_image_offset__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->empty_image_offset(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_pass_index__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->pass_index();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_pass_index__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->pass_index(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_color__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->color();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_color__SWIG_1(void * jarg1, void * jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  (arg1)->color(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_hide__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->hide();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_hide__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->hide(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_hide_select__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->hide_select();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_hide_select__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->hide_select(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_hide_render__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->hide_render();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_hide_render__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->hide_render(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_slow_parent__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_slow_parent();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_slow_parent__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_slow_parent(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_slow_parent_offset__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->slow_parent_offset();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_slow_parent_offset__SWIG_1(void * jarg1, float jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->slow_parent_offset(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_extra_recalc_object__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_extra_recalc_object();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_extra_recalc_object__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_extra_recalc_object(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_extra_recalc_data__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_extra_recalc_data();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_extra_recalc_data__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_extra_recalc_data(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::dupli_type_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::dupli_type_enum)jarg2; 
+  (arg1)->dupli_type(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_dupli_frames_speed__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_dupli_frames_speed();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_dupli_frames_speed__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_dupli_frames_speed(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_dupli_vertices_rotation__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_dupli_vertices_rotation();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_dupli_vertices_rotation__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_dupli_vertices_rotation(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_dupli_faces_scale__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_dupli_faces_scale();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_dupli_faces_scale__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_dupli_faces_scale(arg2);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Object_dupli_faces_scale__SWIG_0(void * jarg1) {
+  float jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (float)(arg1)->dupli_faces_scale();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_faces_scale__SWIG_1(void * jarg1, float jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->dupli_faces_scale(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_dupli_frames_start__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->dupli_frames_start();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_frames_start__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->dupli_frames_start(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_dupli_frames_end__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->dupli_frames_end();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_frames_end__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->dupli_frames_end(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_dupli_frames_on__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->dupli_frames_on();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_frames_on__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->dupli_frames_on(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_dupli_frames_off__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->dupli_frames_off();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_frames_off__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->dupli_frames_off(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_is_duplicator(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->is_duplicator(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_draw_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::draw_type_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::draw_type_enum)jarg2; 
+  (arg1)->draw_type(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_bounds__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_bounds();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_bounds__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_bounds(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_draw_bounds_type(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  UniplugBL::Object::draw_bounds_type_enum arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (UniplugBL::Object::draw_bounds_type_enum)jarg2; 
+  (arg1)->draw_bounds_type(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_name__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_name();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_name__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_name(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_axis__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_axis();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_axis__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_axis(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_texture_space__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_texture_space();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_texture_space__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_texture_space(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_wire__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_wire();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_wire__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_wire(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_all_edges__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_all_edges();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_all_edges__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_all_edges(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_transparent__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_transparent();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_transparent__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_transparent(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_x_ray__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_x_ray();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_x_ray__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_x_ray(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_show_only_shape_key__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->show_only_shape_key();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_show_only_shape_key__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->show_only_shape_key(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_shape_key_edit_mode__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_shape_key_edit_mode();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_shape_key_edit_mode__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_shape_key_edit_mode(arg2);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_Object_active_shape_key_index__SWIG_0(void * jarg1) {
+  int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (int)(arg1)->active_shape_key_index();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_active_shape_key_index__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->active_shape_key_index(arg2);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_use_dynamic_topology_sculpting__SWIG_0(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->use_dynamic_topology_sculpting();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_use_dynamic_topology_sculpting__SWIG_1(void * jarg1, int jarg2) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  int arg2 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->use_dynamic_topology_sculpting(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_calc_matrix_camera(void * jarg1, void * jarg2, int jarg3, int jarg4, float jarg5, float jarg6) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  int arg3 ;
+  int arg4 ;
+  float arg5 ;
+  float arg6 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (float)jarg5; 
+  arg6 = (float)jarg6; 
+  (arg1)->calc_matrix_camera(arg2,arg3,arg4,arg5,arg6);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_dupli_list_clear(void * jarg1) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  (arg1)->dupli_list_clear();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_ray_cast(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, int * jarg6) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  float *arg3 ;
+  float *arg4 ;
+  float *arg5 ;
+  int *arg6 = (int *) 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  arg4 = (float *)jarg4; 
+  arg5 = (float *)jarg5; 
+  arg6 = jarg6; 
+  (arg1)->ray_cast(arg2,arg3,arg4,arg5,arg6);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_closest_point_on_mesh(void * jarg1, void * jarg2, float jarg3, void * jarg4, void * jarg5, int * jarg6) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  float *arg2 ;
+  float arg3 ;
+  float *arg4 ;
+  float *arg5 ;
+  int *arg6 = (int *) 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float)jarg3; 
+  arg4 = (float *)jarg4; 
+  arg5 = (float *)jarg5; 
+  arg6 = jarg6; 
+  (arg1)->closest_point_on_mesh(arg2,arg3,arg4,arg5,arg6);
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Object_update_from_editmode(void * jarg1) {
+  unsigned int jresult ;
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  bool result;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  result = (bool)(arg1)->update_from_editmode();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Object_cache_release(void * jarg1) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  (arg1)->cache_release();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Object(void * jarg1) {
+  UniplugBL::Object *arg1 = (UniplugBL::Object *) 0 ;
+  
+  arg1 = (UniplugBL::Object *)jarg1; 
+  delete arg1;
 }
 
 

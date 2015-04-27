@@ -34,6 +34,10 @@ namespace Sharp
                 ints[i] =i;
             }
 
+            //testing general float[]
+            var floatN = new float[6];
+            Console.WriteLine("general float array: " + floatN);
+
             myObject.mode(Object.mode_enum.mode_EDIT);
             Console.WriteLine(myObject.layers());
 

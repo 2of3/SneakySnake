@@ -41,6 +41,12 @@
 //%typemap(csin) float[3] " ref $csinput /* float[3]&_csin */"
 //%typemap(imtype, out="global::System.IntPtr") float[3] "ref Fusee.Math.float3 /* float[3]&_imtype */"
 
+
+// Map float $1[Any] TO  float[3]
+%typemap(cstype, out="$csclassname") float[] "float[] /* float[]_cstype */"
+%typemap(csin) float[Any] " $csinput /* float[]_csin */"
+%typemap(imtype, out="global::System.IntPtr") float[] "float[] /* float[]_imtype */"
+
 // Map int $1[Any] TO  int[]
 %typemap(cstype, out="$csclassname") int[] "int[] /* int[]_cstype */"
 %typemap(csin) int[Any] " $csinput /* int[]_csin */"
