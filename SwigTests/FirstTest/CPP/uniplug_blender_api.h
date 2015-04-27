@@ -117,10 +117,10 @@ public:
 	void up_axis(up_axis_enum value) { /* not implemented */ }
 
 	/* Getter: Library object this proxy object controls */
-	Object proxy(void) { /* not implemented */ return NULL; }
+	//Object proxy(void) { /* not implemented */ return NULL; }
 
 	/* Getter: Library group duplicator object this proxy object controls */
-	Object proxy_group(void) { /* not implemented */ return NULL; }
+	//Object proxy_group(void) { /* not implemented */ return NULL; }
 
 	//COLLECTION_PROPERTY(DefaultCollectionFunctions, MaterialSlot, Object, material_slots, false, false, false)
 	/* Getter: Active material being displayed */
@@ -157,7 +157,7 @@ public:
 		rotation_mode_AXIS_ANGLE = -1,
 	};
 	/* Setter/Getter:  */
-	rotation_mode_enum rotation_mode(void) { /* not implemented */ return NULL; }
+	//rotation_mode_enum rotation_mode(void) { /* not implemented */ return NULL; }
 	void rotation_mode(rotation_mode_enum value) { /* not implemented */ }
 
 	/* Setter/Getter: Scaling of the object */
@@ -340,7 +340,7 @@ public:
 	void dupli_faces_scale(float value) { /* not implemented */ }
 
 	/* Getter: Instance an existing group */
-	Group dupli_group(void) { /* not implemented */ return NULL; }
+	//Group dupli_group(void) { /* not implemented */ return NULL; }
 
 	/* Setter/Getter: Start frame for DupliFrames */
 	int dupli_frames_start(void) { /* not implemented */ return NULL; }
@@ -520,10 +520,10 @@ public:
 	 * Find armature influencing this object as a parent or via a modifier
 	 * @return Armature object influencing this object or NULL
 	 */
-	inline Object find_armature()
+	/*inline Object find_armature()
 	{
 		// not implemented
-	}
+	}*/
 
 	/**
 	 * Add shape key to an object
@@ -611,6 +611,7 @@ public:
 	inline bool update_from_editmode()
 	{
 		// not implemented
+		return NULL;
 	}
 
 	/**
