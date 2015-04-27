@@ -6,6 +6,8 @@
 %} 
  
 %include <windows.i>
+%include "std_string.i"
+
 //*%include "arrays_csharp.i"
 
 //%apply float INPUT[]  { float* ANY }
