@@ -10,13 +10,13 @@ void parent_bone(const std::string& value) { /* not implemented */ }
 Implementieren:
 	array von bools als Parameterübergabe
 		--> any
-	allgemeiner float array als Parameterübergabe 
-		Spezialfälle 
-			float[4] --> Quaternians und ein allgemeines!!
-			float[16] 
-			float[24]
-	Spezialfall int[3]
-	int pointer (*int) übergeben
+Sarah: allgemeiner float array als Parameterübergabe 
+			Spezialfälle 
+				float[4] --> Quaternions und ein allgemeines!!
+				float[16] 
+				float[24] --> Bounding Box --> evtl als 24er Array übermitteln
+Linda:	Spezialfall int[3]
+Linda:	int pointer (*int) übergeben
 
 --------------------
 Nice To Have:
