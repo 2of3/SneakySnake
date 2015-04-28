@@ -9,9 +9,11 @@ Implementieren:
 	array von bools als Parameterübergabe
 		--> any
 	Spezialfälle float
-				float[4] --> Quaternions und ein allgemeines!!
-				float[16] 
-				float[24] --> Bounding Box --> evtl als 24er Array übermitteln
+				float[4] --> Quaternions und ein allgemeines!! --> evtl. immer als allgemein behandeln und dann muss dieses im Kontext umgewandelt werden
+				float[16] --> 4x4 Matrix --> Reihenfolge beachten!
+				float[24] --> Bounding Box --> eigenen Typen basteln
+				
+	int* --> Rückgabe eines Arrays oder Pointer auf den Anfang eines Arrays?
 
 --------------------
 Nice To Have:
