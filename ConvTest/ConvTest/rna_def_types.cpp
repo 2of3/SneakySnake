@@ -595,6 +595,8 @@ bool rna_def_pose(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property(vector<bpy_func> &funcs, string str)
 {
+	if (funcs.size() == 0) return true;
+
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.push_back(
 		make_param(pmstr[1], "", ""));
@@ -724,6 +726,7 @@ bool rna_def_property_enum_sdna(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property_flag(vector<bpy_func> &funcs, string str)
 {
+	if (funcs.size() == 0) return true;
 	if (funcs.back().error) return true;
 
 	if (regex_search(str, regex("PROP_REQUIRED")))
@@ -811,18 +814,12 @@ bool rna_def_property_multi_array(vector<bpy_func> &funcs, string str)
 {
 	vector<string> pmstr = get_params(str);
 
-	/// TODO: check if 2dim
-	regex reg1(R"(^.*_(\d)x.*$)");
-	regex reg2(R"(^.*_\dx(\d)$)");
+	regex reg1(R"(^.*_([\d+x]+).*$)");
+	string dim_str = std::regex_replace(pmstr[2], reg1, "$1");
+	vector<string> dim_vec = split(dim_str, regex("x"));
 
-	string len0 = std::regex_replace(pmstr[2], reg1, "$1");
-	string len1 = std::regex_replace(pmstr[2], reg2, "$1");
-
-	funcs.back().params.back().name += "[" + len0 + "][" + len1 + "]";
-
-	/*	int dim = std::stoi(pmstr[1]);
-	for (int x = 1; x < dim; x++)
-		funcs.back().params.back().name += "[]";*/
+	for (string dim : dim_vec)
+		funcs.back().params.back().name += "[" + dim + "]";
 
 	return true;
 }
@@ -914,6 +911,8 @@ bool rna_def_property_ui_range(vector<bpy_func> &funcs, string str)
 
 bool rna_def_property_ui_text(vector<bpy_func> &funcs, string str)
 {
+	if (funcs.size() == 0) return true;
+
 	vector<string> pmstr = get_params(str);
 	funcs.back().params.back().desc = pmstr[2];
 

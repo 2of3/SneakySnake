@@ -1,4 +1,5 @@
 #pragma once
+#define NO_COMMENT
 
 #include "rna_def_types.h"
 
@@ -19,6 +20,8 @@ using std::vector;
 using std::regex;
 
 #define is_rna_type(a, b) (regex_search(a, regex(b))) 
+//#define pout cpp_file
+#define pout cout
 
 struct bpy_enum_param
 {
@@ -53,6 +56,7 @@ struct bpy_func
 
 extern vector<string> unsolved_refs;
 
+vector<string> split(const string &s, const regex &r);
 vector<string> get_params(string str);
 string trim_param_str(string str);
 fctparam make_param(string name, string type, string desc, string def = "");

@@ -1,0 +1,12 @@
+RNA definiert in Methoden wie "RNA_def_object" (rna_object.c) immer
+zuerst Structs (bspw. "Object") und ruft dann eine Methode wie
+"RNA_api_object" (rna_object_api.c) um die Funktionen des Structs
+zu definieren. Diese Reihenfolge muss der Parser einhalten.
+
+static RNAProcessItem PROCESS_ITEMS[]
+	{"rna_texture.c", "rna_texture_api.c", RNA_def_texture},
+	       ^-- Filename     ^-- API-Filename      ^-- Function
+
+in makesrna.c
+
+Reihenfolge okay?

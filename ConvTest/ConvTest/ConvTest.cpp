@@ -20,7 +20,7 @@ vector<string> get_params(string str)
 	regex reg2(R"(,(?=([^\"]*\"[^\"]*\")*[^\"]*$))");
 	vector<string> params = split(str, reg2);
 	
-	for (int x = 0; x < params.size(); x++)
+	for (int x = 0; x < (int) params.size(); x++)
 		params[x] = trim_param_str(params[x]);
 	
 	return params;
@@ -43,7 +43,7 @@ fctparam make_param(string name, string type, string desc, string def)
 	return tmpparam;
 }
 
-void parse_function_code(vector<string> strvec)
+vector<bpy_func> parse_function_code(vector<string> strvec)
 {
 	vector<bpy_func> funcs;
 
@@ -65,57 +65,14 @@ void parse_function_code(vector<string> strvec)
 			}
 			else
 			{
-				cout << "// Unknown RNA function ";
-				cout << get_rna_def_type(str) << endl;
+				cout << "// Unknown RNA function: ";
+				cout << str.erase(40) << "..." << endl;
+				break;
 			}
 		}
 	}
 
-	// print funcs
-	cout << endl << endl;
-
-	for (bpy_func func : funcs)
-	{
-		if (func.error) continue;
-
-		// documentation
-		cout << "/**" << endl << " * " << func.desc << endl;
-
-		for (fctparam param : func.params) {
-			cout << " * @param " << param.name << " ";
-			cout << param.desc << endl;
-		}
-
-		if (func.rettype.type != "void")
-			cout << " * @return " << func.rettype.desc << endl;
-
-		cout << " */" << endl;
-
-		// header
-		cout << func.rettype.type << " ";
-		cout << func.name << "(";
-
-		for (fctparam param : func.params)
-		{
-			cout << param.type << " " << param.name;
-
-			if (!param.required)
-				if (param.defval != "")
-					cout << "=" << param.defval;
-				else
-					cout << "=NULL";
-
-			if (param.name != func.params.back().name)
-				cout << ", ";
-		}
-
-		cout << ")" << endl;
-
-		// body
-		cout << "{" << endl;
-		cout << "    // dummy" << endl;
-		cout << "}" << endl << endl;
-	}
+	return funcs;
 }
 
 string get_enum_name(string str)
@@ -138,7 +95,7 @@ string trim_enum_param(string &str)
 	return regex_replace(str, reg, "");
 }
 
-void parse_enum_code(vector<string> strvec)
+vector<bpy_enum> parse_enum_code(vector<string> strvec)
 {
 	vector<bpy_enum> enums;
 
@@ -154,10 +111,13 @@ void parse_enum_code(vector<string> strvec)
 			strparam = trim_enum_param(strparam);
 			vector<string> subparams = get_params(strparam);
 
+			if (subparams[1] == "")
+				continue;
+
 			bpy_enum_param new_param;
-			new_param.name = trim_param_str(subparams[1]);
-			new_param.desc = trim_param_str(subparams[4]);
-			new_param.value = trim_param_str(subparams[0]);
+			new_param.name = subparams[1];
+			new_param.desc = subparams[4];
+			new_param.value = subparams[0];
 			new_enum.params.push_back(new_param);
 
 			// in case of unsolved reference
@@ -169,25 +129,7 @@ void parse_enum_code(vector<string> strvec)
 		enums.push_back(new_enum);
 	}
 
-	// print enums
-	for (bpy_enum tmp_enum : enums)
-	{
-		cout << "enum " << tmp_enum.name << endl;
-		cout << "{" << endl;
-
-		string last_name = tmp_enum.params.back().name;
-		for (bpy_enum_param tmp_param : tmp_enum.params)
-		{
-			cout << "\t" << tmp_param.name;
-			cout << "=" << tmp_param.value;
-			if (tmp_param.name != last_name) cout << ",";
-			cout << " /**< " << tmp_param.desc << " */" << endl;
-		}
-
-		cout << "};" << endl << endl;
-	}
-
-	cout << endl;
+	return enums;
 }
 
 vector<string> filter_commands(vector<string> strvec, regex filter)
@@ -216,32 +158,56 @@ vector<string> filter_commands(vector<string> strvec, regex filter)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	vector<bpy_func> bpy_funcs;
+	vector<bpy_enum> bpy_enums;
+
 	// map enum
 	setup_enum_mapping();
 	
-	// load main file
-	std::ifstream infile("rna_object_api.c", std::ios_base::in);
-	string str((std::istreambuf_iterator<char>(infile)),
-		std::istreambuf_iterator<char>());
+	// load main files
+	vector<string> main_file_str;
+	main_file_str.push_back("files/rna_object_api.c");
+	main_file_str.push_back("files/rna_constraint.c");
+	//main_file_str.push_back("files/rna_material_api.c");
 
-	/* filter file and split up */
-	regex reg1(R"(/\*.*\*/)");			// comments
-	regex reg2(R"(^[\t ]+|[\t ]+$)");	// whitespaces
+	for (string file_str : main_file_str) {
+		cout << "// Parsing File: " << file_str << endl;
 
-	str = regex_replace(str, reg1, "");
-	str = regex_replace(str, reg2, "");
-	
-	vector<string> strvec = split(str, regex("\n"));
+		std::ifstream infile(file_str, std::ios_base::in);
+		string str((std::istreambuf_iterator<char>(infile)),
+			std::istreambuf_iterator<char>());
 
-	// parse enums
-	regex reg_enu(R"(EnumProperty)");
-	vector<string> enumdef = filter_commands(strvec, reg_enu);
-	parse_enum_code(enumdef);
+		if (str.size() == 0)
+		{
+			cout << "// ERROR WHILE READING FILE" << endl;
+			continue;
+		}
 
-	// parse functions
-	regex reg_def(R"(RNA_def_)");
-	vector<string> fctdef = filter_commands(strvec, reg_def);
-	parse_function_code(fctdef);
+		/* filter file and split up */
+		regex reg1(R"(/\*.*\*/)");			// comments
+		regex reg2(R"(^[\t ]+|[\t ]+$)");	// whitespaces
+
+		str = regex_replace(str, reg1, "");
+		str = regex_replace(str, reg2, "");
+
+		vector<string> strvec = split(str, regex("\n"));
+
+		// parse enums
+		regex reg_enu(R"(EnumPropertyItem.+?\[\])");
+		vector<string> enumdef = filter_commands(strvec, reg_enu);
+		vector<bpy_enum> tmp_enums = parse_enum_code(enumdef);
+		bpy_enums.insert(bpy_enums.end(), tmp_enums.begin(), tmp_enums.end());
+
+		// parse functions
+		regex reg_def(R"(RNA_def_)");
+		vector<string> fctdef = filter_commands(strvec, reg_def);
+		vector<bpy_func> tmp_funcs = parse_function_code(fctdef);
+		bpy_funcs.insert(bpy_funcs.end(), tmp_funcs.begin(), tmp_funcs.end());
+	}
+
+	// print and save to file
+	std::ofstream cpp_file;
+	cpp_file.open("Output.cpp");
 
 	// resolve unsolved references
 	vector<string> ref_file_str;
@@ -253,7 +219,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		string ref_str((std::istreambuf_iterator<char>(ref_file)),
 			std::istreambuf_iterator<char>());
 
-		cout << endl << "// " << file_str << endl;
+		pout << endl << "// File: " << file_str << endl;
 
 		vector<string> copy_ref = vector<string>(unsolved_refs);
 		for (string ref : copy_ref) {
@@ -264,7 +230,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				string valmatch = regex_replace(reg_match.str(), reg, "$1");
 				valmatch = trim_param_str(valmatch);
 
-				std::cout << "#define " << ref << " " << valmatch << endl;
+				pout << "#define " << ref << " " << valmatch << endl;
 
 				auto it = std::find(unsolved_refs.begin(), unsolved_refs.end(), ref);
 				if (it != unsolved_refs.end())
@@ -275,11 +241,86 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	if (unsolved_refs.size() > 0)
 	{
-		cout << endl << "// UNSOLVED REFERENCES: " << endl;
+		pout << endl << "// UNSOLVED REFERENCES: " << endl;
 
 		for (string ref : unsolved_refs)
-			cout << "// \t" << ref << endl;
+			pout << "// \t" << ref << endl;
 	}
+
+	// print enums
+	for (bpy_enum tmp_enum : bpy_enums)
+	{
+		pout << "enum " << tmp_enum.name << endl;
+		pout << "{" << endl;
+
+		string last_name = tmp_enum.params.back().name;
+		for (bpy_enum_param tmp_param : tmp_enum.params)
+		{
+			pout << "\t" << tmp_param.name;
+			pout << "=" << tmp_param.value;
+			if (tmp_param.name != last_name) pout << ",";
+
+#ifndef NO_COMMENT
+			if (tmp_param.desc != "")
+				pout << " /**< " << tmp_param.desc << " */";
+#endif
+
+			pout << endl;
+		}
+
+		pout << "};" << endl << endl;
+	}
+
+	// print funcs
+	pout << endl << endl;
+
+	for (bpy_func func : bpy_funcs)
+	{
+		if (func.error) continue;
+
+		// documentation
+#ifndef NO_COMMENT
+		pout << "/**" << endl << " * " << func.desc << endl;
+
+		for (fctparam param : func.params) {
+			pout << " * @param " << param.name << " ";
+			pout << param.desc << endl;
+		}
+
+		if (func.rettype.type != "void")
+			pout << " * @return " << func.rettype.desc << endl;
+
+		pout << " */" << endl;
+#endif
+
+		// header
+		pout << func.rettype.type << " ";
+		pout << func.name << "(";
+
+		for (fctparam param : func.params)
+		{
+			pout << param.type << " " << param.name;
+
+			if (!param.required)
+				if (param.defval != "")
+					pout << "=" << param.defval;
+				else
+					pout << "=NULL";
+
+			if (param.name != func.params.back().name)
+				pout << ", ";
+		}
+
+		pout << ")" << endl;
+
+		// body
+		pout << "{" << endl;
+		pout << "    // dummy" << endl;
+		pout << "}" << endl << endl;
+	}
+
+	// close file
+	cpp_file.close();
 
 	// dummy input
 	int tmp;
