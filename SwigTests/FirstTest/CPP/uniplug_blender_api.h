@@ -536,6 +536,9 @@ public:
 		// not implemented
 	}*/
 
+	inline void test(int f[3], int *i)
+	{}
+
 	/**
 	 * Cast a ray onto in object space
 	 * @param 

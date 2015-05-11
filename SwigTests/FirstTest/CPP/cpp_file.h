@@ -13,8 +13,7 @@ public:
 	~cpp_file(void);
 
 	int times2(int arg);
-	float test1(float vec3[3]);
-	float test2(float vec[]);
-	//testing general float arrays
-	float test3(float floatN[10]);
+	void test(int *i);
+	int* test2();
+	
 };
