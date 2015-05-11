@@ -120,7 +120,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\Python34\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Python34\Lib;D:\Python34\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <NoEntryPoint>true</NoEntryPoint>
     </Link>
     <CustomBuildStep>
@@ -128,7 +128,8 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>python setup.py build</Command>
+      <Command>python setup.py build
+copy "build\lib.win-amd64-3.4\uniplug.pyd" "D:\Blender Foundation\Blender\2.72\scripts\addons\fusee\uniplug.pyd"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

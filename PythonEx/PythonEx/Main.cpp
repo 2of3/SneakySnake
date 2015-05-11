@@ -1,6 +1,124 @@
 #include <Python.h>
 #include <string>
 
+static PyObject *
+uniplug_getpos(PyObject *self, PyObject *args)
+{
+	PyObject *pModule, *pData, *pObjects, *pCube;
+	PyObject *pPoint, *pX, *pY, *pZ;
+
+	pModule = PyImport_ImportModule("bpy");
+
+	pData = PyObject_GetAttrString(pModule, "data");
+	pObjects = PyObject_GetAttrString(pData, "objects");
+	pCube = PySequence_GetItem(pObjects, 1);
+	
+	pPoint = PyObject_GetAttrString(pCube, "location");
+	pX = PySequence_GetItem(pPoint, 0);
+	pY = PySequence_GetItem(pPoint, 1);
+	pZ = PySequence_GetItem(pPoint, 2);
+
+	const float pXVal = PyFloat_AsDouble(pX);
+	const float pYVal = PyFloat_AsDouble(pY);
+	const float pZVal = PyFloat_AsDouble(pZ);
+
+	std::string output = "print('Position: x = " + std::to_string(pXVal) +
+			"; y = " + std::to_string(pYVal) + "; z = " + std::to_string(pZVal) +"')\n";
+	PyRun_SimpleString(output.c_str());
+
+	Py_DECREF(pModule);
+	Py_DECREF(pData);
+	Py_DECREF(pObjects);
+	Py_DECREF(pCube);
+
+	Py_DECREF(pPoint);
+	Py_DECREF(pX);
+	Py_DECREF(pY);
+	Py_DECREF(pZ);
+
+	Py_INCREF(Py_None);
+	return Py_None;
+}
+
+static PyObject *
+uniplug_reset(PyObject *self, PyObject *args)
+{
+	PyObject *pModule, *pData, *pObjects, *pCube, *pArgs;
+
+	pModule = PyImport_ImportModule("bpy");
+
+	pData = PyObject_GetAttrString(pModule, "data");
+	pObjects = PyObject_GetAttrString(pData, "objects");
+	pCube = PySequence_GetItem(pObjects, 1);
+
+	pArgs = Py_BuildValue("(fff)", 0.0f, 0.0f, 0.0f);
+	PyObject_SetAttrString(pCube, "location", pArgs);
+
+	Py_DECREF(pModule);
+	Py_DECREF(pData);
+	Py_DECREF(pObjects);
+	Py_DECREF(pCube);
+	Py_DECREF(pArgs);
+
+	Py_INCREF(Py_None);
+	return Py_None;
+}
+
+// INITIALIZATION
+
+static PyMethodDef UniplugMethods[] = {
+		{ "getpos", uniplug_getpos, METH_VARARGS, "---" },
+		{ "reest", uniplug_reset, METH_VARARGS, "---" },
+		{ NULL, NULL, 0, NULL }
+};
+
+static struct PyModuleDef uniplugmodule = {
+	PyModuleDef_HEAD_INIT,
+	"uniplug",  /* name of module */
+	NULL,	    /* module documentation, may be NULL */
+	-1,         /* module keeps state in global variables. */
+	UniplugMethods		/* method definition table, may be NULL */
+};
+
+PyMODINIT_FUNC
+PyInit_uniplug(void)
+{
+	return PyModule_Create(&uniplugmodule);
+}
+
+/*
+
+
+/*
+if (pFunc && PyCallable_Check(pFunc)) {
+
+pContext = PyObject_GetAttrString(pModule, "context");
+pScene = PyObject_GetAttrString(pContext, "scene");
+
+pArgs = Py_BuildValue("(Oisi)", pScene, false, "RENDER", false);
+pMesh = PyObject_CallObject(pFunc, pArgs);
+
+pVertices = PyObject_GetAttrString(pMesh, "vertices");
+pPoint = PySequence_GetItem(pVertices, 0);
+pCo = PyObject_GetAttrString(pPoint, "co");
+pX = PyObject_GetAttrString(pCo, "x");
+
+PyObject_Print(pCo, stdout, Py_PRINT_RAW);
+
+const int pXVal = PyLong_AsLong(pX);
+
+std::string output = "print('Position of x: " + std::to_string(pXVal) + "')\n";
+PyRun_SimpleString(output.c_str());
+*/
+
+/*	// Py_DECREF(pArgs);
+// Py_DECREF(pReturn);
+}
+else
+PyErr_Print();
+
+
+
 // VARIABLES
 
 static PyObject *uniplug_callback = NULL;
@@ -106,7 +224,7 @@ uniplug_test(PyObject *self, PyObject *args)
 	}
 	*/
 
-	Py_INCREF(Py_None);
+/*	Py_INCREF(Py_None);
 	return Py_None;
 }
 
@@ -157,31 +275,5 @@ uniplug_call_callback(PyObject *self, PyObject *args)
 	return PyObject_CallObject(uniplug_callback, args);
 }
 
-// INITIALIZATION
 
-static PyMethodDef UniplugMethods[] = {
-		{ "test", uniplug_test, METH_VARARGS,
-	"Addition of two given integers." },
-	{ "basics", uniplug_basics, METH_VARARGS,
-	"Basic math operations on two given integers." },
-	{ "set_callback", uniplug_set_callback, METH_VARARGS,
-	"Sets a callback on a given method." },
-	{ "call_callback", uniplug_call_callback, METH_VARARGS,
-	"Calls a set callback with the given args." },
-	{NULL, NULL, 0, NULL}        /* sentinel */
-};
-
-static struct PyModuleDef uniplugmodule = {
-	PyModuleDef_HEAD_INIT,
-	"uniplug",  /* name of module */
-	NULL,	  /* module documentation, may be NULL */
-	-1,       /* size of per-interpreter state of the module,
-			     or -1 if the module keeps state in global variables. */
-	UniplugMethods
-};
-
-PyMODINIT_FUNC
-PyInit_uniplug(void)
-{
-	return PyModule_Create(&uniplugmodule);
-}
+*/
