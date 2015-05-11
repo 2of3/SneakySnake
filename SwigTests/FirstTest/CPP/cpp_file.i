@@ -12,14 +12,25 @@
 //%typemap(ctype) Fusee.Math.float3   "float $1[3] /* typemap(cstype) float3 %1[3] to float[3]*/"
 
 
-//Map int* to int
-//%typemap(ctype)  int * "int *"
-//%typemap(imtype) int * "IntPtr"
-//%typemap(cstype) int * "int"
-//%typemap(csin)   int * "$csinput"
+
+//Map int* to int - old version
+//%typemap(ctype)  int * "int * /* int*_ctype */"
+//%typemap(imtype) int * "IntPtr /* int*_imtype */"
+//%typemap(cstype) int * "int /* int*_cstype */"
+//%typemap(csin)   int * "$csinput /* int*_csin */"
 //%typemap(in)     int * %{ $1 = $input; %}
 //%typemap(out)    int * %{ $result = $1; %}
 //%typemap(csout)  int * { return $imcall; }
+
+
+//Map int* to int - in progress
+%typemap(ctype)  int * "int * /* int*_ctype */"
+%typemap(imtype) int * "System.IntPtr /* int*_imtype */"
+%typemap(cstype) int * "int /* int*_cstype */"
+%typemap(csin)   int * "$csinput /* int*_csin */"
+%typemap(in)     int * %{ $1 = $input /* int*_in */; %}
+%typemap(out)    int * %{ $result = $1 /* int*_out */; %}
+%typemap(csout)  int * { return (int)$imcall /* int*_csout */; }
 
 
 
