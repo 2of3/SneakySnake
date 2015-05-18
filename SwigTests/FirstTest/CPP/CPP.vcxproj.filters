@@ -21,9 +21,7 @@
     <ClInclude Include="cpp_file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="uniplug_blender_api.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Dropbox\Downloads\uniplug_blender_api.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_file.cpp">

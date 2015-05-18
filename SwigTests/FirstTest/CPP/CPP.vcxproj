@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Dropbox\Downloads\uniplug_blender_api.h" />
     <ClInclude Include="cpp_file.h" />
-    <ClInclude Include="uniplug_blender_api.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_file.cpp" />
@@ -69,6 +69,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CPP_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
