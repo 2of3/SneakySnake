@@ -1,5 +1,9 @@
 #include <Python.h>
+#include "uniplug_blender_api.h"
 #include <string>
+#include <iostream>
+
+using namespace UniplugBL;
 
 static PyObject *
 uniplug_getpos(PyObject *self, PyObject *args)
@@ -7,12 +11,18 @@ uniplug_getpos(PyObject *self, PyObject *args)
 	PyObject *pModule, *pData, *pObjects, *pCube;
 	PyObject *pPoint, *pX, *pY, *pZ;
 
-	pModule = PyImport_ImportModule("bpy");
+	pyUniplug uniplug = pyUniplug();
+	Context context = uniplug.context();
+	Scene scene = context.scene();
+	std::map<std::string, Object> objects = scene.objects();
 
-	pData = PyObject_GetAttrString(pModule, "data");
-	pObjects = PyObject_GetAttrString(pData, "objects");
-	pCube = PySequence_GetItem(pObjects, 1);
-	
+	Object cube = objects["Cube"];
+	int active_material_index = cube.active_material_index();
+
+	std::string output = "print('Index: " + std::to_string(active_material_index) + "')";
+	PyRun_SimpleString(output.c_str());
+
+	/*
 	pPoint = PyObject_GetAttrString(pCube, "location");
 	pX = PySequence_GetItem(pPoint, 0);
 	pY = PySequence_GetItem(pPoint, 1);
@@ -24,9 +34,9 @@ uniplug_getpos(PyObject *self, PyObject *args)
 
 	std::string output = "print('Position: x = " + std::to_string(pXVal) +
 			"; y = " + std::to_string(pYVal) + "; z = " + std::to_string(pZVal) +"')\n";
-	PyRun_SimpleString(output.c_str());
+	PyRun_SimpleString(output.c_str());*/
 
-	Py_DECREF(pModule);
+	/*Py_DECREF(pModule);
 	Py_DECREF(pData);
 	Py_DECREF(pObjects);
 	Py_DECREF(pCube);
@@ -34,7 +44,7 @@ uniplug_getpos(PyObject *self, PyObject *args)
 	Py_DECREF(pPoint);
 	Py_DECREF(pX);
 	Py_DECREF(pY);
-	Py_DECREF(pZ);
+	Py_DECREF(pZ);*/
 
 	Py_INCREF(Py_None);
 	return Py_None;

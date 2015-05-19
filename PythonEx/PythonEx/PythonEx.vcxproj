@@ -109,12 +109,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>D:\Python34\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -137,6 +136,9 @@ copy "build\lib.win-amd64-3.4\uniplug.pyd" "D:\Blender Foundation\Blender\2.72\s
   </ItemGroup>
   <ItemGroup>
     <None Include="setup.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="uniplug_blender_api.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

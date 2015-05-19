@@ -24,4 +24,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="uniplug_blender_api.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
