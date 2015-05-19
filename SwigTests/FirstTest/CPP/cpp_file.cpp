@@ -8,16 +8,28 @@ cpp_file::~cpp_file(void)
 {
 }
 
-int cpp_file::times2(int arg)
-{
-	return arg * 2;
-}
 
-void cpp_file::test(int *i)
+
+
+void cpp_file::gravity(std::array<float, 3> param)
 {
 }
 
-int* cpp_file::test2()
+std::array<float, 3> cpp_file::gravity2(std::array<float, 3> param)
 {
-	return nullptr;
+	//std::array<float, 3> retval =  { 1.1f, 2.2f, 3.3f };
+	return param;
 }
+
+std::array<float, 3> cpp_file::testF(Foo f)
+{
+
+	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
+	return retval;
+}
+
+
+/*void cpp_file::ray_cast(float start[3], float end[3], float location[3], float normal[3], int &index)
+{
+	// not implemented
+}*/
