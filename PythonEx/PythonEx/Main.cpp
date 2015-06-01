@@ -5,17 +5,6 @@
 
 using namespace UniplugBL;
 
-
-
-
-
-
-
-
-
-
-
-
 static PyObject *
 uniplug_getpos(PyObject *self, PyObject *args)
 {
@@ -23,23 +12,23 @@ uniplug_getpos(PyObject *self, PyObject *args)
 	std::map<std::string, Object> objects = scene.objects();
 
 	Object cube = objects["Cube"];
+
 	std::array<float, 3> loc = cube.location();
+	bool select = cube.select();
 
 	std::string output = "print('Position: x = " + std::to_string(loc[0]) +
-		"; y = " + std::to_string(loc[1]) + "; z = " + std::to_string(loc[2]) + "')\n";
+		"; y = " + std::to_string(loc[1]) + "; z = " + std::to_string(loc[2]) +
+		" - Select: " + (select ? "true" : "false") + "')\n";
 	PyRun_SimpleString(output.c_str());
+
+	for (std::map<std::string, Object>::iterator it = objects.begin(); it != objects.end(); ++it)
+		it->second.select(false);
+
+	cube.select(true);
 
 	Py_INCREF(Py_None);
 	return Py_None;
 }
-
-
-
-
-
-
-
-
 
 static PyObject *
 uniplug_reset(PyObject *self, PyObject *args)
