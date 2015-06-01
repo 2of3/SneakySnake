@@ -5,50 +5,41 @@
 
 using namespace UniplugBL;
 
+
+
+
+
+
+
+
+
+
+
+
 static PyObject *
 uniplug_getpos(PyObject *self, PyObject *args)
 {
-	PyObject *pModule, *pData, *pObjects, *pCube;
-	PyObject *pPoint, *pX, *pY, *pZ;
-
-	pyUniplug uniplug = pyUniplug();
-	Context context = uniplug.context();
-	Scene scene = context.scene();
+	Scene scene = pyUniplug().context().scene();
 	std::map<std::string, Object> objects = scene.objects();
 
 	Object cube = objects["Cube"];
-	int active_material_index = cube.active_material_index();
+	std::array<float, 3> loc = cube.location();
 
-	std::string output = "print('Index: " + std::to_string(active_material_index) + "')";
+	std::string output = "print('Position: x = " + std::to_string(loc[0]) +
+		"; y = " + std::to_string(loc[1]) + "; z = " + std::to_string(loc[2]) + "')\n";
 	PyRun_SimpleString(output.c_str());
-
-	/*
-	pPoint = PyObject_GetAttrString(pCube, "location");
-	pX = PySequence_GetItem(pPoint, 0);
-	pY = PySequence_GetItem(pPoint, 1);
-	pZ = PySequence_GetItem(pPoint, 2);
-
-	const float pXVal = PyFloat_AsDouble(pX);
-	const float pYVal = PyFloat_AsDouble(pY);
-	const float pZVal = PyFloat_AsDouble(pZ);
-
-	std::string output = "print('Position: x = " + std::to_string(pXVal) +
-			"; y = " + std::to_string(pYVal) + "; z = " + std::to_string(pZVal) +"')\n";
-	PyRun_SimpleString(output.c_str());*/
-
-	/*Py_DECREF(pModule);
-	Py_DECREF(pData);
-	Py_DECREF(pObjects);
-	Py_DECREF(pCube);
-
-	Py_DECREF(pPoint);
-	Py_DECREF(pX);
-	Py_DECREF(pY);
-	Py_DECREF(pZ);*/
 
 	Py_INCREF(Py_None);
 	return Py_None;
 }
+
+
+
+
+
+
+
+
 
 static PyObject *
 uniplug_reset(PyObject *self, PyObject *args)
