@@ -1,5 +1,10 @@
 #pragma once  
 
+#ifdef CPP_EXPORTS
+#define CPP_API __declspec(dllexport)
+#else
+#define CPP_API __declspec(dllimport)
+#endif
 
 #include <array>
 
@@ -14,10 +19,10 @@ public:
 	cpp_file(void);
 	~cpp_file(void);
 
-	
-	void gravity(Foo f);
+	//OK
+	void testFoo(Foo f);
 
-	//std::array<float, 3> gravity2(std::array<float, 3> param);
+	void testArray(std::array<float, 3>);
 
 	//std::array<float, 3> testF(Foo f);
 

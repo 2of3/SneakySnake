@@ -10,16 +10,16 @@ cpp_file::~cpp_file(void)
 
 
 
-
-void cpp_file::gravity(Foo f)
+//ok
+void cpp_file::testFoo(Foo f)
 {
+	std::cout << "void testFoo(Foo f)" << std::endl;
 }
 
-//std::array<float, 3> cpp_file::gravity2(std::array<float, 3> param)
-//{
-//	//std::array<float, 3> retval =  { 1.1f, 2.2f, 3.3f };
-//	return param;
-//}
+void cpp_file::testArray(std::array<float, 3>)
+{
+	std::cout << "void testArray(std::array<float, 3>)" << std::endl;
+}
 
 //std::array<float, 3> cpp_file::testF(Foo f)
 //{

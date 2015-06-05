@@ -311,7 +311,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_cpp_file(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_gravity(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testFoo(void * jarg1, void * jarg2) {
   cpp_file *arg1 = (cpp_file *) 0 ;
   Foo arg2 ;
   Foo *argp2 ;
@@ -323,7 +323,21 @@ SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_gravity(void * jarg1, void * jarg2) 
     return ;
   }
   arg2 = *argp2; 
-  (arg1)->gravity(arg2);
+  (arg1)->testFoo(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testArray(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  std::array< float,3 > arg2 ;
+  
+  arg1 = (cpp_file *)jarg1; 
+  
+  /* <std::array<float, 3>_in> */
+  arg2 = *((std::array<float, 3> *)&(jarg2));
+  /* </std::array<float, 3>_in> */
+  
+  (arg1)->testArray(arg2);
 }
 
 
