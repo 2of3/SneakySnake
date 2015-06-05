@@ -10,26 +10,61 @@ cpp_file::~cpp_file(void)
 
 
 
-//ok
-void cpp_file::testFoo(Foo f)
+//Foo Stuff
+void cpp_file::testFooIn(Foo f)
 {
-	std::cout << "void testFoo(Foo f)" << std::endl;
+	std::cout << "void testFooIn(Foo f)" << std::endl;
 }
 
-void cpp_file::testArray(std::array<float, 3>)
+Foo cpp_file::testFooOut()
 {
-	std::cout << "void testArray(std::array<float, 3>)" << std::endl;
+	std::cout << "Foo testFooIn()" << std::endl;
+	Foo retval;
+	return retval;
 }
 
-//std::array<float, 3> cpp_file::testF(Foo f)
+Foo cpp_file::testFooInOut(Foo f)
+{
+
+	std::cout << "Foo testFooInOut(Foo f)"; f.talk();  std::cout<< std::endl;
+	Foo retval;
+	return retval;
+}
+
+
+//array stuff
+void cpp_file::testArrayIn(std::array<float, 3>)
+{
+	std::cout << "void testArrayIn(std::array<float, 3>)" << std::endl;
+}
+
+std::array<float, 3> cpp_file::testArrayOut()
+{
+	std::cout << "std::array<float, 3> testArrayOut()" << std::endl;
+	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
+	return retval;
+}
+
+std::array<float, 3> cpp_file::testArrayInOut(std::array<float, 3> myArray)
+{
+	std::cout << "std::array<float, 3> testArrayInOut(std::array<float, 3> myArray)" << std::endl;
+	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
+	return retval;
+}
+
+
+
+//mixed stuff
+Foo cpp_file::ArrayInFooOut(std::array<float, 3> a)
+{
+	std::cout << "Foo ArrayInFooOut(std::array<float, 3> a)" << std::endl;
+	Foo retval;
+	return retval;
+}
+
+//std::array<float, 3> cpp_file::FooInArrayOut(Foo f)
 //{
-//
+//	std::cout << "std::array<float, 3> FooInArrayOut(Foo f)" << std::endl;
 //	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
 //	return retval;
 //}
-
-
-/*void cpp_file::ray_cast(float start[3], float end[3], float location[3], float normal[3], int &index)
-{
-	// not implemented
-}*/

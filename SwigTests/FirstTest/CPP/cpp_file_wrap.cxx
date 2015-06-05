@@ -311,7 +311,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_cpp_file(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testFoo(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testFooIn(void * jarg1, void * jarg2) {
   cpp_file *arg1 = (cpp_file *) 0 ;
   Foo arg2 ;
   Foo *argp2 ;
@@ -323,21 +323,89 @@ SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testFoo(void * jarg1, void * jarg2) 
     return ;
   }
   arg2 = *argp2; 
-  (arg1)->testFoo(arg2);
+  (arg1)->testFooIn(arg2);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testArray(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_testFooOut(void * jarg1) {
+  void * jresult ;
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  Foo result;
+  
+  arg1 = (cpp_file *)jarg1; 
+  result = (arg1)->testFooOut();
+  jresult = new Foo((const Foo &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_testFooInOut(void * jarg1, void * jarg2) {
+  void * jresult ;
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  Foo arg2 ;
+  Foo *argp2 ;
+  Foo result;
+  
+  arg1 = (cpp_file *)jarg1; 
+  argp2 = (Foo *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Foo", 0);
+    return 0;
+  }
+  arg2 = *argp2; 
+  result = (arg1)->testFooInOut(arg2);
+  jresult = new Foo((const Foo &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testArrayIn(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
   cpp_file *arg1 = (cpp_file *) 0 ;
   std::array< float,3 > arg2 ;
   
   arg1 = (cpp_file *)jarg1; 
+  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
+  (arg1)->testArrayIn(arg2);
+}
+
+
+SWIGEXPORT std::array<float, 3> /* std::array<float, 3>_ctype */ SWIGSTDCALL CSharp_cpp_file_testArrayOut(void * jarg1) {
+  std::array<float, 3> /* std::array<float, 3>_ctype */ jresult ;
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  std::array< float,3 > result;
   
-  /* <std::array<float, 3>_in> */
-  arg2 = *((std::array<float, 3> *)&(jarg2));
-  /* </std::array<float, 3>_in> */
+  arg1 = (cpp_file *)jarg1; 
+  result = (arg1)->testArrayOut();
+  /* Fusee.Math.float3 out*/jresult = result/* Fusee.Math.float3 out*/; 
+  return jresult;
+}
+
+
+SWIGEXPORT std::array<float, 3> /* std::array<float, 3>_ctype */ SWIGSTDCALL CSharp_cpp_file_testArrayInOut(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
+  std::array<float, 3> /* std::array<float, 3>_ctype */ jresult ;
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  std::array< float,3 > arg2 ;
+  std::array< float,3 > result;
   
-  (arg1)->testArray(arg2);
+  arg1 = (cpp_file *)jarg1; 
+  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
+  result = (arg1)->testArrayInOut(arg2);
+  /* Fusee.Math.float3 out*/jresult = result/* Fusee.Math.float3 out*/; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_ArrayInFooOut(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
+  void * jresult ;
+  cpp_file *arg1 = (cpp_file *) 0 ;
+  std::array< float,3 > arg2 ;
+  Foo result;
+  
+  arg1 = (cpp_file *)jarg1; 
+  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
+  result = (arg1)->ArrayInFooOut(arg2);
+  jresult = new Foo((const Foo &)result); 
+  return jresult;
 }
 
 

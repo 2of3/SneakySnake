@@ -19,14 +19,31 @@ public:
 	cpp_file(void);
 	~cpp_file(void);
 
-	//OK
-	void testFoo(Foo f);
+	//Foo Stuff - works
+	void testFooIn(Foo f);
 
-	void testArray(std::array<float, 3>);
+	Foo testFooOut();
 
-	//std::array<float, 3> testF(Foo f);
+	Foo testFooInOut(Foo f);
 
-	//void ray_cast(float start[3], float end[3], float location[3], float normal[3], int &index);
+
+	//Array Stuff - works
+	void testArrayIn(std::array<float, 3>);
+
+	std::array<float, 3> testArrayOut();
+
+	std::array<float, 3> testArrayInOut(std::array<float,3> myArray);
+
+
+	//Mixed Stuff
+
+	//- works
+	Foo ArrayInFooOut(std::array<float, 3> a);
+
+	//- not
+	//std::array<float, 3> FooInArrayOut(Foo f);
+
+
 
 	
 
