@@ -33,22 +33,13 @@ uniplug_getpos(PyObject *self, PyObject *args)
 static PyObject *
 uniplug_reset(PyObject *self, PyObject *args)
 {
-	PyObject *pModule, *pData, *pObjects, *pCube, *pArgs;
+	Scene scene = pyUniplug().context().scene();
+	std::map<std::string, Object> objects = scene.objects();
 
-	pModule = PyImport_ImportModule("bpy");
+	Object cube = objects["Cube"];
 
-	pData = PyObject_GetAttrString(pModule, "data");
-	pObjects = PyObject_GetAttrString(pData, "objects");
-	pCube = PySequence_GetItem(pObjects, 1);
-
-	pArgs = Py_BuildValue("(fff)", 0.0f, 0.0f, 0.0f);
-	PyObject_SetAttrString(pCube, "location", pArgs);
-
-	Py_DECREF(pModule);
-	Py_DECREF(pData);
-	Py_DECREF(pObjects);
-	Py_DECREF(pCube);
-	Py_DECREF(pArgs);
+	float loc[3] = { 1, 2, 3 };
+	cube.location(loc);
 
 	Py_INCREF(Py_None);
 	return Py_None;
@@ -58,7 +49,7 @@ uniplug_reset(PyObject *self, PyObject *args)
 
 static PyMethodDef UniplugMethods[] = {
 		{ "getpos", uniplug_getpos, METH_VARARGS, "---" },
-		{ "reest", uniplug_reset, METH_VARARGS, "---" },
+		{ "reset", uniplug_reset, METH_VARARGS, "---" },
 		{ NULL, NULL, 0, NULL }
 };
 
