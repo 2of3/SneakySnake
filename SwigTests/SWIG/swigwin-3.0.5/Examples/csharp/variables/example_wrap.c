@@ -10,30 +10,6 @@
 
 #define SWIGCSHARP
 
-
-#ifdef __cplusplus
-/* SwigValueWrapper is described in swig.swg */
-template<typename T> class SwigValueWrapper {
-  struct SwigMovePointer {
-    T *ptr;
-    SwigMovePointer(T *p) : ptr(p) { }
-    ~SwigMovePointer() { delete ptr; }
-    SwigMovePointer& operator=(SwigMovePointer& rhs) { T* oldptr = ptr; ptr = 0; delete oldptr; ptr = rhs.ptr; rhs.ptr = 0; return *this; }
-  } pointer;
-  SwigValueWrapper& operator=(const SwigValueWrapper<T>& rhs);
-  SwigValueWrapper(const SwigValueWrapper<T>& rhs);
-public:
-  SwigValueWrapper() : pointer(0) { }
-  SwigValueWrapper& operator=(const T& t) { SwigMovePointer tmp(new T(t)); pointer = tmp; return *this; }
-  operator T&() const { return *pointer.ptr; }
-  T *operator&() { return pointer.ptr; }
-};
-
-template <typename T> T SwigValueInit() {
-  return T();
-}
-#endif
-
 /* -----------------------------------------------------------------------------
  *  This section contains generic SWIG labels for method/variable
  *  declarations/attributes, and other compiler dependent labels.
@@ -224,7 +200,7 @@ static void SWIGUNUSED SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpExcepti
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_cpp(
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_example(
                                                 SWIG_CSharpExceptionCallback_t applicationCallback,
                                                 SWIG_CSharpExceptionCallback_t arithmeticCallback,
                                                 SWIG_CSharpExceptionCallback_t divideByZeroCallback, 
@@ -252,7 +228,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_cpp(
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionArgumentCallbacks_cpp(
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionArgumentCallbacks_example(
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentCallback,
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentNullCallback,
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentOutOfRangeCallback) {
@@ -270,7 +246,7 @@ static SWIG_CSharpStringHelperCallback SWIG_csharp_string_callback = NULL;
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_cpp(SWIG_CSharpStringHelperCallback callback) {
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_example(SWIG_CSharpStringHelperCallback callback) {
   SWIG_csharp_string_callback = callback;
 }
 
@@ -279,179 +255,433 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_cpp(SWIG_CSharpStringHelp
 
 #define SWIG_contract_assert(nullreturn, expr, msg) if (!(expr)) {SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, msg, ""); return nullreturn; } else
 
-  
 
-	#include "cpp_file.h"
-	#include "Foo.h"
-	//#include "uniplug_blender_api.h"
+#include "example.h"
 
 
-#include <string>
+extern int              ivar;
+extern short            svar;
+extern long             lvar;
+extern unsigned int     uivar;
+extern unsigned short   usvar;
+extern unsigned long    ulvar;
+extern signed char      scvar;
+extern unsigned char    ucvar;
+extern char             cvar;
+extern float            fvar;
+extern double           dvar;
+extern char            *strvar;
+extern const char       cstrvar[];
+extern int             *iptrvar;
+extern char             name[256];
+
+extern Point           *ptptr;
+extern Point            pt;
+
+
+extern int  status;
+extern char path[256];
+
+
+extern void  print_vars();
+extern int  *new_int(int value);
+extern Point *new_Point(int x, int y);
+extern char  *Point_print(Point *p);
+extern void  pt_print();
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_cpp_file() {
-  void * jresult ;
-  cpp_file *result = 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_ivar_set(int jarg1) {
+  int arg1 ;
   
-  result = (cpp_file *)new cpp_file();
+  arg1 = (int)jarg1; 
+  ivar = arg1;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_ivar_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)ivar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_svar_set(short jarg1) {
+  short arg1 ;
+  
+  arg1 = (short)jarg1; 
+  svar = arg1;
+}
+
+
+SWIGEXPORT short SWIGSTDCALL CSharp_svar_get() {
+  short jresult ;
+  short result;
+  
+  result = (short)svar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_lvar_set(long jarg1) {
+  long arg1 ;
+  
+  arg1 = (long)jarg1; 
+  lvar = arg1;
+}
+
+
+SWIGEXPORT long SWIGSTDCALL CSharp_lvar_get() {
+  long jresult ;
+  long result;
+  
+  result = (long)lvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uivar_set(unsigned int jarg1) {
+  unsigned int arg1 ;
+  
+  arg1 = (unsigned int)jarg1; 
+  uivar = arg1;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_uivar_get() {
+  unsigned int jresult ;
+  unsigned int result;
+  
+  result = (unsigned int)uivar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_usvar_set(unsigned short jarg1) {
+  unsigned short arg1 ;
+  
+  arg1 = (unsigned short)jarg1; 
+  usvar = arg1;
+}
+
+
+SWIGEXPORT unsigned short SWIGSTDCALL CSharp_usvar_get() {
+  unsigned short jresult ;
+  unsigned short result;
+  
+  result = (unsigned short)usvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ulvar_set(unsigned long jarg1) {
+  unsigned long arg1 ;
+  
+  arg1 = (unsigned long)jarg1; 
+  ulvar = arg1;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_ulvar_get() {
+  unsigned long jresult ;
+  unsigned long result;
+  
+  result = (unsigned long)ulvar;
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_scvar_set(signed char jarg1) {
+  signed char arg1 ;
+  
+  arg1 = (signed char)jarg1; 
+  scvar = arg1;
+}
+
+
+SWIGEXPORT signed char SWIGSTDCALL CSharp_scvar_get() {
+  signed char jresult ;
+  signed char result;
+  
+  result = (signed char)scvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ucvar_set(unsigned char jarg1) {
+  unsigned char arg1 ;
+  
+  arg1 = (unsigned char)jarg1; 
+  ucvar = arg1;
+}
+
+
+SWIGEXPORT unsigned char SWIGSTDCALL CSharp_ucvar_get() {
+  unsigned char jresult ;
+  unsigned char result;
+  
+  result = (unsigned char)ucvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_cvar_set(char jarg1) {
+  char arg1 ;
+  
+  arg1 = (char)jarg1; 
+  cvar = arg1;
+}
+
+
+SWIGEXPORT char SWIGSTDCALL CSharp_cvar_get() {
+  char jresult ;
+  char result;
+  
+  result = (char)cvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_fvar_set(float jarg1) {
+  float arg1 ;
+  
+  arg1 = (float)jarg1; 
+  fvar = arg1;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_fvar_get() {
+  float jresult ;
+  float result;
+  
+  result = (float)fvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_dvar_set(double jarg1) {
+  double arg1 ;
+  
+  arg1 = (double)jarg1; 
+  dvar = arg1;
+}
+
+
+SWIGEXPORT double SWIGSTDCALL CSharp_dvar_get() {
+  double jresult ;
+  double result;
+  
+  result = (double)dvar;
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_strvar_set(char * jarg1) {
+  char *arg1 = (char *) 0 ;
+  
+  arg1 = (char *)jarg1; 
+  {
+    free(strvar);
+    if (arg1) {
+      strvar = (char *) malloc(strlen((const char *)arg1)+1);
+      strcpy((char *)strvar, (const char *)arg1);
+    } else {
+      strvar = 0;
+    }
+  }
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_strvar_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)strvar;
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_cstrvar_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)cstrvar;
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_iptrvar_set(void * jarg1) {
+  int *arg1 = (int *) 0 ;
+  
+  arg1 = (int *)jarg1; 
+  iptrvar = arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_iptrvar_get() {
+  void * jresult ;
+  int *result = 0 ;
+  
+  result = (int *)iptrvar;
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_cpp_file(void * jarg1) {
-  cpp_file *arg1 = (cpp_file *) 0 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_name_set(char * jarg1) {
+  char *arg1 ;
   
-  arg1 = (cpp_file *)jarg1; 
-  delete arg1;
+  arg1 = (char *)jarg1; 
+  {
+    if(arg1) {
+      strncpy((char*)name, (const char *)arg1, 256-1);
+      name[256-1] = 0;
+    } else {
+      name[0] = 0;
+    }
+  }
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testFooIn(void * jarg1, void * jarg2) {
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  Foo arg2 ;
-  Foo *argp2 ;
+SWIGEXPORT char * SWIGSTDCALL CSharp_name_get() {
+  char * jresult ;
+  char *result = 0 ;
   
-  arg1 = (cpp_file *)jarg1; 
-  argp2 = (Foo *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Foo", 0);
+  result = (char *)(char *)name;
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_ptptr_set(void * jarg1) {
+  Point *arg1 = (Point *) 0 ;
+  
+  arg1 = (Point *)jarg1; 
+  ptptr = arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_ptptr_get() {
+  void * jresult ;
+  Point *result = 0 ;
+  
+  result = (Point *)ptptr;
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_pt_set(void * jarg1) {
+  Point arg1 ;
+  Point *argp1 ;
+  
+  argp1 = (Point *)jarg1; 
+  if (!argp1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Point", 0);
     return ;
   }
-  arg2 = *argp2; 
-  (arg1)->testFooIn(arg2);
+  arg1 = *argp1; 
+  pt = arg1;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_testFooOut(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_pt_get() {
   void * jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  Foo result;
+  Point result;
   
-  arg1 = (cpp_file *)jarg1; 
-  result = (arg1)->testFooOut();
-  jresult = new Foo((const Foo &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_testFooInOut(void * jarg1, void * jarg2) {
-  void * jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  Foo arg2 ;
-  Foo *argp2 ;
-  Foo result;
-  
-  arg1 = (cpp_file *)jarg1; 
-  argp2 = (Foo *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Foo", 0);
-    return 0;
+  result = pt;
+  {
+    Point * resultptr = (Point *) malloc(sizeof(Point));
+    memmove(resultptr, &result, sizeof(Point));
+    jresult = resultptr;
   }
-  arg2 = *argp2; 
-  result = (arg1)->testFooInOut(arg2);
-  jresult = new Foo((const Foo &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_cpp_file_testArrayIn(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  std::array< float,3 > arg2 ;
+SWIGEXPORT int SWIGSTDCALL CSharp_status_get() {
+  int jresult ;
+  int result;
   
-  arg1 = (cpp_file *)jarg1; 
-  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
-  (arg1)->testArrayIn(arg2);
-}
-
-
-SWIGEXPORT std::array<float, 3> /* std::array<float, 3>_ctype */ SWIGSTDCALL CSharp_cpp_file_testArrayOut(void * jarg1) {
-  std::array<float, 3> /* std::array<float, 3>_ctype */ jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  std::array< float,3 > result;
-  
-  arg1 = (cpp_file *)jarg1; 
-  result = (arg1)->testArrayOut();
-  /* Fusee.Math.float3 out*/jresult = result/* Fusee.Math.float3 out*/; 
+  result = (int)status;
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT std::array<float, 3> /* std::array<float, 3>_ctype */ SWIGSTDCALL CSharp_cpp_file_testArrayInOut(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
-  std::array<float, 3> /* std::array<float, 3>_ctype */ jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  std::array< float,3 > arg2 ;
-  std::array< float,3 > result;
+SWIGEXPORT char * SWIGSTDCALL CSharp_path_get() {
+  char * jresult ;
+  char *result = 0 ;
   
-  arg1 = (cpp_file *)jarg1; 
-  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
-  result = (arg1)->testArrayInOut(arg2);
-  /* Fusee.Math.float3 out*/jresult = result/* Fusee.Math.float3 out*/; 
+  result = (char *)(char *)path;
+  jresult = SWIG_csharp_string_callback((const char *)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_cpp_file_ArrayInFooOut(void * jarg1, std::array<float, 3> /* std::array<float, 3>_ctype */ jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_print_vars() {
+  print_vars();
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_int(int jarg1) {
   void * jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  std::array< float,3 > arg2 ;
-  Foo result;
+  int arg1 ;
+  int *result = 0 ;
   
-  arg1 = (cpp_file *)jarg1; 
-  arg2 = jarg2 /* Fusee.Math.float3 in*/; 
-  result = (arg1)->ArrayInFooOut(arg2);
-  jresult = new Foo((const Foo &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT std::array<float, 3> /* std::array<float, 3>_ctype */ SWIGSTDCALL CSharp_cpp_file_FooInArrayOut(void * jarg1, void * jarg2) {
-  std::array<float, 3> /* std::array<float, 3>_ctype */ jresult ;
-  cpp_file *arg1 = (cpp_file *) 0 ;
-  Foo arg2 ;
-  Foo *argp2 ;
-  std::array< float,3 > result;
-  
-  arg1 = (cpp_file *)jarg1; 
-  argp2 = (Foo *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Foo", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  result = (arg1)->FooInArrayOut(arg2);
-  /* Fusee.Math.float3 out*/jresult = result/* Fusee.Math.float3 out*/; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Foo() {
-  void * jresult ;
-  Foo *result = 0 ;
-  
-  result = (Foo *)new Foo();
+  arg1 = (int)jarg1; 
+  result = (int *)new_int(arg1);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_Foo(void * jarg1) {
-  Foo *arg1 = (Foo *) 0 ;
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Point(int jarg1, int jarg2) {
+  void * jresult ;
+  int arg1 ;
+  int arg2 ;
+  Point *result = 0 ;
   
-  arg1 = (Foo *)jarg1; 
-  delete arg1;
+  arg1 = (int)jarg1; 
+  arg2 = (int)jarg2; 
+  result = (Point *)new_Point(arg1,arg2);
+  jresult = (void *)result; 
+  return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Foo_talk(void * jarg1) {
-  Foo *arg1 = (Foo *) 0 ;
+SWIGEXPORT char * SWIGSTDCALL CSharp_Point_print(void * jarg1) {
+  char * jresult ;
+  Point *arg1 = (Point *) 0 ;
+  char *result = 0 ;
   
-  arg1 = (Foo *)jarg1; 
-  (arg1)->talk();
+  arg1 = (Point *)jarg1; 
+  result = (char *)Point_print(arg1);
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_pt_print() {
+  pt_print();
 }
 
 

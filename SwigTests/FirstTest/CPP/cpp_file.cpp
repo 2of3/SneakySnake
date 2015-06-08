@@ -62,9 +62,9 @@ Foo cpp_file::ArrayInFooOut(std::array<float, 3> a)
 	return retval;
 }
 
-//std::array<float, 3> cpp_file::FooInArrayOut(Foo f)
-//{
-//	std::cout << "std::array<float, 3> FooInArrayOut(Foo f)" << std::endl;
-//	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
-//	return retval;
-//}
+std::array<float, 3> cpp_file::FooInArrayOut(Foo f)
+{
+	std::cout << "std::array<float, 3> FooInArrayOut(Foo f)" << std::endl;
+	std::array<float, 3> retval = { 1.1f, 2.2f, 3.3f };
+	return retval;
+}

@@ -41,7 +41,7 @@ public:
 	Foo ArrayInFooOut(std::array<float, 3> a);
 
 	//- not
-	//std::array<float, 3> FooInArrayOut(Foo f);
+	std::array<float, 3> FooInArrayOut(Foo f);
 
 
 
