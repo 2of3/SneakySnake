@@ -24,6 +24,7 @@
 
 # Executables
 *.exe
+!\SwigTests\SWIG\swigwin-3.0.5\swig.exe
 *.out
 *.app
 
