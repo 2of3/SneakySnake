@@ -1,9 +1,15 @@
 %module cpp   
 %{  
 
-	#include "cpp_file.h"
-	#include "Foo.h"
-	//#include "uniplug_blender_api.h"
+	//#include "cpp_file.h"
+	//#include "Foo.h"
+	//#include "Bar.h"
+	#include "uniplug_blender_api.h"
+
+	struct Vector
+	{
+		float x,y,z;
+	};
 %} 
  
 
@@ -16,26 +22,72 @@
 
 
 
-//Map std::array<float,3> To Fusee.Math.float3
-%typemap(ctype)  std::array<float, 3> "std::array<float, 3> /* std::array<float, 3>_ctype */"
-%typemap(imtype) std::array<float, 3> "Fusee.Math.float3 /* Fusee.Math.float3*_imtype */"
-%typemap(cstype) std::array<float, 3> "Fusee.Math.float3 /* iFusee.Math.float3_cstype */"
-%typemap(csin)   std::array<float, 3> "$csinput /* Fusee.Math.float3_csin */"
-%typemap(in)     std::array<float, 3> %{ $1 = $input /* Fusee.Math.float3 in*/; %}
-%typemap(out)    std::array<float, 3> %{ /* Fusee.Math.float3 out*/$result = $1/* Fusee.Math.float3 out*/; %}
-%typemap(csout)  std::array<float, 3> { return $imcall/* Fusee.Math.float3 csout*/; }
+
+// Map std::array<float, 3>   TO   Fusee.Math.float3
+%typemap(cstype, out="Fusee.Math.float3 /* std::array<float, 3>_cstype_out */") std::array<float, 3> "Fusee.Math.float3 /* std::array<float, 3>_cstype */"
+%typemap(csout, excode=SWIGEXCODE) std::array<float, 3> 
+%{ {  /* <std::array<float, 3>_csout> */
+      Fusee.Math.float3 ret = $imcall;$excode
+      return ret;
+   } /* <std::array<float, 3>_csout> */ %}
+%typemap(imtype, out="Fusee.Math.float3 /* std::array<float, 3>_imtype_out */") std::array<float, 3> "Fusee.Math.float3 /* std::array<float, 3>_imtype */"
+%typemap(ctype, out="Vector /* std::array<float, 3>_ctype_out */") std::array<float, 3> "std::array<float, 3> /* std::array<float, 3>_ctype */"
+%typemap(directorout) std::array<float, 3>
+%{ /* <std::array<float, 3>_directorout> */
+   $result = *((std::array<float, 3> *)&($input)); 
+   /* </std::array<float, 3>_directorout> */
+ %}
+%typemap(directorin) std::array<float, 3> 
+%{ /* <std::array<float, 3>_directorin> */
+   $input = *((Vector *)&($1)); 
+   /* </std::array<float, 3>_directorin> */ 
+%}
+%typemap(out) std::array<float, 3> 
+%{
+	/* <std::array<float, 3>_out> */
+	$result = *((Vector *)&($1));
+	/* </std::array<float, 3>_out> */
+%}
+%typemap(in) std::array<float, 3> 
+%{
+	/* <std::array<float, 3>_in> */
+	$1 = *((std::array<float, 3> *)&($input));
+	/* </std::array<float, 3>_in> */
+%}
+%typemap(csin) std::array<float, 3> "$csinput /* std::array<float, 3>_csin */"
+%typemap(csdirectorin, 
+   pre="/* NOP std::array<float, 3>_csdirectorin_pre */"
+  ) std::array<float, 3>
+  "$iminput /* std::array<float, 3>_csdirectorin */"
+%typemap(csdirectorout) std::array<float, 3> "$cscall /* std::array<float, 3>_csdirectorout */"
+%typemap(csvarin) std::array<float, 3> %{
+    /* <std::array<float, 3>_csvarin> */
+    set 
+	{
+      $imcall;$excode
+    }  /* </std::array<float, 3>_csvarin> */  %}
+%typemap(csvarout) std::array<float, 3> %{ 
+   /* <std::array<float, 3>_csvarout> */
+   get
+   {  
+      Fusee.Math.float3 ret = $imcall;$excode
+      return ret;
+   } /* <std::array<float, 3>_csvarout> */ %}
+
+
+////Map std::array<float,3> To Fusee.Math.float3
+//%typemap(ctype)  std::array<float, 3> "std::array<float, 3> /* std::array<float, 3>_ctype */"
+//%typemap(imtype) std::array<float, 3> "Fusee.Math.float3 /* Fusee.Math.float3*_imtype */"
+//%typemap(cstype) std::array<float, 3> "Fusee.Math.float3 /* iFusee.Math.float3_cstype */"
+//%typemap(csin)   std::array<float, 3> "$csinput /* Fusee.Math.float3_csin */"
+//%typemap(in)     std::array<float, 3> %{ $1 = $input /* Fusee.Math.float3 in*/; %}
+//%typemap(out)    std::array<float, 3> %{ /* Fusee.Math.float3 out*/$result = $1/* Fusee.Math.float3 out*/; %}
+//%typemap(csout)  std::array<float, 3> { return $imcall/* Fusee.Math.float3 csout*/; }
 
 
 
 
-//Map int* to int - old version
-//%typemap(ctype)  int * "int * /* int*_ctype */"
-//%typemap(imtype) int * "int /* int*_imtype */"
-//%typemap(cstype) int * "int /* int*_cstype */"
-//%typemap(csin)   int * "$csinput /* int*_csin */"
-//%typemap(in)     int * %{ $1 = $input; %}
-//%typemap(out)    int * %{ $result = $1; %}
-//%typemap(csout)  int * { return $imcall; }
+
 
 
 /************* mapping float types *****************************/
@@ -74,8 +126,9 @@
 %typemap(csin) bool[ANY] " $csinput /* bool[]_csin */"
 %typemap(imtype) bool[ANY] "bool[] /* bool[]_imtype */"
 
-%include "cpp_file.h"
-%include "Foo.h"
-//%include "uniplug_blender_api.h"
+//%include "cpp_file.h"
+//%include "Foo.h"
+//%include "Bar.h"
+%include "uniplug_blender_api.h"
 
 
