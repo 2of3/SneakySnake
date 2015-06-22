@@ -13,7 +13,36 @@ Implementieren:
 				float[16] --> 4x4 Matrix --> Reihenfolge beachten!
 				float[24] --> Bounding Box --> eigenen Typen basteln
 				
-	int* --> Rückgabe eines Arrays oder Pointer auf den Anfang eines Arrays?
+	
+	std::vector
+	std::map
+	
+	std::array Rückgabewerte: --> was muss dacvon unterstützt werden
+		float, 1 (WTF)
+		float, 2
+		float, 3
+		float, 4 (Quaternion Rotation, color)
+		float, 8
+		float, 9 (3x3 Matrix)
+		float, 12
+		float, 16 (Matrix)
+		float, 24 (Bounding Box)
+		float, 32
+		
+		int, 2
+		int, 3
+		int, 4
+		int, 8
+		
+		bool, 3
+		bool, 8
+		bool, 16
+		bool, 18
+		bool, 20
+		bool, 30 
+		
+		
+	
 
 --------------------
 Nice To Have:
